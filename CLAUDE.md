@@ -192,4 +192,7 @@ Explain every folder's purpose to me in Arabic as we create it.
 
 ## Current status
 - Web: Sprint 1 (login + register) is done and connected to the API.
-- Flutter: starting Sprint 0 (project setup), then Sprint 1.
+- Flutter: Sprint 0 (project setup) is done. Next: Sprint 1.
+- Left for Sprint 1 Task 1: spacing, text styles and the Cairo font in core/theme
+  (only colors are done).
+- Not pushed to GitHub yet: waiting for a private `Mobile-App` repo in the team org.
