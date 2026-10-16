@@ -10,6 +10,7 @@ class SanaaApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
       theme: AppTheme.light,
       routerConfig: ref.watch(routerProvider),
