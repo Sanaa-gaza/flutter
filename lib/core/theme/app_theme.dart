@@ -3,6 +3,7 @@ import 'package:flutter_sanaa_app/core/theme/app_colors.dart';
 
 abstract final class AppTheme {
   static final ThemeData light = ThemeData(
+    fontFamily: 'Cairo',
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primary,
       primary: AppColors.primary,
