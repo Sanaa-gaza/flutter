@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('app starts in Arabic and shows the app title', (tester) async {
     await tester.pumpWidget(const ProviderScope(child: SanaaApp()));
-    await tester.pumpAndSettle();
+    await tester.pump();
 
     expect(find.text('صنعة'), findsOneWidget);
   });

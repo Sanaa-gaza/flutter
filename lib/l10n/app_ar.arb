@@ -3,5 +3,9 @@
   "appTitle": "صنعة",
   "@appTitle": {
     "description": "The app name shown in the app bar and the OS task switcher"
+  },
+  "loginButton": "تسجيل الدخول",
+  "@loginButton": {
+    "description": "Submit button on the login screen"
   }
 }

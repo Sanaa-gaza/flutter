@@ -103,6 +103,12 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'صنعة'**
   String get appTitle;
+
+  /// Submit button on the login screen
+  ///
+  /// In ar, this message translates to:
+  /// **'تسجيل الدخول'**
+  String get loginButton;
 }
 
 class _AppLocalizationsDelegate

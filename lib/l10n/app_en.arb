@@ -1,4 +1,5 @@
 {
   "@@locale": "en",
-  "appTitle": "Sanaa"
+  "appTitle": "Sanaa",
+  "loginButton": "Log in"
 }

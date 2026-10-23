@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_sanaa_app/app/home_placeholder_screen.dart';
+import 'package:flutter_sanaa_app/app/widgets_demo_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -7,7 +7,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const HomePlaceholderScreen(),
+        builder: (context, state) => const WidgetsDemoScreen(),
       ),
     ],
   );
