@@ -7,5 +7,17 @@
   "loginButton": "تسجيل الدخول",
   "@loginButton": {
     "description": "Submit button on the login screen"
+  },
+  "emailLabel": "البريد الالكتروني",
+  "@emailLabel": {
+    "description": "Label above the email field"
+  },
+  "emailHint": "name@example.com",
+  "@emailHint": {
+    "description": "Placeholder inside the email field"
+  },
+  "emailInvalid": "البريد الإلكتروني غير صحيح",
+  "@emailInvalid": {
+    "description": "Validation error when the email format is wrong"
   }
 }

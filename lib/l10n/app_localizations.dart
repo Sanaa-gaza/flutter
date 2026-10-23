@@ -109,6 +109,24 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'تسجيل الدخول'**
   String get loginButton;
+
+  /// Label above the email field
+  ///
+  /// In ar, this message translates to:
+  /// **'البريد الالكتروني'**
+  String get emailLabel;
+
+  /// Placeholder inside the email field
+  ///
+  /// In ar, this message translates to:
+  /// **'name@example.com'**
+  String get emailHint;
+
+  /// Validation error when the email format is wrong
+  ///
+  /// In ar, this message translates to:
+  /// **'البريد الإلكتروني غير صحيح'**
+  String get emailInvalid;
 }
 
 class _AppLocalizationsDelegate

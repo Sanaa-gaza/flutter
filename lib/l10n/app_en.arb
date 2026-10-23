@@ -1,5 +1,8 @@
 {
   "@@locale": "en",
   "appTitle": "Sanaa",
-  "loginButton": "Log in"
+  "loginButton": "Log in",
+  "emailLabel": "Email",
+  "emailHint": "name@example.com",
+  "emailInvalid": "Enter a valid email address"
 }

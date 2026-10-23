@@ -13,4 +13,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get loginButton => 'تسجيل الدخول';
+
+  @override
+  String get emailLabel => 'البريد الالكتروني';
+
+  @override
+  String get emailHint => 'name@example.com';
+
+  @override
+  String get emailInvalid => 'البريد الإلكتروني غير صحيح';
 }

@@ -43,6 +43,18 @@ abstract final class AppTextStyles {
     color: AppColors.textPlaceholder,
   );
 
+  static const TextStyle fieldInput = TextStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w600,
+    color: AppColors.primaryDarker,
+  );
+
+  static const TextStyle fieldError = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w600,
+    color: AppColors.error,
+  );
+
   static const TextStyle small = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w600,
