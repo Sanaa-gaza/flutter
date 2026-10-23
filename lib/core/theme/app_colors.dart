@@ -20,9 +20,12 @@ abstract final class AppColors {
   static const Color error = Color(0xFFD64545);
   static const Color success = Color(0xFF2EAF4E);
 
+  static const Color gradientStart = Color(0xFF1383C6);
+  static const Color gradientEnd = Color(0xCC1591DC);
+
   static const LinearGradient primaryButtonGradient = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
-    colors: [Color(0xFF1383C6), Color(0xCC1591DC)],
+    colors: [gradientStart, gradientEnd],
   );
 }

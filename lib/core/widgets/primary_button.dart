@@ -9,11 +9,13 @@ class PrimaryButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.isLoading = false,
+    this.height = AppSizes.buttonHeight,
   });
 
   final String label;
   final VoidCallback? onPressed;
   final bool isLoading;
+  final double height;
 
   static const double _loaderSize = 24;
 
@@ -23,7 +25,7 @@ class PrimaryButton extends StatelessWidget {
 
     return SizedBox(
       width: double.infinity,
-      height: AppSizes.buttonHeight,
+      height: height,
       child: DecoratedBox(
         decoration: BoxDecoration(
           gradient: AppColors.primaryButtonGradient,
