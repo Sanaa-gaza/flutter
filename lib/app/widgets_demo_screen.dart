@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sanaa_app/core/constants/app_icons.dart';
 import 'package:flutter_sanaa_app/core/theme/app_spacing.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
+import 'package:flutter_sanaa_app/core/widgets/app_password_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/outlined_app_button.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
@@ -51,6 +52,11 @@ class WidgetsDemoScreen extends StatelessWidget {
               hint: l10n.emailHint,
               iconAsset: AppIcons.email,
               errorText: l10n.emailInvalid,
+            ),
+            const SizedBox(height: AppSpacing.cardGap),
+            AppPasswordField(
+              label: l10n.passwordLabel,
+              hint: l10n.passwordHint,
             ),
           ],
         ),

@@ -10,6 +10,9 @@ class AppTextField extends StatelessWidget {
     required this.label,
     this.hint,
     this.iconAsset,
+    this.onIconTap,
+    this.iconSemanticLabel,
+    this.obscureText = false,
     this.controller,
     this.keyboardType,
     this.textInputAction,
@@ -22,6 +25,11 @@ class AppTextField extends StatelessWidget {
   final String label;
   final String? hint;
   final String? iconAsset;
+
+  /// Makes the icon tappable, e.g. to show or hide a password.
+  final VoidCallback? onIconTap;
+  final String? iconSemanticLabel;
+  final bool obscureText;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
@@ -33,13 +41,12 @@ class AppTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
   static const double _iconSize = 16;
+  static const double _iconTapRadius = 20;
   static const double _horizontalPadding = 11;
   static const double _verticalPadding = 9;
 
   @override
   Widget build(BuildContext context) {
-    final icon = iconAsset;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -52,6 +59,10 @@ class AppTextField extends StatelessWidget {
           autofillHints: autofillHints,
           validator: validator,
           onChanged: onChanged,
+          obscureText: obscureText,
+          // Stops the keyboard from learning and suggesting secret input.
+          autocorrect: !obscureText,
+          enableSuggestions: !obscureText,
           style: AppTextStyles.fieldInput,
           decoration: InputDecoration(
             hintText: hint,
@@ -64,18 +75,7 @@ class AppTextField extends StatelessWidget {
               horizontal: _horizontalPadding,
               vertical: _verticalPadding,
             ),
-            suffixIcon: icon == null
-                ? null
-                : Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      end: _horizontalPadding,
-                    ),
-                    child: SvgPicture.asset(
-                      icon,
-                      width: _iconSize,
-                      height: _iconSize,
-                    ),
-                  ),
+            suffixIcon: _buildIcon(),
             suffixIconConstraints: const BoxConstraints(
               minWidth: _iconSize + _horizontalPadding,
               minHeight: _iconSize,
@@ -87,6 +87,29 @@ class AppTextField extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget? _buildIcon() {
+    final asset = iconAsset;
+    if (asset == null) return null;
+
+    final icon = SvgPicture.asset(
+      asset,
+      width: _iconSize,
+      height: _iconSize,
+      semanticsLabel: iconSemanticLabel,
+    );
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(end: _horizontalPadding),
+      child: onIconTap == null
+          ? icon
+          : InkResponse(
+              onTap: onIconTap,
+              radius: _iconTapRadius,
+              child: icon,
+            ),
     );
   }
 

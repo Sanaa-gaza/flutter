@@ -19,5 +19,21 @@
   "emailInvalid": "البريد الإلكتروني غير صحيح",
   "@emailInvalid": {
     "description": "Validation error when the email format is wrong"
+  },
+  "passwordLabel": "كلمة المرور",
+  "@passwordLabel": {
+    "description": "Label above the password field"
+  },
+  "passwordHint": "قم بإنشاء كلمة مرور قوية تحتوي على أرقام ورموز",
+  "@passwordHint": {
+    "description": "Placeholder inside the password field"
+  },
+  "showPassword": "إظهار كلمة المرور",
+  "@showPassword": {
+    "description": "Screen reader label for the eye icon when the password is hidden"
+  },
+  "hidePassword": "إخفاء كلمة المرور",
+  "@hidePassword": {
+    "description": "Screen reader label for the eye icon when the password is visible"
   }
 }

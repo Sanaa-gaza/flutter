@@ -127,6 +127,30 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'البريد الإلكتروني غير صحيح'**
   String get emailInvalid;
+
+  /// Label above the password field
+  ///
+  /// In ar, this message translates to:
+  /// **'كلمة المرور'**
+  String get passwordLabel;
+
+  /// Placeholder inside the password field
+  ///
+  /// In ar, this message translates to:
+  /// **'قم بإنشاء كلمة مرور قوية تحتوي على أرقام ورموز'**
+  String get passwordHint;
+
+  /// Screen reader label for the eye icon when the password is hidden
+  ///
+  /// In ar, this message translates to:
+  /// **'إظهار كلمة المرور'**
+  String get showPassword;
+
+  /// Screen reader label for the eye icon when the password is visible
+  ///
+  /// In ar, this message translates to:
+  /// **'إخفاء كلمة المرور'**
+  String get hidePassword;
 }
 
 class _AppLocalizationsDelegate

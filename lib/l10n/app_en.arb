@@ -4,5 +4,9 @@
   "loginButton": "Log in",
   "emailLabel": "Email",
   "emailHint": "name@example.com",
-  "emailInvalid": "Enter a valid email address"
+  "emailInvalid": "Enter a valid email address",
+  "passwordLabel": "Password",
+  "passwordHint": "Create a strong password with numbers and symbols",
+  "showPassword": "Show password",
+  "hidePassword": "Hide password"
 }

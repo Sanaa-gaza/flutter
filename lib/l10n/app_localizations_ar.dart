@@ -22,4 +22,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get emailInvalid => 'البريد الإلكتروني غير صحيح';
+
+  @override
+  String get passwordLabel => 'كلمة المرور';
+
+  @override
+  String get passwordHint => 'قم بإنشاء كلمة مرور قوية تحتوي على أرقام ورموز';
+
+  @override
+  String get showPassword => 'إظهار كلمة المرور';
+
+  @override
+  String get hidePassword => 'إخفاء كلمة المرور';
 }

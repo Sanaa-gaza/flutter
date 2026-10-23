@@ -4,5 +4,7 @@ abstract final class AppIcons {
   static const String edit = 'assets/icons/edit.svg';
   static const String phone = 'assets/icons/phone.svg';
   static const String location = 'assets/icons/location.svg';
+  static const String eyeOpen = 'assets/icons/eye_open.svg';
+  static const String eyeClosed = 'assets/icons/eye_closed.svg';
   static const String chevronDown = 'assets/icons/chevron_down.svg';
 }
