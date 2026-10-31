@@ -163,6 +163,18 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'ادخل رقم جوال بمقدمة تبدأ 59 56'**
   String get phoneHint;
+
+  /// Label above the governorate dropdown
+  ///
+  /// In ar, this message translates to:
+  /// **'المحافظة'**
+  String get governorateLabel;
+
+  /// Placeholder inside the governorate dropdown
+  ///
+  /// In ar, this message translates to:
+  /// **'اختر المحافظة'**
+  String get governorateHint;
 }
 
 class _AppLocalizationsDelegate

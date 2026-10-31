@@ -10,5 +10,7 @@
   "showPassword": "Show password",
   "hidePassword": "Hide password",
   "phoneLabel": "Phone number",
-  "phoneHint": "Mobile number starting with 59 or 56"
+  "phoneHint": "Mobile number starting with 59 or 56",
+  "governorateLabel": "Governorate",
+  "governorateHint": "Choose a governorate"
 }

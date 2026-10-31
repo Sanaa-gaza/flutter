@@ -43,5 +43,13 @@
   "phoneHint": "ادخل رقم جوال بمقدمة تبدأ 59 56",
   "@phoneHint": {
     "description": "Placeholder inside the phone number field"
+  },
+  "governorateLabel": "المحافظة",
+  "@governorateLabel": {
+    "description": "Label above the governorate dropdown"
+  },
+  "governorateHint": "اختر المحافظة",
+  "@governorateHint": {
+    "description": "Placeholder inside the governorate dropdown"
   }
 }

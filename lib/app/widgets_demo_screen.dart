@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sanaa_app/core/constants/app_icons.dart';
 import 'package:flutter_sanaa_app/core/theme/app_spacing.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
+import 'package:flutter_sanaa_app/core/widgets/app_dropdown_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_password_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_phone_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
@@ -61,6 +62,14 @@ class WidgetsDemoScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.cardGap),
             AppPhoneField(label: l10n.phoneLabel, hint: l10n.phoneHint),
+            const SizedBox(height: AppSpacing.cardGap),
+            AppDropdownField<String>(
+              label: l10n.governorateLabel,
+              hint: l10n.governorateHint,
+              items: const ['1', '2', '3'],
+              itemLabel: (item) => item,
+              onChanged: (_) {},
+            ),
           ],
         ),
       ),

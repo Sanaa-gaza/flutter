@@ -40,4 +40,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get phoneHint => 'ادخل رقم جوال بمقدمة تبدأ 59 56';
+
+  @override
+  String get governorateLabel => 'المحافظة';
+
+  @override
+  String get governorateHint => 'اختر المحافظة';
 }

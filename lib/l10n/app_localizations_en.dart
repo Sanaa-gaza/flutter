@@ -41,4 +41,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get phoneHint => 'Mobile number starting with 59 or 56';
+
+  @override
+  String get governorateLabel => 'Governorate';
+
+  @override
+  String get governorateHint => 'Choose a governorate';
 }
