@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_sanaa_app/core/theme/app_colors.dart';
 import 'package:flutter_sanaa_app/core/theme/app_spacing.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
@@ -17,6 +18,7 @@ class AppTextField extends StatelessWidget {
     this.keyboardType,
     this.textInputAction,
     this.autofillHints,
+    this.inputFormatters,
     this.validator,
     this.errorText,
     this.onChanged,
@@ -34,6 +36,7 @@ class AppTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final Iterable<String>? autofillHints;
+  final List<TextInputFormatter>? inputFormatters;
   final FormFieldValidator<String>? validator;
 
   /// An error returned by the server for this field, shown under it.
@@ -57,6 +60,7 @@ class AppTextField extends StatelessWidget {
           keyboardType: keyboardType,
           textInputAction: textInputAction,
           autofillHints: autofillHints,
+          inputFormatters: inputFormatters,
           validator: validator,
           onChanged: onChanged,
           obscureText: obscureText,

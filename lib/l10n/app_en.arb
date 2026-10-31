@@ -8,5 +8,7 @@
   "passwordLabel": "Password",
   "passwordHint": "Create a strong password with numbers and symbols",
   "showPassword": "Show password",
-  "hidePassword": "Hide password"
+  "hidePassword": "Hide password",
+  "phoneLabel": "Phone number",
+  "phoneHint": "Mobile number starting with 59 or 56"
 }

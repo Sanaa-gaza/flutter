@@ -151,6 +151,18 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'إخفاء كلمة المرور'**
   String get hidePassword;
+
+  /// Label above the phone number field
+  ///
+  /// In ar, this message translates to:
+  /// **'رقم الهاتف'**
+  String get phoneLabel;
+
+  /// Placeholder inside the phone number field
+  ///
+  /// In ar, this message translates to:
+  /// **'ادخل رقم جوال بمقدمة تبدأ 59 56'**
+  String get phoneHint;
 }
 
 class _AppLocalizationsDelegate

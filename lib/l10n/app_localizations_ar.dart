@@ -34,4 +34,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get hidePassword => 'إخفاء كلمة المرور';
+
+  @override
+  String get phoneLabel => 'رقم الهاتف';
+
+  @override
+  String get phoneHint => 'ادخل رقم جوال بمقدمة تبدأ 59 56';
 }

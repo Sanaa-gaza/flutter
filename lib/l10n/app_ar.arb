@@ -35,5 +35,13 @@
   "hidePassword": "إخفاء كلمة المرور",
   "@hidePassword": {
     "description": "Screen reader label for the eye icon when the password is visible"
+  },
+  "phoneLabel": "رقم الهاتف",
+  "@phoneLabel": {
+    "description": "Label above the phone number field"
+  },
+  "phoneHint": "ادخل رقم جوال بمقدمة تبدأ 59 56",
+  "@phoneHint": {
+    "description": "Placeholder inside the phone number field"
   }
 }
