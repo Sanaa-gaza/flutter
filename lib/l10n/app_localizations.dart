@@ -205,6 +205,18 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'الشروط والأحكام'**
   String get termsAndConditions;
+
+  /// Step indicator label for the personal info step
+  ///
+  /// In ar, this message translates to:
+  /// **'المعلومات الشخصية'**
+  String get stepPersonalInfo;
+
+  /// Step indicator label for the craftsman details step
+  ///
+  /// In ar, this message translates to:
+  /// **'بيانات الحرفي'**
+  String get stepCraftsmanInfo;
 }
 
 class _AppLocalizationsDelegate

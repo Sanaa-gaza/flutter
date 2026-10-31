@@ -17,6 +17,8 @@ abstract final class AppColors {
 
   static const Color background = Color(0xFFF9F9FC);
   static const Color cardBorder = Color(0xFFF4F4F4);
+  static const Color stepInactive = Color(0xFFCFD0D0);
+  static const Color stepInactiveLine = Color(0xFFDDDDDD);
 
   static const Color error = Color(0xFFD64545);
   static const Color success = Color(0xFF2EAF4E);

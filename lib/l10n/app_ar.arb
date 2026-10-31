@@ -71,5 +71,13 @@
   "termsAndConditions": "الشروط والأحكام",
   "@termsAndConditions": {
     "description": "Bold part of the terms checkbox text"
+  },
+  "stepPersonalInfo": "المعلومات الشخصية",
+  "@stepPersonalInfo": {
+    "description": "Step indicator label for the personal info step"
+  },
+  "stepCraftsmanInfo": "بيانات الحرفي",
+  "@stepCraftsmanInfo": {
+    "description": "Step indicator label for the craftsman details step"
   }
 }

@@ -84,6 +84,16 @@ abstract final class AppTextStyles {
     color: AppColors.textPrimary,
   );
 
+  static const TextStyle stepNumber = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w700,
+  );
+
+  static const TextStyle stepLabel = TextStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+  );
+
   static const TextStyle small = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w600,

@@ -7,6 +7,7 @@ import 'package:flutter_sanaa_app/core/widgets/app_multiline_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_password_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_phone_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
+import 'package:flutter_sanaa_app/core/widgets/app_step_indicator.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_terms_checkbox.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_upload_box.dart';
 import 'package:flutter_sanaa_app/core/widgets/outlined_app_button.dart';
@@ -79,6 +80,16 @@ class WidgetsDemoScreen extends StatelessWidget {
             AppUploadBox(label: l10n.uploadImageLabel, onTap: () {}),
             const SizedBox(height: AppSpacing.cardGap),
             const _DemoTermsCheckbox(),
+            const SizedBox(height: AppSpacing.cardGap),
+            AppStepIndicator(
+              labels: [l10n.stepPersonalInfo, l10n.stepCraftsmanInfo],
+              currentStep: 0,
+            ),
+            const SizedBox(height: AppSpacing.cardGap),
+            AppStepIndicator(
+              labels: [l10n.stepPersonalInfo, l10n.stepCraftsmanInfo],
+              currentStep: 1,
+            ),
           ],
         ),
       ),

@@ -62,4 +62,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get termsAndConditions => 'terms and conditions';
+
+  @override
+  String get stepPersonalInfo => 'Personal info';
+
+  @override
+  String get stepCraftsmanInfo => 'Craftsman details';
 }

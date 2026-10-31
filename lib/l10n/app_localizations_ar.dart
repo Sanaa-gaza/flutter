@@ -61,4 +61,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get termsAndConditions => 'الشروط والأحكام';
+
+  @override
+  String get stepPersonalInfo => 'المعلومات الشخصية';
+
+  @override
+  String get stepCraftsmanInfo => 'بيانات الحرفي';
 }
