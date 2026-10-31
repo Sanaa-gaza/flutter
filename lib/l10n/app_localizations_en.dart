@@ -56,4 +56,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get uploadImageLabel => 'Tap or drag an image';
+
+  @override
+  String get termsAgree => 'I agree to the ';
+
+  @override
+  String get termsAndConditions => 'terms and conditions';
 }

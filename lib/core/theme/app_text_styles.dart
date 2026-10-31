@@ -72,6 +72,18 @@ abstract final class AppTextStyles {
     color: AppColors.textUpload,
   );
 
+  static const TextStyle terms = TextStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textPrimary,
+  );
+
+  static const TextStyle termsBold = TextStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w700,
+    color: AppColors.textPrimary,
+  );
+
   static const TextStyle small = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w600,

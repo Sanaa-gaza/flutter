@@ -63,5 +63,13 @@
   "uploadImageLabel": "أنقر أو أسحب صورة",
   "@uploadImageLabel": {
     "description": "Text inside the image upload box"
+  },
+  "termsAgree": "أوافق على ",
+  "@termsAgree": {
+    "description": "First part of the terms checkbox text, followed by termsAndConditions"
+  },
+  "termsAndConditions": "الشروط والأحكام",
+  "@termsAndConditions": {
+    "description": "Bold part of the terms checkbox text"
   }
 }

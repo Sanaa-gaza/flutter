@@ -15,5 +15,7 @@
   "governorateHint": "Choose a governorate",
   "bioLabel": "About me",
   "bioHint": "Tell us about your experience and skills",
-  "uploadImageLabel": "Tap or drag an image"
+  "uploadImageLabel": "Tap or drag an image",
+  "termsAgree": "I agree to the ",
+  "termsAndConditions": "terms and conditions"
 }

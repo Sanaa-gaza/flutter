@@ -55,4 +55,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get uploadImageLabel => 'أنقر أو أسحب صورة';
+
+  @override
+  String get termsAgree => 'أوافق على ';
+
+  @override
+  String get termsAndConditions => 'الشروط والأحكام';
 }

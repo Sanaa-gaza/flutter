@@ -7,6 +7,7 @@ import 'package:flutter_sanaa_app/core/widgets/app_multiline_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_password_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_phone_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
+import 'package:flutter_sanaa_app/core/widgets/app_terms_checkbox.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_upload_box.dart';
 import 'package:flutter_sanaa_app/core/widgets/outlined_app_button.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
@@ -76,9 +77,30 @@ class WidgetsDemoScreen extends StatelessWidget {
             AppMultilineField(label: l10n.bioLabel, hint: l10n.bioHint),
             const SizedBox(height: AppSpacing.cardGap),
             AppUploadBox(label: l10n.uploadImageLabel, onTap: () {}),
+            const SizedBox(height: AppSpacing.cardGap),
+            const _DemoTermsCheckbox(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _DemoTermsCheckbox extends StatefulWidget {
+  const _DemoTermsCheckbox();
+
+  @override
+  State<_DemoTermsCheckbox> createState() => _DemoTermsCheckboxState();
+}
+
+class _DemoTermsCheckboxState extends State<_DemoTermsCheckbox> {
+  bool _accepted = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return AppTermsCheckbox(
+      value: _accepted,
+      onChanged: (value) => setState(() => _accepted = value),
     );
   }
 }

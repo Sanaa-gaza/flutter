@@ -193,6 +193,18 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'أنقر أو أسحب صورة'**
   String get uploadImageLabel;
+
+  /// First part of the terms checkbox text, followed by termsAndConditions
+  ///
+  /// In ar, this message translates to:
+  /// **'أوافق على '**
+  String get termsAgree;
+
+  /// Bold part of the terms checkbox text
+  ///
+  /// In ar, this message translates to:
+  /// **'الشروط والأحكام'**
+  String get termsAndConditions;
 }
 
 class _AppLocalizationsDelegate
