@@ -50,7 +50,7 @@ abstract final class AppTextStyles {
     fontSize: 11,
     height: _fieldLineHeight,
     fontWeight: FontWeight.w600,
-    color: AppColors.textPlaceholder,
+    color: AppColors.textMuted,
   );
 
   static const TextStyle fieldInput = TextStyle(
