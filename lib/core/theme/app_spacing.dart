@@ -11,6 +11,7 @@ abstract final class AppSizes {
   static const double fieldHeight = 37;
   static const double buttonHeight = 48;
   static const double buttonHeightLarge = 60;
+  static const double uploadBoxHeight = 129;
 }
 
 abstract final class AppRadius {

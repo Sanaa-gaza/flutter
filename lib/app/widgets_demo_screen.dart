@@ -7,6 +7,7 @@ import 'package:flutter_sanaa_app/core/widgets/app_multiline_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_password_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_phone_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
+import 'package:flutter_sanaa_app/core/widgets/app_upload_box.dart';
 import 'package:flutter_sanaa_app/core/widgets/outlined_app_button.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
@@ -73,6 +74,8 @@ class WidgetsDemoScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.cardGap),
             AppMultilineField(label: l10n.bioLabel, hint: l10n.bioHint),
+            const SizedBox(height: AppSpacing.cardGap),
+            AppUploadBox(label: l10n.uploadImageLabel, onTap: () {}),
           ],
         ),
       ),

@@ -59,5 +59,9 @@
   "bioHint": "تحدث عن خبرتك ومهاراتك",
   "@bioHint": {
     "description": "Placeholder inside the craftsman bio field"
+  },
+  "uploadImageLabel": "أنقر أو أسحب صورة",
+  "@uploadImageLabel": {
+    "description": "Text inside the image upload box"
   }
 }

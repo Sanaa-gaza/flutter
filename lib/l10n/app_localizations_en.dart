@@ -53,4 +53,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bioHint => 'Tell us about your experience and skills';
+
+  @override
+  String get uploadImageLabel => 'Tap or drag an image';
 }

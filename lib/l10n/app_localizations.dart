@@ -187,6 +187,12 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'تحدث عن خبرتك ومهاراتك'**
   String get bioHint;
+
+  /// Text inside the image upload box
+  ///
+  /// In ar, this message translates to:
+  /// **'أنقر أو أسحب صورة'**
+  String get uploadImageLabel;
 }
 
 class _AppLocalizationsDelegate

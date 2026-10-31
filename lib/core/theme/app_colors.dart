@@ -13,6 +13,7 @@ abstract final class AppColors {
   static const Color textSecondary = Color(0xFF575757);
   static const Color textHint = Color(0xFF89949D);
   static const Color textMuted = Color(0xFF919191);
+  static const Color textUpload = Color(0xFF646867);
 
   static const Color background = Color(0xFFF9F9FC);
   static const Color cardBorder = Color(0xFFF4F4F4);

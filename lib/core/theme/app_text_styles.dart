@@ -66,6 +66,12 @@ abstract final class AppTextStyles {
     color: AppColors.error,
   );
 
+  static const TextStyle uploadLabel = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textUpload,
+  );
+
   static const TextStyle small = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w600,

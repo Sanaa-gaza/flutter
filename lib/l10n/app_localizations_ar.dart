@@ -52,4 +52,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get bioHint => 'تحدث عن خبرتك ومهاراتك';
+
+  @override
+  String get uploadImageLabel => 'أنقر أو أسحب صورة';
 }
