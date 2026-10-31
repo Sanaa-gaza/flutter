@@ -12,5 +12,7 @@
   "phoneLabel": "Phone number",
   "phoneHint": "Mobile number starting with 59 or 56",
   "governorateLabel": "Governorate",
-  "governorateHint": "Choose a governorate"
+  "governorateHint": "Choose a governorate",
+  "bioLabel": "About me",
+  "bioHint": "Tell us about your experience and skills"
 }

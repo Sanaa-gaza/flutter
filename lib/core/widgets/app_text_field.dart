@@ -15,6 +15,7 @@ class AppTextField extends StatelessWidget {
     this.onIconTap,
     this.iconSemanticLabel,
     this.obscureText = false,
+    this.lines = 1,
     this.controller,
     this.keyboardType,
     this.textInputAction,
@@ -36,6 +37,7 @@ class AppTextField extends StatelessWidget {
   final VoidCallback? onIconTap;
   final String? iconSemanticLabel;
   final bool obscureText;
+  final int lines;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
@@ -51,6 +53,9 @@ class AppTextField extends StatelessWidget {
   static const double _iconTapRadius = 20;
   static const double _horizontalPadding = 11;
   static const double _verticalPadding = 9;
+
+  // Five 19px lines plus this padding give the 115px multiline height.
+  static const double _multilineVerticalPadding = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +73,8 @@ class AppTextField extends StatelessWidget {
           validator: validator,
           onChanged: onChanged,
           obscureText: obscureText,
+          minLines: lines,
+          maxLines: lines,
           // Stops the keyboard from learning and suggesting secret input.
           autocorrect: !obscureText,
           enableSuggestions: !obscureText,
@@ -79,9 +86,11 @@ class AppTextField extends StatelessWidget {
             errorStyle: AppTextStyles.fieldError,
             errorMaxLines: 2,
             isDense: true,
-            contentPadding: const EdgeInsets.symmetric(
+            contentPadding: EdgeInsets.symmetric(
               horizontal: _horizontalPadding,
-              vertical: _verticalPadding,
+              vertical: lines > 1
+                  ? _multilineVerticalPadding
+                  : _verticalPadding,
             ),
             suffixIcon: _buildIcon(),
             suffixIconConstraints: const BoxConstraints(

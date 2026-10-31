@@ -175,6 +175,18 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'اختر المحافظة'**
   String get governorateHint;
+
+  /// Label above the craftsman bio field
+  ///
+  /// In ar, this message translates to:
+  /// **'نبذة عني'**
+  String get bioLabel;
+
+  /// Placeholder inside the craftsman bio field
+  ///
+  /// In ar, this message translates to:
+  /// **'تحدث عن خبرتك ومهاراتك'**
+  String get bioHint;
 }
 
 class _AppLocalizationsDelegate

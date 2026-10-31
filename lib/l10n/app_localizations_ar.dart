@@ -46,4 +46,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get governorateHint => 'اختر المحافظة';
+
+  @override
+  String get bioLabel => 'نبذة عني';
+
+  @override
+  String get bioHint => 'تحدث عن خبرتك ومهاراتك';
 }

@@ -47,4 +47,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get governorateHint => 'Choose a governorate';
+
+  @override
+  String get bioLabel => 'About me';
+
+  @override
+  String get bioHint => 'Tell us about your experience and skills';
 }

@@ -51,5 +51,13 @@
   "governorateHint": "اختر المحافظة",
   "@governorateHint": {
     "description": "Placeholder inside the governorate dropdown"
+  },
+  "bioLabel": "نبذة عني",
+  "@bioLabel": {
+    "description": "Label above the craftsman bio field"
+  },
+  "bioHint": "تحدث عن خبرتك ومهاراتك",
+  "@bioHint": {
+    "description": "Placeholder inside the craftsman bio field"
   }
 }
