@@ -33,7 +33,10 @@ class AppDropdownField<T> extends StatelessWidget {
 
   static const double _iconSize = 16;
   static const double _horizontalPadding = 11;
-  static const double _verticalPadding = 9;
+
+  // A dense dropdown always reserves a 24px line, so 6.5px above and below
+  // gives the same 37px height as the text fields.
+  static const double _verticalPadding = 6.5;
 
   @override
   Widget build(BuildContext context) {

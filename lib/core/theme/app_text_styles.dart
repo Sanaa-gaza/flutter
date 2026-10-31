@@ -25,6 +25,12 @@ abstract final class AppTextStyles {
     color: AppColors.primary,
   );
 
+  static const TextStyle phonePrefix = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+    color: AppColors.primary,
+  );
+
   static const TextStyle fieldLabel = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w400,
@@ -37,14 +43,19 @@ abstract final class AppTextStyles {
     color: AppColors.darkNavy,
   );
 
+  // A 19px line plus 9px padding above and below gives the 37px field height.
+  static const double _fieldLineHeight = 19 / 11;
+
   static const TextStyle fieldHint = TextStyle(
     fontSize: 11,
+    height: _fieldLineHeight,
     fontWeight: FontWeight.w600,
     color: AppColors.textPlaceholder,
   );
 
   static const TextStyle fieldInput = TextStyle(
     fontSize: 11,
+    height: _fieldLineHeight,
     fontWeight: FontWeight.w600,
     color: AppColors.primaryDarker,
   );

@@ -49,7 +49,7 @@ class _AppPasswordFieldState extends State<AppPasswordField> {
       errorText: widget.errorText,
       onChanged: widget.onChanged,
       obscureText: _isHidden,
-      iconAsset: _isHidden ? AppIcons.eyeOpen : AppIcons.eyeClosed,
+      iconAsset: _isHidden ? AppIcons.eyeClosed : AppIcons.eyeOpen,
       iconSemanticLabel: _isHidden ? l10n.showPassword : l10n.hidePassword,
       onIconTap: _toggleVisibility,
     );

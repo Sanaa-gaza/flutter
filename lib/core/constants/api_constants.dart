@@ -4,4 +4,5 @@ abstract final class ApiConstants {
   static const String storageUrl =
       'https://back-end-production-9aa3.up.railway.app/storage';
   static const Duration timeout = Duration(seconds: 30);
+  static const String phoneCountryCode = '+970';
 }

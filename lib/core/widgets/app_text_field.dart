@@ -11,6 +11,7 @@ class AppTextField extends StatelessWidget {
     required this.label,
     this.hint,
     this.iconAsset,
+    this.trailing,
     this.onIconTap,
     this.iconSemanticLabel,
     this.obscureText = false,
@@ -27,6 +28,9 @@ class AppTextField extends StatelessWidget {
   final String label;
   final String? hint;
   final String? iconAsset;
+
+  /// Shown at the end of the field instead of [iconAsset].
+  final Widget? trailing;
 
   /// Makes the icon tappable, e.g. to show or hide a password.
   final VoidCallback? onIconTap;
@@ -95,6 +99,8 @@ class AppTextField extends StatelessWidget {
   }
 
   Widget? _buildIcon() {
+    if (trailing != null) return trailing;
+
     final asset = iconAsset;
     if (asset == null) return null;
 
