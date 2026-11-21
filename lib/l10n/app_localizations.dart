@@ -217,6 +217,18 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'بيانات الحرفي'**
   String get stepCraftsmanInfo;
+
+  /// Screen reader label for the back arrow in the top bar
+  ///
+  /// In ar, this message translates to:
+  /// **'رجوع'**
+  String get backButton;
+
+  /// Top bar title on the craftsman signup screens
+  ///
+  /// In ar, this message translates to:
+  /// **'إنشاء حساب كحرفي'**
+  String get craftsmanSignupTitle;
 }
 
 class _AppLocalizationsDelegate

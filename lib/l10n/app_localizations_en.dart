@@ -68,4 +68,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepCraftsmanInfo => 'Craftsman details';
+
+  @override
+  String get backButton => 'Back';
+
+  @override
+  String get craftsmanSignupTitle => 'Create a craftsman account';
 }

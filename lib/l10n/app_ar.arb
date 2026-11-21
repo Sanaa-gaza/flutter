@@ -79,5 +79,13 @@
   "stepCraftsmanInfo": "بيانات الحرفي",
   "@stepCraftsmanInfo": {
     "description": "Step indicator label for the craftsman details step"
+  },
+  "backButton": "رجوع",
+  "@backButton": {
+    "description": "Screen reader label for the back arrow in the top bar"
+  },
+  "craftsmanSignupTitle": "إنشاء حساب كحرفي",
+  "@craftsmanSignupTitle": {
+    "description": "Top bar title on the craftsman signup screens"
   }
 }

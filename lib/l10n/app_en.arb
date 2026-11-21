@@ -19,5 +19,7 @@
   "termsAgree": "I agree to the ",
   "termsAndConditions": "terms and conditions",
   "stepPersonalInfo": "Personal info",
-  "stepCraftsmanInfo": "Craftsman details"
+  "stepCraftsmanInfo": "Craftsman details",
+  "backButton": "Back",
+  "craftsmanSignupTitle": "Create a craftsman account"
 }

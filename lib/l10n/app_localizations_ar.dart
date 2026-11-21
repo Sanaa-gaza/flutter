@@ -67,4 +67,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get stepCraftsmanInfo => 'بيانات الحرفي';
+
+  @override
+  String get backButton => 'رجوع';
+
+  @override
+  String get craftsmanSignupTitle => 'إنشاء حساب كحرفي';
 }

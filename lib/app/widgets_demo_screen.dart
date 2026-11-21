@@ -9,6 +9,7 @@ import 'package:flutter_sanaa_app/core/widgets/app_phone_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_step_indicator.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_terms_checkbox.dart';
+import 'package:flutter_sanaa_app/core/widgets/app_top_bar.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_upload_box.dart';
 import 'package:flutter_sanaa_app/core/widgets/outlined_app_button.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
@@ -90,6 +91,8 @@ class WidgetsDemoScreen extends StatelessWidget {
               labels: [l10n.stepPersonalInfo, l10n.stepCraftsmanInfo],
               currentStep: 1,
             ),
+            const SizedBox(height: AppSpacing.cardGap),
+            AppTopBar(title: l10n.craftsmanSignupTitle, onBack: () {}),
           ],
         ),
       ),

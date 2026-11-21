@@ -8,6 +8,12 @@ abstract final class AppTextStyles {
     color: AppColors.primaryDarker,
   );
 
+  static const TextStyle topBarTitle = TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.w700,
+    color: AppColors.primaryDarker,
+  );
+
   static const TextStyle button = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w700,
