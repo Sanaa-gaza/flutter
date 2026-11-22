@@ -21,6 +21,7 @@ abstract final class AppColors {
   static const Color stepInactiveLine = Color(0xFFDDDDDD);
 
   static const Color error = Color(0xFFD64545);
+  static const Color errorSurface = Color(0x14D64545);
   static const Color success = Color(0xFF2EAF4E);
 
   static const Color gradientStart = Color(0xFF1383C6);

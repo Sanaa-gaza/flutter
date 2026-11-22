@@ -77,4 +77,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get otpLabel => 'Confirm your email';
+
+  @override
+  String get networkError =>
+      'Could not reach the server. Check your internet connection and try again.';
 }

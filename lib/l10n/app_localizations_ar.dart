@@ -76,4 +76,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get otpLabel => 'تأكيد البريد الإلكتروني';
+
+  @override
+  String get networkError =>
+      'تعذّر الاتصال بالخادم. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.';
 }

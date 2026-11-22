@@ -22,5 +22,6 @@
   "stepCraftsmanInfo": "Craftsman details",
   "backButton": "Back",
   "craftsmanSignupTitle": "Create a craftsman account",
-  "otpLabel": "Confirm your email"
+  "otpLabel": "Confirm your email",
+  "networkError": "Could not reach the server. Check your internet connection and try again."
 }

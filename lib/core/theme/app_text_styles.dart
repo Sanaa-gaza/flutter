@@ -106,6 +106,12 @@ abstract final class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
+  static const TextStyle errorAlert = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    color: AppColors.error,
+  );
+
   static const TextStyle small = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w600,

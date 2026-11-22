@@ -235,6 +235,12 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'تأكيد البريد الإلكتروني'**
   String get otpLabel;
+
+  /// General alert when the request gets no response from the server
+  ///
+  /// In ar, this message translates to:
+  /// **'تعذّر الاتصال بالخادم. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.'**
+  String get networkError;
 }
 
 class _AppLocalizationsDelegate

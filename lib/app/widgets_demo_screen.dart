@@ -3,6 +3,7 @@ import 'package:flutter_sanaa_app/core/constants/app_icons.dart';
 import 'package:flutter_sanaa_app/core/theme/app_spacing.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_dropdown_field.dart';
+import 'package:flutter_sanaa_app/core/widgets/app_error_alert.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_multiline_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_otp_input.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_password_field.dart';
@@ -96,6 +97,8 @@ class WidgetsDemoScreen extends StatelessWidget {
             AppTopBar(title: l10n.craftsmanSignupTitle, onBack: () {}),
             const SizedBox(height: AppSpacing.cardGap),
             const _DemoOtpInput(),
+            const SizedBox(height: AppSpacing.cardGap),
+            AppErrorAlert(message: l10n.networkError),
           ],
         ),
       ),

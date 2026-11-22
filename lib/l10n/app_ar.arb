@@ -91,5 +91,9 @@
   "otpLabel": "تأكيد البريد الإلكتروني",
   "@otpLabel": {
     "description": "Label above the six verification code boxes"
+  },
+  "networkError": "تعذّر الاتصال بالخادم. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.",
+  "@networkError": {
+    "description": "General alert when the request gets no response from the server"
   }
 }
