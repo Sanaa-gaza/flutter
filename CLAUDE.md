@@ -192,6 +192,7 @@ Explain every folder's purpose to me in Arabic as we create it.
 
 ## Current status
 - Web: Sprint 1 (login + register) is done and connected to the API.
-- Flutter: Sprint 0 (project setup) is done. Sprint 1 Task 1 (assets & theme) is done.
-  Next: Sprint 1 Task 2 (shared widgets).
+- Flutter: Sprint 0 (project setup) is done. Sprint 1 Task 1 (assets & theme) and
+  Task 2 (shared widgets in `core/widgets/`) are done. Next: Sprint 1 Task 3 (validators).
+- Designs moved to a new Figma file "San-ah Project" (key `zf8J4u0nLt93R9E3xtkpGP`).
 - Not pushed to GitHub yet: waiting for a private `Mobile-App` repo in the team org.
