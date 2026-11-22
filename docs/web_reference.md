@@ -1,6 +1,7 @@
 # Web Reference — extracted from the web app source
 
 Source: https://github.com/Sanaa-gaza/Front-End (React + Vite)
+Last synced with the web code: commit `8e97f69` (2026-11-19).
 Purpose: the Flutter app must follow the same API, fields, rules and flows.
 If anything here conflicts with the SRS or the backend dev, **ask before coding**.
 
@@ -46,6 +47,8 @@ Authorization: Bearer <token>   (when logged in)
 { "message": "general message", "errors": { "email": ["first error", "..."] }, "data": { ... } }
 ```
 - Show `errors[field][0]` under the matching form field.
+  The value can also be a plain string instead of a list: handle both.
+- Field errors whose key is not on the current screen: show them in the general alert.
 - Show `message` as a general alert. No response at all = network error.
 - `401` while logged in → clear the saved session and go to login.
 
@@ -113,6 +116,8 @@ Upload files **first**, then send their paths inside the register body.
 }
 ```
 If the user picks "Other" craft: send `custom_craft_name` **instead of** `craft_id`.
+The craft list comes from `GET /services`, plus an "Other" option added by the app.
+`bio` is required, at least 10 characters.
 
 ### 4.3 Institution (step 1: info, step 2: license + description)
 ```json
@@ -126,6 +131,7 @@ If the user picks "Other" craft: send `custom_craft_name` **instead of** `craft_
   "description": "", "terms_accepted": true
 }
 ```
+`activity_type` is free text (the web uses a text input, not a list). `description` is required.
 
 ### 4.4 Contractor (step 1: info, step 2: work info, step 3: license)
 ```json
@@ -140,6 +146,9 @@ If the user picks "Other" craft: send `custom_craft_name` **instead of** `craft_
   "terms_accepted": true
 }
 ```
+`full_name` is the full four-part name in one field. `workers_count` is a typed number
+(a whole number above zero), not a list. `description` is optional: omit it when empty.
+There is no activity type field for the contractor.
 
 ### Multi-step rules
 - Keep step data in memory (a provider), not on disk.
@@ -182,14 +191,21 @@ Forgot password (email) → Verification screen with `purpose: "reset"`
 | Country code | default `+970`, sent as `+970599123456` | — |
 | Password | 8+ chars, a letter, an uppercase, a number, a special char `!@#$%^&*(),.?":{}\|<>_-` | passwordRequired / passwordWeak |
 | Confirm password | must match | confirmPasswordRequired / passwordMismatch |
-| National ID (contractor) | 9 digits | idNumberInvalid |
+| National ID (contractor) | required, `^\d{9}$` | idNumberRequired / idNumberInvalid |
+| Workers count (contractor) | required, `^[1-9]\d*$` | teamSizeRequired / teamSizeInvalid |
+| Craftsman bio | required, at least 10 characters after trim | bioRequired / bioMinLength |
+| Institution description | required | bioRequired |
+| Contractor description | optional | — |
+| Craft (craftsman) | required; if "Other", the custom name is required | craftRequired / craftOtherRequired |
+| Personal photo, ID selfie (craftsman) | required | avatarRequired / idPhotoRequired |
+| Governorate, area | required | cityRequired / areaRequired |
+| Other text fields | required, checked after trim | nameRequired, regNumberRequired, activityTypeRequired, quadNameRequired, mainSpecialtyRequired, fieldRequired |
 | Terms | must be checked | termsRequired |
 | Files | JPG/PNG/PDF, max 10MB | — |
 
 Show a live checklist of password requirements while typing.
-
-> Note for the web team: in `ContractorSignupStep1.jsx` the ID regex is `/^d{9}$/`
-> (missing `\`), so it rejects valid IDs. Flutter uses the correct `^\d{9}$`.
+Arabic and English error texts live in the web file `src/i18n/locales/<lang>/signupCommon.json`;
+reuse the same wording.
 
 ---
 
@@ -211,3 +227,11 @@ institution (home, tenders, tender details, offers, projects, providers, message
 contractor, admin.
 Sprint 2 endpoints already used by the web: `/craftsmen`, `/craftsmen/featured`,
 `/service-requests` (+ accept / reject / complete / review), `/contact`.
+
+---
+
+## 9. Sprint 1 open questions answered by the web code (2026-11-19)
+- Contractor activity type: the web has no such field and the API does not accept one. Do not build it.
+- Institution activity type and contractor workers count: the web uses text/number inputs,
+  not lists. The app design shows dropdowns; until the backend provides option lists, follow the web.
+- "Remember me": the web has it on login. The app design does not show it (still an open question).
