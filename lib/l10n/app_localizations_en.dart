@@ -74,4 +74,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get craftsmanSignupTitle => 'Create a craftsman account';
+
+  @override
+  String get otpLabel => 'Confirm your email';
 }

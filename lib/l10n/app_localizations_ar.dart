@@ -73,4 +73,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get craftsmanSignupTitle => 'إنشاء حساب كحرفي';
+
+  @override
+  String get otpLabel => 'تأكيد البريد الإلكتروني';
 }

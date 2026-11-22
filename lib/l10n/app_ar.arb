@@ -87,5 +87,9 @@
   "craftsmanSignupTitle": "إنشاء حساب كحرفي",
   "@craftsmanSignupTitle": {
     "description": "Top bar title on the craftsman signup screens"
+  },
+  "otpLabel": "تأكيد البريد الإلكتروني",
+  "@otpLabel": {
+    "description": "Label above the six verification code boxes"
   }
 }

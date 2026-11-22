@@ -229,6 +229,12 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'إنشاء حساب كحرفي'**
   String get craftsmanSignupTitle;
+
+  /// Label above the six verification code boxes
+  ///
+  /// In ar, this message translates to:
+  /// **'تأكيد البريد الإلكتروني'**
+  String get otpLabel;
 }
 
 class _AppLocalizationsDelegate

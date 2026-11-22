@@ -21,5 +21,6 @@
   "stepPersonalInfo": "Personal info",
   "stepCraftsmanInfo": "Craftsman details",
   "backButton": "Back",
-  "craftsmanSignupTitle": "Create a craftsman account"
+  "craftsmanSignupTitle": "Create a craftsman account",
+  "otpLabel": "Confirm your email"
 }

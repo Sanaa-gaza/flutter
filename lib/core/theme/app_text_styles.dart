@@ -90,6 +90,12 @@ abstract final class AppTextStyles {
     color: AppColors.textPrimary,
   );
 
+  static const TextStyle otpDigit = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: AppColors.primaryDarker,
+  );
+
   static const TextStyle stepNumber = TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.w700,

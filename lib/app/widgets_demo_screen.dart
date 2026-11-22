@@ -4,6 +4,7 @@ import 'package:flutter_sanaa_app/core/theme/app_spacing.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_dropdown_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_multiline_field.dart';
+import 'package:flutter_sanaa_app/core/widgets/app_otp_input.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_password_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_phone_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
@@ -93,6 +94,8 @@ class WidgetsDemoScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.cardGap),
             AppTopBar(title: l10n.craftsmanSignupTitle, onBack: () {}),
+            const SizedBox(height: AppSpacing.cardGap),
+            const _DemoOtpInput(),
           ],
         ),
       ),
@@ -115,6 +118,34 @@ class _DemoTermsCheckboxState extends State<_DemoTermsCheckbox> {
     return AppTermsCheckbox(
       value: _accepted,
       onChanged: (value) => setState(() => _accepted = value),
+    );
+  }
+}
+
+class _DemoOtpInput extends StatefulWidget {
+  const _DemoOtpInput();
+
+  @override
+  State<_DemoOtpInput> createState() => _DemoOtpInputState();
+}
+
+class _DemoOtpInputState extends State<_DemoOtpInput> {
+  final _controller = TextEditingController();
+  final _focusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AppOtpInput(
+      label: AppLocalizations.of(context).otpLabel,
+      controller: _controller,
+      focusNode: _focusNode,
     );
   }
 }
