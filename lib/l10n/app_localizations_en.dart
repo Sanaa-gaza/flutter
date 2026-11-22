@@ -21,7 +21,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get emailHint => 'name@example.com';
 
   @override
-  String get emailInvalid => 'Enter a valid email address';
+  String get emailInvalid => 'Please enter a valid email address';
 
   @override
   String get passwordLabel => 'Password';
@@ -81,4 +81,51 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get networkError =>
       'Could not reach the server. Check your internet connection and try again.';
+
+  @override
+  String get fieldRequired => 'This field is required';
+
+  @override
+  String get emailRequired => 'Email is required';
+
+  @override
+  String get phoneRequired => 'Phone number is required';
+
+  @override
+  String get phoneInvalid =>
+      'Please enter a valid mobile number starting with 59 or 56';
+
+  @override
+  String get passwordRequired => 'Password is required';
+
+  @override
+  String get passwordWeak =>
+      'Password must be at least 8 characters and include an uppercase letter, a number, and a special character';
+
+  @override
+  String get confirmPasswordRequired => 'Please confirm your password';
+
+  @override
+  String get passwordMismatch => 'Passwords do not match';
+
+  @override
+  String get idNumberRequired => 'Please enter the ID number';
+
+  @override
+  String get idNumberInvalid => 'ID number must be exactly 9 digits';
+
+  @override
+  String get teamSizeRequired => 'Please enter the number of workers';
+
+  @override
+  String get teamSizeInvalid => 'Please enter a whole number greater than zero';
+
+  @override
+  String get bioRequired => 'Please write a bio about yourself';
+
+  @override
+  String get bioMinLength => 'Bio must be at least 10 characters';
+
+  @override
+  String get termsRequired => 'Please agree to the terms and conditions';
 }

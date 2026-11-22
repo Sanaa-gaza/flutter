@@ -16,7 +16,7 @@
   "@emailHint": {
     "description": "Placeholder inside the email field"
   },
-  "emailInvalid": "البريد الإلكتروني غير صحيح",
+  "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
   "@emailInvalid": {
     "description": "Validation error when the email format is wrong"
   },
@@ -95,5 +95,65 @@
   "networkError": "تعذّر الاتصال بالخادم. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.",
   "@networkError": {
     "description": "General alert when the request gets no response from the server"
+  },
+  "fieldRequired": "هذا الحقل مطلوب",
+  "@fieldRequired": {
+    "description": "Validation error for an empty required field"
+  },
+  "emailRequired": "البريد الإلكتروني مطلوب",
+  "@emailRequired": {
+    "description": "Validation error when the email is empty"
+  },
+  "phoneRequired": "رقم الهاتف مطلوب",
+  "@phoneRequired": {
+    "description": "Validation error when the phone number is empty"
+  },
+  "phoneInvalid": "يرجى إدخال رقم جوال صحيح يبدأ بـ 59 أو 56",
+  "@phoneInvalid": {
+    "description": "Validation error when the phone number is not 9 digits starting with 59 or 56"
+  },
+  "passwordRequired": "كلمة المرور مطلوبة",
+  "@passwordRequired": {
+    "description": "Validation error when the password is empty"
+  },
+  "passwordWeak": "كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل، حرف إنجليزي كبير، رقم، ورمز خاص",
+  "@passwordWeak": {
+    "description": "Validation error when the password misses a strength rule"
+  },
+  "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
+  "@confirmPasswordRequired": {
+    "description": "Validation error when the confirm password field is empty"
+  },
+  "passwordMismatch": "كلمتا المرور غير متطابقتين",
+  "@passwordMismatch": {
+    "description": "Validation error when the two passwords differ"
+  },
+  "idNumberRequired": "يرجى إدخال رقم الهوية",
+  "@idNumberRequired": {
+    "description": "Validation error when the contractor national ID is empty"
+  },
+  "idNumberInvalid": "رقم الهوية يجب أن يتكون من 9 أرقام",
+  "@idNumberInvalid": {
+    "description": "Validation error when the national ID is not exactly 9 digits"
+  },
+  "teamSizeRequired": "يرجى إدخال عدد العمال",
+  "@teamSizeRequired": {
+    "description": "Validation error when the contractor workers count is empty"
+  },
+  "teamSizeInvalid": "يرجى إدخال عدد صحيح أكبر من صفر",
+  "@teamSizeInvalid": {
+    "description": "Validation error when the workers count is not a whole number above zero"
+  },
+  "bioRequired": "يرجى كتابة نبذة عنك",
+  "@bioRequired": {
+    "description": "Validation error when the craftsman bio is empty"
+  },
+  "bioMinLength": "يجب أن لا تقل النبذة عن 10 أحرف",
+  "@bioMinLength": {
+    "description": "Validation error when the bio is shorter than 10 characters"
+  },
+  "termsRequired": "يرجى الموافقة على الشروط والاحكام",
+  "@termsRequired": {
+    "description": "Validation error when the terms checkbox is not checked"
   }
 }

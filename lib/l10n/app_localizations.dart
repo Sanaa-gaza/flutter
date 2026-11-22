@@ -125,7 +125,7 @@ abstract class AppLocalizations {
   /// Validation error when the email format is wrong
   ///
   /// In ar, this message translates to:
-  /// **'البريد الإلكتروني غير صحيح'**
+  /// **'يرجى إدخال بريد إلكتروني صحيح'**
   String get emailInvalid;
 
   /// Label above the password field
@@ -241,6 +241,96 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'تعذّر الاتصال بالخادم. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.'**
   String get networkError;
+
+  /// Validation error for an empty required field
+  ///
+  /// In ar, this message translates to:
+  /// **'هذا الحقل مطلوب'**
+  String get fieldRequired;
+
+  /// Validation error when the email is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'البريد الإلكتروني مطلوب'**
+  String get emailRequired;
+
+  /// Validation error when the phone number is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'رقم الهاتف مطلوب'**
+  String get phoneRequired;
+
+  /// Validation error when the phone number is not 9 digits starting with 59 or 56
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال رقم جوال صحيح يبدأ بـ 59 أو 56'**
+  String get phoneInvalid;
+
+  /// Validation error when the password is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'كلمة المرور مطلوبة'**
+  String get passwordRequired;
+
+  /// Validation error when the password misses a strength rule
+  ///
+  /// In ar, this message translates to:
+  /// **'كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل، حرف إنجليزي كبير، رقم، ورمز خاص'**
+  String get passwordWeak;
+
+  /// Validation error when the confirm password field is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى تأكيد كلمة المرور'**
+  String get confirmPasswordRequired;
+
+  /// Validation error when the two passwords differ
+  ///
+  /// In ar, this message translates to:
+  /// **'كلمتا المرور غير متطابقتين'**
+  String get passwordMismatch;
+
+  /// Validation error when the contractor national ID is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال رقم الهوية'**
+  String get idNumberRequired;
+
+  /// Validation error when the national ID is not exactly 9 digits
+  ///
+  /// In ar, this message translates to:
+  /// **'رقم الهوية يجب أن يتكون من 9 أرقام'**
+  String get idNumberInvalid;
+
+  /// Validation error when the contractor workers count is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال عدد العمال'**
+  String get teamSizeRequired;
+
+  /// Validation error when the workers count is not a whole number above zero
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال عدد صحيح أكبر من صفر'**
+  String get teamSizeInvalid;
+
+  /// Validation error when the craftsman bio is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى كتابة نبذة عنك'**
+  String get bioRequired;
+
+  /// Validation error when the bio is shorter than 10 characters
+  ///
+  /// In ar, this message translates to:
+  /// **'يجب أن لا تقل النبذة عن 10 أحرف'**
+  String get bioMinLength;
+
+  /// Validation error when the terms checkbox is not checked
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى الموافقة على الشروط والاحكام'**
+  String get termsRequired;
 }
 
 class _AppLocalizationsDelegate

@@ -21,7 +21,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get emailHint => 'name@example.com';
 
   @override
-  String get emailInvalid => 'البريد الإلكتروني غير صحيح';
+  String get emailInvalid => 'يرجى إدخال بريد إلكتروني صحيح';
 
   @override
   String get passwordLabel => 'كلمة المرور';
@@ -80,4 +80,50 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get networkError =>
       'تعذّر الاتصال بالخادم. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.';
+
+  @override
+  String get fieldRequired => 'هذا الحقل مطلوب';
+
+  @override
+  String get emailRequired => 'البريد الإلكتروني مطلوب';
+
+  @override
+  String get phoneRequired => 'رقم الهاتف مطلوب';
+
+  @override
+  String get phoneInvalid => 'يرجى إدخال رقم جوال صحيح يبدأ بـ 59 أو 56';
+
+  @override
+  String get passwordRequired => 'كلمة المرور مطلوبة';
+
+  @override
+  String get passwordWeak =>
+      'كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل، حرف إنجليزي كبير، رقم، ورمز خاص';
+
+  @override
+  String get confirmPasswordRequired => 'يرجى تأكيد كلمة المرور';
+
+  @override
+  String get passwordMismatch => 'كلمتا المرور غير متطابقتين';
+
+  @override
+  String get idNumberRequired => 'يرجى إدخال رقم الهوية';
+
+  @override
+  String get idNumberInvalid => 'رقم الهوية يجب أن يتكون من 9 أرقام';
+
+  @override
+  String get teamSizeRequired => 'يرجى إدخال عدد العمال';
+
+  @override
+  String get teamSizeInvalid => 'يرجى إدخال عدد صحيح أكبر من صفر';
+
+  @override
+  String get bioRequired => 'يرجى كتابة نبذة عنك';
+
+  @override
+  String get bioMinLength => 'يجب أن لا تقل النبذة عن 10 أحرف';
+
+  @override
+  String get termsRequired => 'يرجى الموافقة على الشروط والاحكام';
 }
