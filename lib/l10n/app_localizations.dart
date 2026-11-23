@@ -242,6 +242,60 @@ abstract class AppLocalizations {
   /// **'تعذّر الاتصال بالخادم. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.'**
   String get networkError;
 
+  /// Small button on the onboarding pages that jumps to the welcome screen
+  ///
+  /// In ar, this message translates to:
+  /// **'تخطي'**
+  String get onboardingSkip;
+
+  /// Button that goes to the next onboarding page
+  ///
+  /// In ar, this message translates to:
+  /// **'التالي'**
+  String get onboardingNext;
+
+  /// Button on the last onboarding page
+  ///
+  /// In ar, this message translates to:
+  /// **'ابدأ معنا'**
+  String get onboardingStart;
+
+  /// Title of onboarding page 1
+  ///
+  /// In ar, this message translates to:
+  /// **'أهلاً بك في صنعة'**
+  String get onboardingTitle1;
+
+  /// Text of onboarding page 1
+  ///
+  /// In ar, this message translates to:
+  /// **'اعثر على كل الحرفيين الذين تحتاجهم في مكان واحد'**
+  String get onboardingBody1;
+
+  /// Title of onboarding page 2
+  ///
+  /// In ar, this message translates to:
+  /// **'ثقة بلا سؤال!'**
+  String get onboardingTitle2;
+
+  /// Text of onboarding page 2
+  ///
+  /// In ar, this message translates to:
+  /// **'تصفّح تقييمات حقيقية من عملاء سابقين اطّلع على ملف كامل لكل حرفي'**
+  String get onboardingBody2;
+
+  /// Title of onboarding page 3
+  ///
+  /// In ar, this message translates to:
+  /// **'ابدأ رحلتك الآن!'**
+  String get onboardingTitle3;
+
+  /// Text of onboarding page 3
+  ///
+  /// In ar, this message translates to:
+  /// **'احجز وتواصل مع الحرفي المناسب بخطوات بسيطة، أنجز مهامك بسرعة وثقة.'**
+  String get onboardingBody3;
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:

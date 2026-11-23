@@ -83,6 +83,35 @@ class AppLocalizationsEn extends AppLocalizations {
       'Could not reach the server. Check your internet connection and try again.';
 
   @override
+  String get onboardingSkip => 'Skip';
+
+  @override
+  String get onboardingNext => 'Next';
+
+  @override
+  String get onboardingStart => 'Get started';
+
+  @override
+  String get onboardingTitle1 => 'Welcome to Sanaa';
+
+  @override
+  String get onboardingBody1 => 'Find every craftsman you need in one place';
+
+  @override
+  String get onboardingTitle2 => 'Trust without asking!';
+
+  @override
+  String get onboardingBody2 =>
+      'Browse real reviews from past customers and see a full profile for every craftsman';
+
+  @override
+  String get onboardingTitle3 => 'Start your journey now!';
+
+  @override
+  String get onboardingBody3 =>
+      'Book and talk to the right craftsman in a few simple steps, and get your tasks done fast and with confidence.';
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override

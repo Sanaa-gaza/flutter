@@ -82,6 +82,36 @@ class AppLocalizationsAr extends AppLocalizations {
       'تعذّر الاتصال بالخادم. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.';
 
   @override
+  String get onboardingSkip => 'تخطي';
+
+  @override
+  String get onboardingNext => 'التالي';
+
+  @override
+  String get onboardingStart => 'ابدأ معنا';
+
+  @override
+  String get onboardingTitle1 => 'أهلاً بك في صنعة';
+
+  @override
+  String get onboardingBody1 =>
+      'اعثر على كل الحرفيين الذين تحتاجهم في مكان واحد';
+
+  @override
+  String get onboardingTitle2 => 'ثقة بلا سؤال!';
+
+  @override
+  String get onboardingBody2 =>
+      'تصفّح تقييمات حقيقية من عملاء سابقين اطّلع على ملف كامل لكل حرفي';
+
+  @override
+  String get onboardingTitle3 => 'ابدأ رحلتك الآن!';
+
+  @override
+  String get onboardingBody3 =>
+      'احجز وتواصل مع الحرفي المناسب بخطوات بسيطة، أنجز مهامك بسرعة وثقة.';
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

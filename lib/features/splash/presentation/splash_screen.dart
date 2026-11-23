@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     _controller.forward().whenComplete(() {
-      if (mounted) context.go(AppRoutes.welcome);
+      if (mounted) context.go(AppRoutes.onboarding);
     });
   }
 

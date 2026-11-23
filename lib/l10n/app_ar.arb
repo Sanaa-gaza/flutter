@@ -96,6 +96,42 @@
   "@networkError": {
     "description": "General alert when the request gets no response from the server"
   },
+  "onboardingSkip": "تخطي",
+  "@onboardingSkip": {
+    "description": "Small button on the onboarding pages that jumps to the welcome screen"
+  },
+  "onboardingNext": "التالي",
+  "@onboardingNext": {
+    "description": "Button that goes to the next onboarding page"
+  },
+  "onboardingStart": "ابدأ معنا",
+  "@onboardingStart": {
+    "description": "Button on the last onboarding page"
+  },
+  "onboardingTitle1": "أهلاً بك في صنعة",
+  "@onboardingTitle1": {
+    "description": "Title of onboarding page 1"
+  },
+  "onboardingBody1": "اعثر على كل الحرفيين الذين تحتاجهم في مكان واحد",
+  "@onboardingBody1": {
+    "description": "Text of onboarding page 1"
+  },
+  "onboardingTitle2": "ثقة بلا سؤال!",
+  "@onboardingTitle2": {
+    "description": "Title of onboarding page 2"
+  },
+  "onboardingBody2": "تصفّح تقييمات حقيقية من عملاء سابقين اطّلع على ملف كامل لكل حرفي",
+  "@onboardingBody2": {
+    "description": "Text of onboarding page 2"
+  },
+  "onboardingTitle3": "ابدأ رحلتك الآن!",
+  "@onboardingTitle3": {
+    "description": "Title of onboarding page 3"
+  },
+  "onboardingBody3": "احجز وتواصل مع الحرفي المناسب بخطوات بسيطة، أنجز مهامك بسرعة وثقة.",
+  "@onboardingBody3": {
+    "description": "Text of onboarding page 3"
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

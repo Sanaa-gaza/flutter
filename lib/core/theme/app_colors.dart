@@ -7,6 +7,10 @@ abstract final class AppColors {
   static const Color primaryChip = Color(0x334B9AD2);
   static const Color primaryDarker = Color(0xFF1A364A);
   static const Color darkNavy = Color(0xFF22455E);
+  static const Color primaryLightActive = Color(0xFFC7E0F1);
+  static const Color indicatorInactive = Color(0xFFB6DDF4);
+  static const Color indicatorStart = Color(0xFF6DADDB);
+  static const Color indicatorEnd = Color(0xFFC0DCEF);
 
   static const Color textPrimary = Color(0xFF141415);
   static const Color textBody = Color(0xFF414141);

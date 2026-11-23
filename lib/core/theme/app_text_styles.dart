@@ -8,6 +8,24 @@ abstract final class AppTextStyles {
     color: AppColors.primaryDarker,
   );
 
+  static const TextStyle onboardingTitle = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.w700,
+    color: AppColors.primaryDarker,
+  );
+
+  static const TextStyle onboardingBody = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: AppColors.darkNavy,
+  );
+
+  static const TextStyle skip = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w700,
+    color: AppColors.primaryDarker,
+  );
+
   static const TextStyle topBarTitle = TextStyle(
     fontSize: 17,
     fontWeight: FontWeight.w700,
