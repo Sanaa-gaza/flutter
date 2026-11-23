@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_sanaa_app/features/reference_data/data/reference_data_repository_impl.dart';
+import 'package:flutter_sanaa_app/features/reference_data/data/reference_data_repository_provider.dart';
 import 'package:flutter_sanaa_app/features/reference_data/domain/reference_item.dart';
 
 // These providers are not auto-disposed, so each list is fetched once and

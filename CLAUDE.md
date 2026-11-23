@@ -91,8 +91,18 @@ lib/
 ```
 
 ### API strategy
-- The backend is **live** (Laravel on Railway). Base URL, endpoints, request bodies,
-  response and error shapes are in `docs/web_reference.md`. Use them exactly.
+- **The mobile app gets its own API from the backend dev** (not ready yet).
+  Its data shapes will differ from the web, because the app design differs.
+  **Do not call the web API** (the Railway URL in `docs/web_reference.md`): the
+  backend dev asked us not to, to avoid conflicts.
+- Until the mobile API arrives: build the screens (UI first) on **mock repositories**
+  (`data/mock_*_repository.dart`), chosen in `data/*_repository_provider.dart`.
+  When the API arrives, adapt the `*_repository_impl.dart` files to it and switch
+  the provider. Screens must not change.
+- `docs/web_reference.md` stays useful for roles, flows and screen behavior,
+  not for endpoint shapes.
+- Validation rules and messages for the app come from the app design in Figma
+  (current rules match it). Check Figma on each screen.
 - Every feature talks to a **repository interface**, so the data source can change
   without touching the UI.
 - For endpoints marked "not confirmed" or not built yet, use a **mock data source**
@@ -192,7 +202,9 @@ Explain every folder's purpose to me in Arabic as we create it.
 
 ## Current status
 - Web: Sprint 1 (login + register) is done and connected to the API.
-- Flutter: Sprint 0 (project setup) is done. Sprint 1 Task 1 (assets & theme) and
-  Task 2 (shared widgets in `core/widgets/`) are done. Next: Sprint 1 Task 3 (validators).
+- Flutter: Sprint 0 is done. Sprint 1 Tasks 1–6 are done (theme, shared widgets,
+  validators, network + secure session, splash/onboarding/welcome, reference data on
+  mock). Task 7 (login): data layer done on mock, login screen next. The user asked
+  to build the signup screens (Task 8+) from Figma first.
 - Designs moved to a new Figma file "San-ah Project" (key `zf8J4u0nLt93R9E3xtkpGP`).
 - Not pushed to GitHub yet: waiting for a private `Mobile-App` repo in the team org.

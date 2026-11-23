@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/core/errors/dio_failure_mapper.dart';
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
-import 'package:flutter_sanaa_app/core/network/dio_provider.dart';
 import 'package:flutter_sanaa_app/core/network/session_storage.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/auth_repository.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/user.dart';
@@ -53,10 +51,3 @@ class AuthRepositoryImpl implements AuthRepository {
     return user;
   }
 }
-
-final authRepositoryProvider = Provider<AuthRepository>(
-  (ref) => AuthRepositoryImpl(
-    ref.watch(dioProvider),
-    ref.watch(sessionStorageProvider),
-  ),
-);

@@ -2,7 +2,13 @@
 
 Source: https://github.com/Sanaa-gaza/Front-End (React + Vite)
 Last synced with the web code: commit `8e97f69` (2026-11-19).
-Purpose: the Flutter app must follow the same API, fields, rules and flows.
+Purpose: the Flutter app follows the same roles, flows and screen behavior.
+
+> **Update (2026-11-23, from the backend dev):** the mobile app will get its **own API**,
+> with different data shapes. Do **not** call the web API below from the app.
+> Sections 2–4 (base URL, endpoints, bodies) describe the **web** only; until the
+> mobile API arrives the app uses mock data. Validation follows the app design in Figma.
+
 If anything here conflicts with the SRS or the backend dev, **ask before coding**.
 
 ---

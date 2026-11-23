@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/core/errors/dio_failure_mapper.dart';
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
-import 'package:flutter_sanaa_app/core/network/dio_provider.dart';
 import 'package:flutter_sanaa_app/features/reference_data/domain/reference_data_repository.dart';
 import 'package:flutter_sanaa_app/features/reference_data/domain/reference_item.dart';
 
@@ -44,7 +42,3 @@ class ReferenceDataRepositoryImpl implements ReferenceDataRepository {
     return ReferenceItem(id: id, name: name);
   }
 }
-
-final referenceDataRepositoryProvider = Provider<ReferenceDataRepository>(
-  (ref) => ReferenceDataRepositoryImpl(ref.watch(dioProvider)),
-);
