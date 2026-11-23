@@ -122,6 +122,55 @@ class AppLocalizationsAr extends AppLocalizations {
   String get continueAsGuest => 'الدخول الآن والتسجيل لاحقاً';
 
   @override
+  String get createAccountTitle => 'أنشئ حسابك';
+
+  @override
+  String get createAccountSubtitle =>
+      'كيف بدك تستخدم صنعة؟ اختر الطريقة اللي بتناسبك وبنكمّل معك خطوة بخطوة.';
+
+  @override
+  String get goalRequestTitle => 'بدي أطلب خدمة';
+
+  @override
+  String get goalRequestDescription =>
+      'دوّر على حرفي موثوق، أو انشر طلب أو مناقصة واستقبل عروض.';
+
+  @override
+  String get goalProvideTitle => 'بدي أقدم خدمة';
+
+  @override
+  String get goalProvideDescription =>
+      'استقبل طلبات العملاء، قدّم عروضك، واحصل على فرص عمل جديدة';
+
+  @override
+  String get roleCustomerTitle => 'عميل';
+
+  @override
+  String get roleCustomerDescription =>
+      'ابحث عن حرفي مناسب لتنفيذ الخدمة التي أحتاجها\nصيانة، تركيب، تشطيب.';
+
+  @override
+  String get roleInstitutionTitle => 'مؤسسة';
+
+  @override
+  String get roleInstitutionDescription =>
+      'تصفح الفئات والمقاولين واعثر على الحرفي المناسب لتنفيذ مشاريعك';
+
+  @override
+  String get roleCraftsmanTitle => 'حرفي';
+
+  @override
+  String get roleCraftsmanDescription =>
+      'قَدّم الخدمات، وإدارة الطلبات المهنية، ونمّ أعمالك عبر منصتنا';
+
+  @override
+  String get roleContractorTitle => 'مقاول';
+
+  @override
+  String get roleContractorDescription =>
+      'تصفح الخدمات، والفئات، والحرفيين للعثور على المحترف المناسب لاحتياجاتك';
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

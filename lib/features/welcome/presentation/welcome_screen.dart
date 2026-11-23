@@ -66,8 +66,7 @@ class WelcomeScreen extends StatelessWidget {
                       PrimaryButton(
                         label: l10n.createAccountButton,
                         height: AppSizes.buttonHeightLarge,
-                        // Opens the goal screen in Task 8.
-                        onPressed: () {},
+                        onPressed: () => context.push(AppRoutes.goal),
                       ),
                       const SizedBox(height: _buttonsGap),
                       OutlinedAppButton(

@@ -27,6 +27,25 @@ abstract final class AppTextStyles {
     color: AppColors.primaryDarker,
   );
 
+  static const TextStyle screenSubtitle = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.darkNavy,
+  );
+
+  static const TextStyle optionTitle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: AppColors.primaryDarker,
+  );
+
+  static const TextStyle optionDescription = TextStyle(
+    fontSize: 12,
+    height: 16.4 / 12,
+    fontWeight: FontWeight.w500,
+    color: AppColors.darkNavy,
+  );
+
   static const TextStyle skip = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w700,

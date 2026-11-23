@@ -144,6 +144,62 @@
   "@continueAsGuest": {
     "description": "Link that opens the app as a guest without an account"
   },
+  "createAccountTitle": "أنشئ حسابك",
+  "@createAccountTitle": {
+    "description": "Title of the goal and account type screens"
+  },
+  "createAccountSubtitle": "كيف بدك تستخدم صنعة؟ اختر الطريقة اللي بتناسبك وبنكمّل معك خطوة بخطوة.",
+  "@createAccountSubtitle": {
+    "description": "Text under the title on the goal and account type screens"
+  },
+  "goalRequestTitle": "بدي أطلب خدمة",
+  "@goalRequestTitle": {
+    "description": "Goal card for people who need a service"
+  },
+  "goalRequestDescription": "دوّر على حرفي موثوق، أو انشر طلب أو مناقصة واستقبل عروض.",
+  "@goalRequestDescription": {
+    "description": "Description of the request a service goal card"
+  },
+  "goalProvideTitle": "بدي أقدم خدمة",
+  "@goalProvideTitle": {
+    "description": "Goal card for people who offer a service"
+  },
+  "goalProvideDescription": "استقبل طلبات العملاء، قدّم عروضك، واحصل على فرص عمل جديدة",
+  "@goalProvideDescription": {
+    "description": "Description of the provide a service goal card"
+  },
+  "roleCustomerTitle": "عميل",
+  "@roleCustomerTitle": {
+    "description": "Account type card for the customer role"
+  },
+  "roleCustomerDescription": "ابحث عن حرفي مناسب لتنفيذ الخدمة التي أحتاجها\nصيانة، تركيب، تشطيب.",
+  "@roleCustomerDescription": {
+    "description": "Description of the customer account type card"
+  },
+  "roleInstitutionTitle": "مؤسسة",
+  "@roleInstitutionTitle": {
+    "description": "Account type card for the institution role"
+  },
+  "roleInstitutionDescription": "تصفح الفئات والمقاولين واعثر على الحرفي المناسب لتنفيذ مشاريعك",
+  "@roleInstitutionDescription": {
+    "description": "Description of the institution account type card"
+  },
+  "roleCraftsmanTitle": "حرفي",
+  "@roleCraftsmanTitle": {
+    "description": "Account type card for the craftsman role"
+  },
+  "roleCraftsmanDescription": "قَدّم الخدمات، وإدارة الطلبات المهنية، ونمّ أعمالك عبر منصتنا",
+  "@roleCraftsmanDescription": {
+    "description": "Description of the craftsman account type card"
+  },
+  "roleContractorTitle": "مقاول",
+  "@roleContractorTitle": {
+    "description": "Account type card for the contractor role"
+  },
+  "roleContractorDescription": "تصفح الخدمات، والفئات، والحرفيين للعثور على المحترف المناسب لاحتياجاتك",
+  "@roleContractorDescription": {
+    "description": "Description of the contractor account type card"
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

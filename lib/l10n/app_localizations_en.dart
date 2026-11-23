@@ -122,6 +122,55 @@ class AppLocalizationsEn extends AppLocalizations {
   String get continueAsGuest => 'Continue now and sign up later';
 
   @override
+  String get createAccountTitle => 'Create your account';
+
+  @override
+  String get createAccountSubtitle =>
+      'How do you want to use Sanaa? Pick what suits you and we will guide you step by step.';
+
+  @override
+  String get goalRequestTitle => 'I need a service';
+
+  @override
+  String get goalRequestDescription =>
+      'Find a trusted craftsman, or post a request or tender and receive offers.';
+
+  @override
+  String get goalProvideTitle => 'I offer a service';
+
+  @override
+  String get goalProvideDescription =>
+      'Receive customer requests, send your offers, and get new work opportunities';
+
+  @override
+  String get roleCustomerTitle => 'Customer';
+
+  @override
+  String get roleCustomerDescription =>
+      'Find the right craftsman for the service I need\nMaintenance, installation, finishing.';
+
+  @override
+  String get roleInstitutionTitle => 'Institution';
+
+  @override
+  String get roleInstitutionDescription =>
+      'Browse categories and contractors and find the right craftsman for your projects';
+
+  @override
+  String get roleCraftsmanTitle => 'Craftsman';
+
+  @override
+  String get roleCraftsmanDescription =>
+      'Offer services, manage work requests, and grow your business on our platform';
+
+  @override
+  String get roleContractorTitle => 'Contractor';
+
+  @override
+  String get roleContractorDescription =>
+      'Browse services, categories and craftsmen to find the right professional for your needs';
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override

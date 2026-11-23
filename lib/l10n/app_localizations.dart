@@ -314,6 +314,90 @@ abstract class AppLocalizations {
   /// **'الدخول الآن والتسجيل لاحقاً'**
   String get continueAsGuest;
 
+  /// Title of the goal and account type screens
+  ///
+  /// In ar, this message translates to:
+  /// **'أنشئ حسابك'**
+  String get createAccountTitle;
+
+  /// Text under the title on the goal and account type screens
+  ///
+  /// In ar, this message translates to:
+  /// **'كيف بدك تستخدم صنعة؟ اختر الطريقة اللي بتناسبك وبنكمّل معك خطوة بخطوة.'**
+  String get createAccountSubtitle;
+
+  /// Goal card for people who need a service
+  ///
+  /// In ar, this message translates to:
+  /// **'بدي أطلب خدمة'**
+  String get goalRequestTitle;
+
+  /// Description of the request a service goal card
+  ///
+  /// In ar, this message translates to:
+  /// **'دوّر على حرفي موثوق، أو انشر طلب أو مناقصة واستقبل عروض.'**
+  String get goalRequestDescription;
+
+  /// Goal card for people who offer a service
+  ///
+  /// In ar, this message translates to:
+  /// **'بدي أقدم خدمة'**
+  String get goalProvideTitle;
+
+  /// Description of the provide a service goal card
+  ///
+  /// In ar, this message translates to:
+  /// **'استقبل طلبات العملاء، قدّم عروضك، واحصل على فرص عمل جديدة'**
+  String get goalProvideDescription;
+
+  /// Account type card for the customer role
+  ///
+  /// In ar, this message translates to:
+  /// **'عميل'**
+  String get roleCustomerTitle;
+
+  /// Description of the customer account type card
+  ///
+  /// In ar, this message translates to:
+  /// **'ابحث عن حرفي مناسب لتنفيذ الخدمة التي أحتاجها\nصيانة، تركيب، تشطيب.'**
+  String get roleCustomerDescription;
+
+  /// Account type card for the institution role
+  ///
+  /// In ar, this message translates to:
+  /// **'مؤسسة'**
+  String get roleInstitutionTitle;
+
+  /// Description of the institution account type card
+  ///
+  /// In ar, this message translates to:
+  /// **'تصفح الفئات والمقاولين واعثر على الحرفي المناسب لتنفيذ مشاريعك'**
+  String get roleInstitutionDescription;
+
+  /// Account type card for the craftsman role
+  ///
+  /// In ar, this message translates to:
+  /// **'حرفي'**
+  String get roleCraftsmanTitle;
+
+  /// Description of the craftsman account type card
+  ///
+  /// In ar, this message translates to:
+  /// **'قَدّم الخدمات، وإدارة الطلبات المهنية، ونمّ أعمالك عبر منصتنا'**
+  String get roleCraftsmanDescription;
+
+  /// Account type card for the contractor role
+  ///
+  /// In ar, this message translates to:
+  /// **'مقاول'**
+  String get roleContractorTitle;
+
+  /// Description of the contractor account type card
+  ///
+  /// In ar, this message translates to:
+  /// **'تصفح الخدمات، والفئات، والحرفيين للعثور على المحترف المناسب لاحتياجاتك'**
+  String get roleContractorDescription;
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:

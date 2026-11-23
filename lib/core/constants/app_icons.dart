@@ -9,4 +9,9 @@ abstract final class AppIcons {
   static const String eyeOpen = 'assets/icons/eye_open.svg';
   static const String eyeClosed = 'assets/icons/eye_closed.svg';
   static const String chevronDown = 'assets/icons/chevron_down.svg';
+  static const String wrench = 'assets/icons/wrench.svg';
+  static const String search = 'assets/icons/search.svg';
+  static const String userProfile = 'assets/icons/user_profile.svg';
+  static const String briefcase = 'assets/icons/briefcase.svg';
+  static const String users = 'assets/icons/users.svg';
 }
