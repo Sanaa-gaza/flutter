@@ -171,6 +171,45 @@ class AppLocalizationsEn extends AppLocalizations {
       'Browse services, categories and craftsmen to find the right professional for your needs';
 
   @override
+  String get customerSignupTitle => 'Create a customer account';
+
+  @override
+  String get fullNameLabel => 'Full name';
+
+  @override
+  String get fullNameHint => 'Enter your full name';
+
+  @override
+  String get confirmPasswordLabel => 'Confirm password';
+
+  @override
+  String get confirmPasswordHint => 'Enter the password again';
+
+  @override
+  String get addressLabel => 'Home address';
+
+  @override
+  String get addressHint => 'Street, area';
+
+  @override
+  String get nextButton => 'Next';
+
+  @override
+  String get loadingOptions => 'Loading...';
+
+  @override
+  String get optionsLoadError => 'Could not load the list, please try again.';
+
+  @override
+  String get fullNameRequired => 'Please enter your full name';
+
+  @override
+  String get governorateRequired => 'Please choose a governorate';
+
+  @override
+  String get addressRequired => 'Please enter your home address';
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override

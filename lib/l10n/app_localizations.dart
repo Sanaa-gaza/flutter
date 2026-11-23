@@ -398,6 +398,84 @@ abstract class AppLocalizations {
   /// **'تصفح الخدمات، والفئات، والحرفيين للعثور على المحترف المناسب لاحتياجاتك'**
   String get roleContractorDescription;
 
+  /// Top bar title on the customer signup screen
+  ///
+  /// In ar, this message translates to:
+  /// **'إنشاء حساب عميل'**
+  String get customerSignupTitle;
+
+  /// Label above the full name field
+  ///
+  /// In ar, this message translates to:
+  /// **'الاسم بالكامل'**
+  String get fullNameLabel;
+
+  /// Placeholder inside the full name field
+  ///
+  /// In ar, this message translates to:
+  /// **'ادخل اسمك بالكامل'**
+  String get fullNameHint;
+
+  /// Label above the confirm password field
+  ///
+  /// In ar, this message translates to:
+  /// **'تأكيد كلمة المرور'**
+  String get confirmPasswordLabel;
+
+  /// Placeholder inside the confirm password field
+  ///
+  /// In ar, this message translates to:
+  /// **'قم بإدخال كلمة المرور مرة أخرى'**
+  String get confirmPasswordHint;
+
+  /// Label above the home address field
+  ///
+  /// In ar, this message translates to:
+  /// **'عنوان السكن'**
+  String get addressLabel;
+
+  /// Placeholder inside the home address field
+  ///
+  /// In ar, this message translates to:
+  /// **'الشارع، المنطقة'**
+  String get addressHint;
+
+  /// Submit button that moves to the next step of a form
+  ///
+  /// In ar, this message translates to:
+  /// **'التالي'**
+  String get nextButton;
+
+  /// Dropdown placeholder while its options load
+  ///
+  /// In ar, this message translates to:
+  /// **'جاري التحميل...'**
+  String get loadingOptions;
+
+  /// Error under a dropdown when its options fail to load
+  ///
+  /// In ar, this message translates to:
+  /// **'تعذّر تحميل القائمة، حاول مرة أخرى.'**
+  String get optionsLoadError;
+
+  /// Validation error when the full name is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال الاسم بالكامل'**
+  String get fullNameRequired;
+
+  /// Validation error when no governorate is chosen
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى اختيار المحافظة'**
+  String get governorateRequired;
+
+  /// Validation error when the home address is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال عنوان السكن'**
+  String get addressRequired;
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:

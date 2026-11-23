@@ -171,6 +171,45 @@ class AppLocalizationsAr extends AppLocalizations {
       'تصفح الخدمات، والفئات، والحرفيين للعثور على المحترف المناسب لاحتياجاتك';
 
   @override
+  String get customerSignupTitle => 'إنشاء حساب عميل';
+
+  @override
+  String get fullNameLabel => 'الاسم بالكامل';
+
+  @override
+  String get fullNameHint => 'ادخل اسمك بالكامل';
+
+  @override
+  String get confirmPasswordLabel => 'تأكيد كلمة المرور';
+
+  @override
+  String get confirmPasswordHint => 'قم بإدخال كلمة المرور مرة أخرى';
+
+  @override
+  String get addressLabel => 'عنوان السكن';
+
+  @override
+  String get addressHint => 'الشارع، المنطقة';
+
+  @override
+  String get nextButton => 'التالي';
+
+  @override
+  String get loadingOptions => 'جاري التحميل...';
+
+  @override
+  String get optionsLoadError => 'تعذّر تحميل القائمة، حاول مرة أخرى.';
+
+  @override
+  String get fullNameRequired => 'يرجى إدخال الاسم بالكامل';
+
+  @override
+  String get governorateRequired => 'يرجى اختيار المحافظة';
+
+  @override
+  String get addressRequired => 'يرجى إدخال عنوان السكن';
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

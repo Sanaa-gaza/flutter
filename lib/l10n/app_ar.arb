@@ -200,6 +200,58 @@
   "@roleContractorDescription": {
     "description": "Description of the contractor account type card"
   },
+  "customerSignupTitle": "إنشاء حساب عميل",
+  "@customerSignupTitle": {
+    "description": "Top bar title on the customer signup screen"
+  },
+  "fullNameLabel": "الاسم بالكامل",
+  "@fullNameLabel": {
+    "description": "Label above the full name field"
+  },
+  "fullNameHint": "ادخل اسمك بالكامل",
+  "@fullNameHint": {
+    "description": "Placeholder inside the full name field"
+  },
+  "confirmPasswordLabel": "تأكيد كلمة المرور",
+  "@confirmPasswordLabel": {
+    "description": "Label above the confirm password field"
+  },
+  "confirmPasswordHint": "قم بإدخال كلمة المرور مرة أخرى",
+  "@confirmPasswordHint": {
+    "description": "Placeholder inside the confirm password field"
+  },
+  "addressLabel": "عنوان السكن",
+  "@addressLabel": {
+    "description": "Label above the home address field"
+  },
+  "addressHint": "الشارع، المنطقة",
+  "@addressHint": {
+    "description": "Placeholder inside the home address field"
+  },
+  "nextButton": "التالي",
+  "@nextButton": {
+    "description": "Submit button that moves to the next step of a form"
+  },
+  "loadingOptions": "جاري التحميل...",
+  "@loadingOptions": {
+    "description": "Dropdown placeholder while its options load"
+  },
+  "optionsLoadError": "تعذّر تحميل القائمة، حاول مرة أخرى.",
+  "@optionsLoadError": {
+    "description": "Error under a dropdown when its options fail to load"
+  },
+  "fullNameRequired": "يرجى إدخال الاسم بالكامل",
+  "@fullNameRequired": {
+    "description": "Validation error when the full name is empty"
+  },
+  "governorateRequired": "يرجى اختيار المحافظة",
+  "@governorateRequired": {
+    "description": "Validation error when no governorate is chosen"
+  },
+  "addressRequired": "يرجى إدخال عنوان السكن",
+  "@addressRequired": {
+    "description": "Validation error when the home address is empty"
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

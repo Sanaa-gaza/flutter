@@ -178,7 +178,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       children: [
         Expanded(child: next),
         Expanded(
-          child: OutlinedAppButton(
+          child: OutlinedAppButton.light(
             label: l10n.backButton,
             height: AppSizes.buttonHeightLarge,
             onPressed: () => _goToPage(_currentPage - 1),
