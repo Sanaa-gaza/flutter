@@ -112,6 +112,16 @@ class AppLocalizationsAr extends AppLocalizations {
       'احجز وتواصل مع الحرفي المناسب بخطوات بسيطة، أنجز مهامك بسرعة وثقة.';
 
   @override
+  String get welcomeMessage =>
+      'مرحبًا بك في تطبيق صنعة، سجّل دخولك أو أنشئ حسابًا الآن';
+
+  @override
+  String get createAccountButton => 'إنشاء حساب';
+
+  @override
+  String get continueAsGuest => 'الدخول الآن والتسجيل لاحقاً';
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

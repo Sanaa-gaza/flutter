@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/app.dart';
-import 'package:flutter_sanaa_app/app/home_placeholder_screen.dart';
 import 'package:flutter_sanaa_app/features/onboarding/data/onboarding_storage.dart';
 import 'package:flutter_sanaa_app/features/onboarding/presentation/onboarding_screen.dart';
 import 'package:flutter_sanaa_app/features/splash/presentation/splash_screen.dart';
+import 'package:flutter_sanaa_app/features/welcome/presentation/welcome_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class _FakeOnboardingStorage implements OnboardingStorage {
@@ -43,13 +43,13 @@ void main() {
 
     await tester.tap(find.text('تخطي'));
     await tester.pumpAndSettle();
-    expect(find.byType(HomePlaceholderScreen), findsOneWidget);
+    expect(find.byType(WelcomeScreen), findsOneWidget);
     expect(storage.seen, isTrue);
   });
 
   testWidgets('later launches skip onboarding', (tester) async {
     await _openApp(tester, _FakeOnboardingStorage(seen: true));
     expect(find.byType(OnboardingScreen), findsNothing);
-    expect(find.byType(HomePlaceholderScreen), findsOneWidget);
+    expect(find.byType(WelcomeScreen), findsOneWidget);
   });
 }

@@ -132,6 +132,18 @@
   "@onboardingBody3": {
     "description": "Text of onboarding page 3"
   },
+  "welcomeMessage": "مرحبًا بك في تطبيق صنعة، سجّل دخولك أو أنشئ حسابًا الآن",
+  "@welcomeMessage": {
+    "description": "Text under the logo on the welcome screen"
+  },
+  "createAccountButton": "إنشاء حساب",
+  "@createAccountButton": {
+    "description": "Welcome screen button that starts signup"
+  },
+  "continueAsGuest": "الدخول الآن والتسجيل لاحقاً",
+  "@continueAsGuest": {
+    "description": "Link that opens the app as a guest without an account"
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

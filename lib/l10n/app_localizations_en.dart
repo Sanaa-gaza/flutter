@@ -112,6 +112,16 @@ class AppLocalizationsEn extends AppLocalizations {
       'Book and talk to the right craftsman in a few simple steps, and get your tasks done fast and with confidence.';
 
   @override
+  String get welcomeMessage =>
+      'Welcome to Sanaa. Log in or create an account now';
+
+  @override
+  String get createAccountButton => 'Create an account';
+
+  @override
+  String get continueAsGuest => 'Continue now and sign up later';
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override

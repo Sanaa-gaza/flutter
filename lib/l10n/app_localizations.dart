@@ -296,6 +296,24 @@ abstract class AppLocalizations {
   /// **'احجز وتواصل مع الحرفي المناسب بخطوات بسيطة، أنجز مهامك بسرعة وثقة.'**
   String get onboardingBody3;
 
+  /// Text under the logo on the welcome screen
+  ///
+  /// In ar, this message translates to:
+  /// **'مرحبًا بك في تطبيق صنعة، سجّل دخولك أو أنشئ حسابًا الآن'**
+  String get welcomeMessage;
+
+  /// Welcome screen button that starts signup
+  ///
+  /// In ar, this message translates to:
+  /// **'إنشاء حساب'**
+  String get createAccountButton;
+
+  /// Link that opens the app as a guest without an account
+  ///
+  /// In ar, this message translates to:
+  /// **'الدخول الآن والتسجيل لاحقاً'**
+  String get continueAsGuest;
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:

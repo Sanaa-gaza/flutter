@@ -20,6 +20,13 @@ abstract final class AppTextStyles {
     color: AppColors.darkNavy,
   );
 
+  static const TextStyle welcomeMessage = TextStyle(
+    fontSize: 18,
+    height: 31 / 18,
+    fontWeight: FontWeight.w600,
+    color: AppColors.primaryDarker,
+  );
+
   static const TextStyle skip = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w700,

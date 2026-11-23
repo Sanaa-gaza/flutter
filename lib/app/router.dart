@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_sanaa_app/app/home_placeholder_screen.dart';
 import 'package:flutter_sanaa_app/features/onboarding/presentation/onboarding_screen.dart';
 import 'package:flutter_sanaa_app/features/splash/presentation/splash_screen.dart';
+import 'package:flutter_sanaa_app/features/welcome/presentation/welcome_screen.dart';
 import 'package:go_router/go_router.dart';
 
 abstract final class AppRoutes {
@@ -23,7 +23,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: AppRoutes.welcome,
-        builder: (context, state) => const HomePlaceholderScreen(),
+        builder: (context, state) => const WelcomeScreen(),
       ),
     ],
   );
