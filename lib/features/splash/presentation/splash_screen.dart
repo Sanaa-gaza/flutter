@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
 import 'package:flutter_sanaa_app/core/constants/app_images.dart';
+import 'package:flutter_sanaa_app/features/onboarding/data/onboarding_storage.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
+class _SplashScreenState extends ConsumerState<SplashScreen>
     with SingleTickerProviderStateMixin {
   // Total time includes a short hold on the final logo before moving on.
   static const Duration _duration = Duration(milliseconds: 2200);
@@ -27,9 +29,25 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-    _controller.forward().whenComplete(() {
-      if (mounted) context.go(AppRoutes.onboarding);
-    });
+    _openNextScreen();
+  }
+
+  // Reads the saved flag while the animation plays, so it adds no wait.
+  Future<void> _openNextScreen() async {
+    final seenOnboarding = _readSeenOnboarding();
+    await _controller.forward();
+    final seen = await seenOnboarding;
+    if (!mounted) return;
+    context.go(seen ? AppRoutes.welcome : AppRoutes.onboarding);
+  }
+
+  // If reading fails, showing onboarding again is the safe choice.
+  Future<bool> _readSeenOnboarding() async {
+    try {
+      return await ref.read(onboardingStorageProvider).hasSeen();
+    } on Exception {
+      return false;
+    }
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
 import 'package:flutter_sanaa_app/core/constants/app_animations.dart';
 import 'package:flutter_sanaa_app/core/theme/app_colors.dart';
@@ -7,19 +8,20 @@ import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
 import 'package:flutter_sanaa_app/core/widgets/outlined_app_button.dart';
 import 'package:flutter_sanaa_app/core/widgets/pattern_background.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
+import 'package:flutter_sanaa_app/features/onboarding/data/onboarding_storage.dart';
 import 'package:flutter_sanaa_app/features/onboarding/presentation/widgets/onboarding_animation.dart';
 import 'package:flutter_sanaa_app/features/onboarding/presentation/widgets/onboarding_page_indicator.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  ConsumerState<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   static const List<String> _animations = [
     AppAnimations.onboarding1,
     AppAnimations.onboarding2,
@@ -54,7 +56,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     curve: Curves.easeInOut,
   );
 
-  void _finish() => context.go(AppRoutes.welcome);
+  Future<void> _finish() async {
+    try {
+      await ref.read(onboardingStorageProvider).markSeen();
+    } on Exception {
+      // Not saved: onboarding shows once more next time, nothing breaks.
+    }
+    if (mounted) context.go(AppRoutes.welcome);
+  }
 
   @override
   Widget build(BuildContext context) {
