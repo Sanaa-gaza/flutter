@@ -31,13 +31,18 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
   // Sizes from the Figma onboarding frames.
   static const EdgeInsets _cardMargin = EdgeInsets.fromLTRB(14, 21, 14, 0);
+  static const double _cardHeight = 420;
+  // The card keeps its Figma height and only shrinks when the screen is too
+  // short. The large flex gives it the free space before the spacer gets any.
+  static const int _cardFlex = 1000;
   static const double _cardToIndicator = 22;
   static const double _indicatorToTitle = 46;
   static const double _titleToBody = 2;
   static const double _bodyMinHeight = 67;
   static const double _bodyToButtons = 47;
   static const double _buttonsGap = 16;
-  static const EdgeInsets _bottomPadding = EdgeInsets.fromLTRB(32, 0, 32, 30);
+  static const EdgeInsets _textPadding = EdgeInsets.symmetric(horizontal: 32);
+  static const EdgeInsets _buttonsPadding = EdgeInsets.fromLTRB(32, 0, 32, 30);
 
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -84,21 +89,25 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              Expanded(
+              Flexible(
+                flex: _cardFlex,
                 child: Padding(
                   padding: _cardMargin,
-                  child: _AnimationCard(
-                    skipLabel: l10n.onboardingSkip,
-                    onSkip: _finish,
-                    child: PageView.builder(
-                      controller: _pageController,
-                      itemCount: _animations.length,
-                      onPageChanged: (page) =>
-                          setState(() => _currentPage = page),
-                      itemBuilder: (context, index) => Center(
-                        child: OnboardingAnimation(
-                          asset: _animations[index],
-                          isActive: index == _currentPage,
+                  child: SizedBox(
+                    height: _cardHeight,
+                    child: _AnimationCard(
+                      skipLabel: l10n.onboardingSkip,
+                      onSkip: _finish,
+                      child: PageView.builder(
+                        controller: _pageController,
+                        itemCount: _animations.length,
+                        onPageChanged: (page) =>
+                            setState(() => _currentPage = page),
+                        itemBuilder: (context, index) => Center(
+                          child: OnboardingAnimation(
+                            asset: _animations[index],
+                            isActive: index == _currentPage,
+                          ),
                         ),
                       ),
                     ),
@@ -112,38 +121,35 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
               ),
               const SizedBox(height: _indicatorToTitle),
               Padding(
-                padding: _bottomPadding,
-                child: Column(
-                  children: [
-                    AnimatedSwitcher(
-                      duration: _pageDuration,
-                      child: Column(
-                        key: ValueKey(_currentPage),
-                        children: [
-                          Text(
-                            titles[_currentPage],
-                            style: AppTextStyles.onboardingTitle,
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: _titleToBody),
-                          ConstrainedBox(
-                            constraints: const BoxConstraints(
-                              minHeight: _bodyMinHeight,
-                            ),
-                            child: Text(
-                              bodies[_currentPage],
-                              style: AppTextStyles.onboardingBody,
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
+                padding: _textPadding,
+                child: AnimatedSwitcher(
+                  duration: _pageDuration,
+                  child: Column(
+                    key: ValueKey(_currentPage),
+                    children: [
+                      Text(
+                        titles[_currentPage],
+                        style: AppTextStyles.onboardingTitle,
+                        textAlign: TextAlign.center,
                       ),
-                    ),
-                    const SizedBox(height: _bodyToButtons),
-                    _buildButtons(l10n),
-                  ],
+                      const SizedBox(height: _titleToBody),
+                      ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          minHeight: _bodyMinHeight,
+                        ),
+                        child: Text(
+                          bodies[_currentPage],
+                          style: AppTextStyles.onboardingBody,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
+              const SizedBox(height: _bodyToButtons),
+              const Spacer(),
+              Padding(padding: _buttonsPadding, child: _buildButtons(l10n)),
             ],
           ),
         ),
