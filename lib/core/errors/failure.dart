@@ -6,8 +6,11 @@ final class NetworkFailure extends Failure {
   const NetworkFailure();
 }
 
+/// 401: the session ended, or the login email or password is wrong.
 final class UnauthorizedFailure extends Failure {
-  const UnauthorizedFailure();
+  const UnauthorizedFailure({this.message});
+
+  final String? message;
 }
 
 final class ServerFailure extends Failure {

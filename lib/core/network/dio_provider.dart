@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/core/constants/api_constants.dart';
-import 'package:flutter_sanaa_app/core/network/token_storage.dart';
+import 'package:flutter_sanaa_app/core/network/session_storage.dart';
 
 final dioProvider = Provider<Dio>((ref) {
-  final tokenStorage = ref.watch(tokenStorageProvider);
+  final sessionStorage = ref.watch(sessionStorageProvider);
   final dio = Dio(
     BaseOptions(
       baseUrl: ApiConstants.baseUrl,
@@ -18,7 +18,7 @@ final dioProvider = Provider<Dio>((ref) {
     InterceptorsWrapper(
       onRequest: (options, handler) async {
         if (_isOurBackend(options.uri)) {
-          final token = await tokenStorage.readToken();
+          final token = await sessionStorage.readToken();
           if (token != null) {
             options.headers['Authorization'] = 'Bearer $token';
           }
@@ -28,7 +28,7 @@ final dioProvider = Provider<Dio>((ref) {
       onError: (error, handler) async {
         if (error.response?.statusCode == 401 &&
             _isOurBackend(error.requestOptions.uri)) {
-          await tokenStorage.deleteToken();
+          await sessionStorage.clearSession();
         }
         handler.next(error);
       },

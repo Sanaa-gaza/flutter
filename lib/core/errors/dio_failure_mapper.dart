@@ -6,15 +6,18 @@ Failure mapDioException(DioException exception) {
   if (response == null) return const NetworkFailure();
 
   final statusCode = response.statusCode;
-  if (statusCode == 401) return const UnauthorizedFailure();
-
   final body = response.data;
+  final rawMessage = body is Map ? body['message'] : null;
+  final message = rawMessage is String && rawMessage.isNotEmpty
+      ? rawMessage
+      : null;
+
+  if (statusCode == 401) return UnauthorizedFailure(message: message);
   if (body is! Map) return ServerFailure(statusCode: statusCode);
 
-  final message = body['message'];
   return ServerFailure(
     statusCode: statusCode,
-    message: message is String && message.isNotEmpty ? message : null,
+    message: message,
     fieldErrors: _firstErrorPerField(body['errors']),
     requiresVerification:
         statusCode == 403 && _requiresVerification(body['data']),

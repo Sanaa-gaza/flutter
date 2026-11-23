@@ -28,6 +28,14 @@ void main() {
     );
   });
 
+  test('401 keeps the server message, e.g. a wrong password', () {
+    final failure =
+        mapDioException(_withResponse(401, {'message': 'Wrong password'}))
+            as UnauthorizedFailure;
+
+    expect(failure.message, 'Wrong password');
+  });
+
   test('field errors accept a list or a plain string', () {
     final failure =
         mapDioException(
