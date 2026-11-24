@@ -204,7 +204,8 @@ Explain every folder's purpose to me in Arabic as we create it.
 - Web: Sprint 1 (login + register) is done and connected to the API.
 - Flutter: Sprint 0 is done. Sprint 1 Tasks 1–6 are done (theme, shared widgets,
   validators, network + secure session, splash/onboarding/welcome, reference data on
-  mock). Task 7 (login): data layer done on mock, login screen next. The user asked
-  to build the signup screens (Task 8+) from Figma first.
+  mock). Task 7 (login): data layer done on mock, login screen still to build.
+  Task 8 (goal + account type) and Task 9 (customer signup form, on mock) are done.
+  Next: Task 10 (OTP screen).
 - Designs moved to a new Figma file "San-ah Project" (key `zf8J4u0nLt93R9E3xtkpGP`).
-- Not pushed to GitHub yet: waiting for a private `Mobile-App` repo in the team org.
+- GitHub: https://github.com/Sanaa-gaza/flutter (branch `main`). Push only when I ask.
