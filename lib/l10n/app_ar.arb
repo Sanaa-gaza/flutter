@@ -252,6 +252,51 @@
   "@addressRequired": {
     "description": "Validation error when the home address is empty"
   },
+  "verifyEmailTitle": "تأكيد البريد الإلكتروني",
+  "@verifyEmailTitle": {
+    "description": "Title of the code screen after signup"
+  },
+  "verifyEmailSubtitle": "أدخل الرمز المكوّن من 6 أرقام المرسل إلى بريدك الإلكتروني",
+  "@verifyEmailSubtitle": {
+    "description": "Text under the title of the code screen after signup"
+  },
+  "forgotPasswordTitle": "نسيت كلمة المرور",
+  "@forgotPasswordTitle": {
+    "description": "Title of the forgot password screens"
+  },
+  "resetCodeSubtitle": "أدخل الرمز الذي أرسلناه إلى بريدك الإلكتروني المرتبط بحسابك لإعادة تعيين كلمة المرور",
+  "@resetCodeSubtitle": {
+    "description": "Text under the title of the code screen for a password reset"
+  },
+  "confirmCodeButton": "تأكيد الرمز",
+  "@confirmCodeButton": {
+    "description": "Button that checks the email code"
+  },
+  "codeNotReceived": "لم تتلقَّ أي رمز؟ ",
+  "@codeNotReceived": {
+    "description": "Text before the resend link on the code screen"
+  },
+  "resendCode": "إعادة الإرسال",
+  "@resendCode": {
+    "description": "Link that sends a new email code"
+  },
+  "codeRequired": "يرجى إدخال الرمز المكوّن من 6 أرقام",
+  "@codeRequired": {
+    "description": "Error when the code has fewer than 6 digits"
+  },
+  "codeResent": "أرسلنا رمزاً جديداً إلى بريدك الإلكتروني",
+  "@codeResent": {
+    "description": "Message after a new code was sent"
+  },
+  "signedInAs": "تم تسجيل دخولك كـ {role}",
+  "@signedInAs": {
+    "description": "Temporary home text after login, until the role homes are built",
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

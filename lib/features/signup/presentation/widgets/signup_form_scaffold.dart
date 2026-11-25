@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sanaa_app/core/theme/app_colors.dart';
 import 'package:flutter_sanaa_app/core/theme/app_spacing.dart';
+import 'package:flutter_sanaa_app/core/widgets/app_form_card.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_top_bar.dart';
 import 'package:flutter_sanaa_app/core/widgets/pattern_background.dart';
 import 'package:go_router/go_router.dart';
@@ -29,8 +29,6 @@ class SignupFormScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderRadius = BorderRadius.circular(AppRadius.card);
-
     return Scaffold(
       body: PatternBackground(
         child: SafeArea(
@@ -43,21 +41,7 @@ class SignupFormScaffold extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   padding: _cardMargin,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: borderRadius,
-                      border: Border.all(color: AppColors.cardBorder),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: AppColors.formCardShadow,
-                          offset: Offset(0, 8),
-                          blurRadius: 16,
-                        ),
-                      ],
-                    ),
-                    child: Padding(padding: _cardPadding, child: child),
-                  ),
+                  child: AppFormCard(padding: _cardPadding, child: child),
                 ),
               ),
             ],

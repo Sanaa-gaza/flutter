@@ -476,6 +476,66 @@ abstract class AppLocalizations {
   /// **'يرجى إدخال عنوان السكن'**
   String get addressRequired;
 
+  /// Title of the code screen after signup
+  ///
+  /// In ar, this message translates to:
+  /// **'تأكيد البريد الإلكتروني'**
+  String get verifyEmailTitle;
+
+  /// Text under the title of the code screen after signup
+  ///
+  /// In ar, this message translates to:
+  /// **'أدخل الرمز المكوّن من 6 أرقام المرسل إلى بريدك الإلكتروني'**
+  String get verifyEmailSubtitle;
+
+  /// Title of the forgot password screens
+  ///
+  /// In ar, this message translates to:
+  /// **'نسيت كلمة المرور'**
+  String get forgotPasswordTitle;
+
+  /// Text under the title of the code screen for a password reset
+  ///
+  /// In ar, this message translates to:
+  /// **'أدخل الرمز الذي أرسلناه إلى بريدك الإلكتروني المرتبط بحسابك لإعادة تعيين كلمة المرور'**
+  String get resetCodeSubtitle;
+
+  /// Button that checks the email code
+  ///
+  /// In ar, this message translates to:
+  /// **'تأكيد الرمز'**
+  String get confirmCodeButton;
+
+  /// Text before the resend link on the code screen
+  ///
+  /// In ar, this message translates to:
+  /// **'لم تتلقَّ أي رمز؟ '**
+  String get codeNotReceived;
+
+  /// Link that sends a new email code
+  ///
+  /// In ar, this message translates to:
+  /// **'إعادة الإرسال'**
+  String get resendCode;
+
+  /// Error when the code has fewer than 6 digits
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال الرمز المكوّن من 6 أرقام'**
+  String get codeRequired;
+
+  /// Message after a new code was sent
+  ///
+  /// In ar, this message translates to:
+  /// **'أرسلنا رمزاً جديداً إلى بريدك الإلكتروني'**
+  String get codeResent;
+
+  /// Temporary home text after login, until the role homes are built
+  ///
+  /// In ar, this message translates to:
+  /// **'تم تسجيل دخولك كـ {role}'**
+  String signedInAs(String role);
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:

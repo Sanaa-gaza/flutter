@@ -1,4 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_sanaa_app/features/auth/domain/user.dart';
+import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
+import 'package:flutter_sanaa_app/features/auth/presentation/verify_code_screen.dart';
+import 'package:flutter_sanaa_app/features/home/presentation/home_placeholder_screen.dart';
 import 'package:flutter_sanaa_app/features/onboarding/presentation/onboarding_screen.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/account_type_screen.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/customer_signup_screen.dart';
@@ -14,6 +18,12 @@ abstract final class AppRoutes {
   static const String goal = '/signup/goal';
   static const String _accountType = '/signup/account-type';
   static const String customerSignup = '/signup/customer';
+
+  /// Needs a [VerifyCodeArgs] as `extra`. The email stays out of the URL.
+  static const String verifyCode = '/verify-code';
+
+  /// Needs the signed-in [UserRole] as `extra`.
+  static const String home = '/home';
 
   static String accountType(SignupGoal goal) => '$_accountType/${goal.name}';
 }
@@ -52,6 +62,23 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.customerSignup,
         builder: (context, state) => const CustomerSignupScreen(),
       ),
+      GoRoute(
+        path: AppRoutes.verifyCode,
+        // `extra` is lost if the app restarts on this route: start over.
+        redirect: (context, state) =>
+            state.extra is VerifyCodeArgs ? null : AppRoutes.welcome,
+        builder: (context, state) {
+          final args = state.extra! as VerifyCodeArgs;
+          return VerifyCodeScreen(email: args.email, purpose: args.purpose);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.home,
+        redirect: (context, state) =>
+            state.extra is UserRole ? null : AppRoutes.welcome,
+        builder: (context, state) =>
+            HomePlaceholderScreen(role: state.extra! as UserRole),
+      ),
     ],
   );
   ref.onDispose(router.dispose);
@@ -64,3 +91,5 @@ SignupGoal? _goalFromPath(String? name) {
   }
   return null;
 }
+
+typedef VerifyCodeArgs = ({String email, VerificationPurpose purpose});

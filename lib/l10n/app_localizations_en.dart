@@ -210,6 +210,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addressRequired => 'Please enter your home address';
 
   @override
+  String get verifyEmailTitle => 'Confirm your email';
+
+  @override
+  String get verifyEmailSubtitle =>
+      'Enter the 6-digit code we sent to your email';
+
+  @override
+  String get forgotPasswordTitle => 'Forgot password';
+
+  @override
+  String get resetCodeSubtitle =>
+      'Enter the code we sent to the email linked to your account to reset your password';
+
+  @override
+  String get confirmCodeButton => 'Confirm code';
+
+  @override
+  String get codeNotReceived => 'Didn\'t get a code? ';
+
+  @override
+  String get resendCode => 'Resend';
+
+  @override
+  String get codeRequired => 'Please enter the 6-digit code';
+
+  @override
+  String get codeResent => 'We sent a new code to your email';
+
+  @override
+  String signedInAs(String role) {
+    return 'You are signed in as $role';
+  }
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override

@@ -41,6 +41,20 @@ abstract final class AppTextStyles {
     color: AppColors.darkNavy,
   );
 
+  static const TextStyle caption = TextStyle(
+    fontSize: 9,
+    height: _normalLineHeight,
+    fontWeight: FontWeight.w500,
+    color: AppColors.darkNavy,
+  );
+
+  static const TextStyle resendText = TextStyle(
+    fontSize: 11,
+    height: _normalLineHeight,
+    fontWeight: FontWeight.w500,
+    color: AppColors.darkNavy,
+  );
+
   static const TextStyle optionTitle = TextStyle(
     fontSize: 16,
     height: _normalLineHeight,

@@ -210,6 +210,40 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addressRequired => 'يرجى إدخال عنوان السكن';
 
   @override
+  String get verifyEmailTitle => 'تأكيد البريد الإلكتروني';
+
+  @override
+  String get verifyEmailSubtitle =>
+      'أدخل الرمز المكوّن من 6 أرقام المرسل إلى بريدك الإلكتروني';
+
+  @override
+  String get forgotPasswordTitle => 'نسيت كلمة المرور';
+
+  @override
+  String get resetCodeSubtitle =>
+      'أدخل الرمز الذي أرسلناه إلى بريدك الإلكتروني المرتبط بحسابك لإعادة تعيين كلمة المرور';
+
+  @override
+  String get confirmCodeButton => 'تأكيد الرمز';
+
+  @override
+  String get codeNotReceived => 'لم تتلقَّ أي رمز؟ ';
+
+  @override
+  String get resendCode => 'إعادة الإرسال';
+
+  @override
+  String get codeRequired => 'يرجى إدخال الرمز المكوّن من 6 أرقام';
+
+  @override
+  String get codeResent => 'أرسلنا رمزاً جديداً إلى بريدك الإلكتروني';
+
+  @override
+  String signedInAs(String role) {
+    return 'تم تسجيل دخولك كـ $role';
+  }
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

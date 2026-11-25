@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_sanaa_app/app/router.dart';
 import 'package:flutter_sanaa_app/core/constants/api_constants.dart';
 import 'package:flutter_sanaa_app/core/constants/app_icons.dart';
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
@@ -13,12 +14,14 @@ import 'package:flutter_sanaa_app/core/widgets/app_phone_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_terms_checkbox.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
+import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
 import 'package:flutter_sanaa_app/features/reference_data/domain/reference_item.dart';
 import 'package:flutter_sanaa_app/features/reference_data/presentation/reference_data_providers.dart';
 import 'package:flutter_sanaa_app/features/signup/data/signup_repository_provider.dart';
 import 'package:flutter_sanaa_app/features/signup/domain/customer_signup_request.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/signup_form_scaffold.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomerSignupScreen extends ConsumerStatefulWidget {
   const CustomerSignupScreen({super.key});
@@ -111,7 +114,10 @@ class _CustomerSignupScreenState extends ConsumerState<CustomerSignupScreen> {
       // The password is not needed any more: remove it from memory.
       _passwordController.clear();
       _confirmPasswordController.clear();
-      // Task 10 opens the email verification screen here.
+      context.push(
+        AppRoutes.verifyCode,
+        extra: (email: request.email, purpose: VerificationPurpose.register),
+      );
     } on Failure catch (failure) {
       if (!mounted) return;
       setState(() => _showFailure(failure, l10n));
