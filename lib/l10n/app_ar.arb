@@ -317,6 +317,30 @@
   "@sendCodeButton": {
     "description": "Submit button on the login screen, as written in the design"
   },
+  "forgotPasswordSubtitle": "أدخل بريدك الإلكتروني المرتبط بحسابك وسنرسل لك رمزاً لإعادة تعيين كلمة المرور",
+  "@forgotPasswordSubtitle": {
+    "description": "Text under the title of the forgot password email screen"
+  },
+  "resetPasswordTitle": "تغيير كلمة المرور",
+  "@resetPasswordTitle": {
+    "description": "Title of the new password screen"
+  },
+  "resetPasswordSubtitle": "يرجى إدخال كلمة المرور الجديدة وتأكيدها لضمان أمان حسابك",
+  "@resetPasswordSubtitle": {
+    "description": "Text under the title of the new password screen"
+  },
+  "newPasswordLabel": "كلمة مرور جديدة",
+  "@newPasswordLabel": {
+    "description": "Label above the new password field"
+  },
+  "savePasswordButton": "حفظ كلمة المرور",
+  "@savePasswordButton": {
+    "description": "Button that saves the new password"
+  },
+  "passwordChanged": "تم تغيير كلمة المرور بنجاح، سجّل دخولك بكلمة المرور الجديدة",
+  "@passwordChanged": {
+    "description": "Message on the login screen after the password was changed"
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

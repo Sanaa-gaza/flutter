@@ -52,6 +52,7 @@ Future<void> _login(WidgetTester tester, String email, String password) async {
   final fields = find.byType(EditableText);
   await tester.enterText(fields.at(0), email);
   await tester.enterText(fields.at(1), password);
+  await tester.ensureVisible(find.byType(PrimaryButton));
   await tester.tap(find.byType(PrimaryButton));
   await tester.pump(const Duration(seconds: 1));
   await tester.pumpAndSettle();
@@ -60,6 +61,7 @@ Future<void> _login(WidgetTester tester, String email, String password) async {
 void main() {
   testWidgets('empty fields show their errors', (tester) async {
     await _openLogin(tester);
+    await tester.ensureVisible(find.byType(PrimaryButton));
     await tester.tap(find.byType(PrimaryButton));
     await tester.pumpAndSettle();
     expect(find.text('البريد الإلكتروني مطلوب'), findsOneWidget);

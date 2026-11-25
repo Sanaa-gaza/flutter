@@ -1,7 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/user.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
+import 'package:flutter_sanaa_app/features/auth/presentation/forgot_password_screen.dart';
 import 'package:flutter_sanaa_app/features/auth/presentation/login_screen.dart';
+import 'package:flutter_sanaa_app/features/auth/presentation/reset_password_screen.dart';
 import 'package:flutter_sanaa_app/features/auth/presentation/verify_code_screen.dart';
 import 'package:flutter_sanaa_app/features/home/presentation/home_placeholder_screen.dart';
 import 'package:flutter_sanaa_app/features/onboarding/presentation/onboarding_screen.dart';
@@ -17,6 +19,10 @@ abstract final class AppRoutes {
   static const String onboarding = '/onboarding';
   static const String welcome = '/welcome';
   static const String login = '/login';
+  static const String forgotPassword = '/forgot-password';
+
+  /// Needs the reset token (a [String]) as `extra`; it never goes in the URL.
+  static const String resetPassword = '/reset-password';
   static const String goal = '/signup/goal';
   static const String _accountType = '/signup/account-type';
   static const String customerSignup = '/signup/customer';
@@ -48,6 +54,17 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.login,
         builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.forgotPassword,
+        builder: (context, state) => const ForgotPasswordScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.resetPassword,
+        redirect: (context, state) =>
+            state.extra is String ? null : AppRoutes.login,
+        builder: (context, state) =>
+            ResetPasswordScreen(resetToken: state.extra! as String),
       ),
       GoRoute(
         path: AppRoutes.goal,

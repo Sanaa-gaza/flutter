@@ -566,6 +566,42 @@ abstract class AppLocalizations {
   /// **'إرسال الكود'**
   String get sendCodeButton;
 
+  /// Text under the title of the forgot password email screen
+  ///
+  /// In ar, this message translates to:
+  /// **'أدخل بريدك الإلكتروني المرتبط بحسابك وسنرسل لك رمزاً لإعادة تعيين كلمة المرور'**
+  String get forgotPasswordSubtitle;
+
+  /// Title of the new password screen
+  ///
+  /// In ar, this message translates to:
+  /// **'تغيير كلمة المرور'**
+  String get resetPasswordTitle;
+
+  /// Text under the title of the new password screen
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال كلمة المرور الجديدة وتأكيدها لضمان أمان حسابك'**
+  String get resetPasswordSubtitle;
+
+  /// Label above the new password field
+  ///
+  /// In ar, this message translates to:
+  /// **'كلمة مرور جديدة'**
+  String get newPasswordLabel;
+
+  /// Button that saves the new password
+  ///
+  /// In ar, this message translates to:
+  /// **'حفظ كلمة المرور'**
+  String get savePasswordButton;
+
+  /// Message on the login screen after the password was changed
+  ///
+  /// In ar, this message translates to:
+  /// **'تم تغيير كلمة المرور بنجاح، سجّل دخولك بكلمة المرور الجديدة'**
+  String get passwordChanged;
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:

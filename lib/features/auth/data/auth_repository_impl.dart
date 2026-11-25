@@ -68,6 +68,21 @@ class AuthRepositoryImpl implements AuthRepository {
     'purpose': purpose.apiName,
   });
 
+  @override
+  Future<void> forgotPassword({required String email}) =>
+      _post('/auth/forgot-password', {'email': email.trim()});
+
+  @override
+  Future<void> resetPassword({
+    required String resetToken,
+    required String password,
+    required String passwordConfirmation,
+  }) => _post('/auth/reset-password', {
+    'reset_token': resetToken,
+    'password': password,
+    'password_confirmation': passwordConfirmation,
+  });
+
   /// Sends the request and returns the `data` part of the response.
   Future<Object?> _post(String path, Map<String, Object?> body) async {
     try {

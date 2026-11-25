@@ -13,6 +13,7 @@ import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
 /// - Password `Wrong123!` answers like a wrong password.
 /// - An email that starts with `unverified` asks for email verification.
 /// - The email code `123456` is correct; any other code is wrong.
+/// - Forgot password with an email that starts with `nobody` finds no account.
 class MockAuthRepository implements AuthRepository {
   MockAuthRepository(this._sessionStorage);
 
@@ -22,6 +23,7 @@ class MockAuthRepository implements AuthRepository {
   static const String _wrongPassword = 'Wrong123!';
   static const String _unverifiedPrefix = 'unverified';
   static const String _correctCode = '123456';
+  static const String _unknownPrefix = 'nobody';
 
   @override
   Future<User> login({required String email, required String password}) async {
@@ -71,6 +73,24 @@ class MockAuthRepository implements AuthRepository {
   Future<void> resendCode({
     required String email,
     required VerificationPurpose purpose,
+  }) => Future<void>.delayed(_delay);
+
+  @override
+  Future<void> forgotPassword({required String email}) async {
+    await Future<void>.delayed(_delay);
+    if (email.trim().startsWith(_unknownPrefix)) {
+      throw const ServerFailure(
+        statusCode: 422,
+        fieldErrors: {'email': 'لا يوجد حساب مرتبط بهذا البريد الإلكتروني.'},
+      );
+    }
+  }
+
+  @override
+  Future<void> resetPassword({
+    required String resetToken,
+    required String password,
+    required String passwordConfirmation,
   }) => Future<void>.delayed(_delay);
 
   Future<User> _startSession(String email) async {

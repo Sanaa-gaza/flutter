@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
-import 'package:flutter_sanaa_app/core/constants/app_images.dart';
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
+import 'package:flutter_sanaa_app/core/errors/failure_message.dart';
 import 'package:flutter_sanaa_app/core/theme/app_colors.dart';
-import 'package:flutter_sanaa_app/core/theme/app_spacing.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
-import 'package:flutter_sanaa_app/core/widgets/app_form_card.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_otp_input.dart';
-import 'package:flutter_sanaa_app/core/widgets/app_top_bar.dart';
-import 'package:flutter_sanaa_app/core/widgets/pattern_background.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
 import 'package:flutter_sanaa_app/features/auth/data/auth_repository_provider.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
+import 'package:flutter_sanaa_app/features/auth/presentation/widgets/auth_scaffold.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,21 +30,6 @@ class VerifyCodeScreen extends ConsumerStatefulWidget {
 
 class _VerifyCodeScreenState extends ConsumerState<VerifyCodeScreen> {
   // Sizes from the Figma code frame.
-  static const EdgeInsets _topBarPadding = EdgeInsets.fromLTRB(
-    AppSpacing.screenHorizontal,
-    14,
-    AppSpacing.screenHorizontal,
-    0,
-  );
-  static const EdgeInsets _contentPadding = EdgeInsets.fromLTRB(24, 19, 25, 24);
-  static const EdgeInsets _cardPadding = EdgeInsets.symmetric(
-    horizontal: 16,
-    vertical: 26,
-  );
-  static const double _logoWidth = 109;
-  static const double _titleToSubtitle = 3;
-  static const double _subtitleMaxWidth = 200;
-  static const double _subtitleToCard = 34;
   static const double _codeToButton = 16;
   static const double _cardToResend = 18;
 
@@ -96,11 +78,11 @@ class _VerifyCodeScreenState extends ConsumerState<VerifyCodeScreen> {
       switch (result) {
         case VerifiedSession(:final user):
           context.go(AppRoutes.home, extra: user.role);
-        case ResetAllowed():
-        // Task 11 opens the reset password screen with the token.
+        case ResetAllowed(:final resetToken):
+          context.pushReplacement(AppRoutes.resetPassword, extra: resetToken);
       }
     } on Failure catch (failure) {
-      if (mounted) _resetCode(_messageFor(failure, l10n));
+      if (mounted) _resetCode(failureMessage(failure, l10n));
     } finally {
       if (mounted) setState(() => _isSubmitting = false);
     }
@@ -119,19 +101,11 @@ class _VerifyCodeScreenState extends ConsumerState<VerifyCodeScreen> {
       setState(() => _codeError = null);
       messenger.showSnackBar(SnackBar(content: Text(l10n.codeResent)));
     } on Failure catch (failure) {
-      if (mounted) setState(() => _codeError = _messageFor(failure, l10n));
+      if (mounted) setState(() => _codeError = failureMessage(failure, l10n));
     } finally {
       if (mounted) setState(() => _isResending = false);
     }
   }
-
-  String _messageFor(Failure failure, AppLocalizations l10n) =>
-      switch (failure) {
-        NetworkFailure() => l10n.networkError,
-        UnauthorizedFailure(:final message) => message ?? l10n.networkError,
-        ServerFailure(:final message, :final fieldErrors) =>
-          message ?? fieldErrors.values.firstOrNull ?? l10n.networkError,
-      };
 
   @override
   Widget build(BuildContext context) {
@@ -147,94 +121,50 @@ class _VerifyCodeScreenState extends ConsumerState<VerifyCodeScreen> {
       ),
     };
 
-    return Scaffold(
-      body: PatternBackground(
-        child: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: _topBarPadding,
-                child: AppTopBar(onBack: () => context.pop()),
+    return AuthScaffold(
+      title: title,
+      subtitle: Text(
+        subtitle,
+        style: AppTextStyles.caption,
+        textAlign: TextAlign.center,
+      ),
+      onBack: () => context.pop(),
+      card: Column(
+        children: [
+          AppOtpInput(
+            label: l10n.otpLabel,
+            controller: _codeController,
+            focusNode: _codeFocusNode,
+            errorText: _codeError,
+          ),
+          const SizedBox(height: _codeToButton),
+          PrimaryButton(
+            label: l10n.confirmCodeButton,
+            isLoading: _isSubmitting,
+            onPressed: _submit,
+          ),
+        ],
+      ),
+      footer: Padding(
+        padding: const EdgeInsets.only(top: _cardToResend),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(l10n.codeNotReceived, style: AppTextStyles.resendText),
+            TextButton(
+              onPressed: _isResending || _isSubmitting ? null : _resend,
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                minimumSize: Size.zero,
               ),
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: _contentPadding,
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        AppImages.logoMark,
-                        width: _logoWidth,
-                        semanticLabel: l10n.appTitle,
-                      ),
-                      const SizedBox(height: AppSpacing.logoToTitle),
-                      Text(
-                        title,
-                        style: AppTextStyles.screenTitle,
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: _titleToSubtitle),
-                      ConstrainedBox(
-                        constraints: const BoxConstraints(
-                          maxWidth: _subtitleMaxWidth,
-                        ),
-                        child: Text(
-                          subtitle,
-                          style: AppTextStyles.caption,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      const SizedBox(height: _subtitleToCard),
-                      AppFormCard(
-                        padding: _cardPadding,
-                        child: Column(
-                          children: [
-                            AppOtpInput(
-                              label: l10n.otpLabel,
-                              controller: _codeController,
-                              focusNode: _codeFocusNode,
-                              errorText: _codeError,
-                            ),
-                            const SizedBox(height: _codeToButton),
-                            PrimaryButton(
-                              label: l10n.confirmCodeButton,
-                              isLoading: _isSubmitting,
-                              onPressed: _submit,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: _cardToResend),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            l10n.codeNotReceived,
-                            style: AppTextStyles.resendText,
-                          ),
-                          TextButton(
-                            onPressed: _isResending || _isSubmitting
-                                ? null
-                                : _resend,
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              minimumSize: Size.zero,
-                              tapTargetSize: MaterialTapTargetSize.padded,
-                            ),
-                            child: Text(
-                              l10n.resendCode,
-                              style: AppTextStyles.resendText.copyWith(
-                                color: AppColors.primary,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+              child: Text(
+                l10n.resendCode,
+                style: AppTextStyles.resendText.copyWith(
+                  color: AppColors.primary,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

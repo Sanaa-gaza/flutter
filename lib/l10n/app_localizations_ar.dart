@@ -259,6 +259,27 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sendCodeButton => 'إرسال الكود';
 
   @override
+  String get forgotPasswordSubtitle =>
+      'أدخل بريدك الإلكتروني المرتبط بحسابك وسنرسل لك رمزاً لإعادة تعيين كلمة المرور';
+
+  @override
+  String get resetPasswordTitle => 'تغيير كلمة المرور';
+
+  @override
+  String get resetPasswordSubtitle =>
+      'يرجى إدخال كلمة المرور الجديدة وتأكيدها لضمان أمان حسابك';
+
+  @override
+  String get newPasswordLabel => 'كلمة مرور جديدة';
+
+  @override
+  String get savePasswordButton => 'حفظ كلمة المرور';
+
+  @override
+  String get passwordChanged =>
+      'تم تغيير كلمة المرور بنجاح، سجّل دخولك بكلمة المرور الجديدة';
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

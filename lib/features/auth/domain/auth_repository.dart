@@ -22,4 +22,15 @@ abstract interface class AuthRepository {
     required String email,
     required VerificationPurpose purpose,
   });
+
+  /// Emails a reset code; then the user checks it with [verifyEmail]
+  /// (purpose [VerificationPurpose.reset]).
+  Future<void> forgotPassword({required String email});
+
+  /// Sets a new password with the token from the reset code.
+  Future<void> resetPassword({
+    required String resetToken,
+    required String password,
+    required String passwordConfirmation,
+  });
 }

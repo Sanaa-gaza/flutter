@@ -3,21 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
 import 'package:flutter_sanaa_app/core/constants/app_icons.dart';
-import 'package:flutter_sanaa_app/core/constants/app_images.dart';
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
-import 'package:flutter_sanaa_app/core/theme/app_spacing.dart';
+import 'package:flutter_sanaa_app/core/errors/failure_message.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
 import 'package:flutter_sanaa_app/core/utils/validation_error_text.dart';
 import 'package:flutter_sanaa_app/core/utils/validators.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_error_alert.dart';
-import 'package:flutter_sanaa_app/core/widgets/app_form_card.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_password_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
-import 'package:flutter_sanaa_app/core/widgets/app_top_bar.dart';
-import 'package:flutter_sanaa_app/core/widgets/pattern_background.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
 import 'package:flutter_sanaa_app/features/auth/data/auth_repository_provider.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
+import 'package:flutter_sanaa_app/features/auth/presentation/widgets/auth_scaffold.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
@@ -30,19 +27,6 @@ class LoginScreen extends ConsumerStatefulWidget {
 
 class _LoginScreenState extends ConsumerState<LoginScreen> {
   // Sizes from the Figma login frame.
-  static const EdgeInsets _topBarPadding = EdgeInsets.fromLTRB(
-    AppSpacing.screenHorizontal,
-    14,
-    AppSpacing.screenHorizontal,
-    0,
-  );
-  static const EdgeInsets _contentPadding = EdgeInsets.fromLTRB(24, 15, 25, 24);
-  static const EdgeInsets _cardPadding = EdgeInsets.symmetric(
-    horizontal: 16,
-    vertical: 26,
-  );
-  static const double _logoWidth = 109;
-  static const double _titleToSubtitle = 3;
   static const double _subtitleToCard = 27;
   static const double _fieldsGap = 22;
   static const double _passwordToForgot = 15;
@@ -92,99 +76,52 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           extra: (email: email, purpose: VerificationPurpose.register),
         );
       } else {
-        setState(() => _generalError = _messageFor(failure, l10n));
+        setState(() => _generalError = failureMessage(failure, l10n));
       }
     } finally {
       if (mounted) setState(() => _isSubmitting = false);
     }
   }
 
-  String _messageFor(Failure failure, AppLocalizations l10n) =>
-      switch (failure) {
-        NetworkFailure() => l10n.networkError,
-        UnauthorizedFailure(:final message) => message ?? l10n.networkError,
-        ServerFailure(:final message, :final fieldErrors) =>
-          message ?? fieldErrors.values.firstOrNull ?? l10n.networkError,
-      };
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
-    return Scaffold(
-      body: PatternBackground(
-        child: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: _topBarPadding,
-                child: AppTopBar(onBack: () => context.pop()),
+    return AuthScaffold(
+      title: l10n.loginButton,
+      subtitle: Text.rich(
+        TextSpan(
+          text: l10n.loginNoAccountPrefix,
+          children: [
+            TextSpan(
+              text: l10n.createAccountButton,
+              style: const TextStyle(fontWeight: FontWeight.w700),
+              recognizer: _subtitleLinkRecognizer,
+            ),
+          ],
+        ),
+        style: AppTextStyles.resendText,
+        textAlign: TextAlign.center,
+      ),
+      subtitleToCard: _subtitleToCard,
+      onBack: () =>
+          context.canPop() ? context.pop() : context.go(AppRoutes.welcome),
+      card: _buildForm(l10n),
+      footer: Padding(
+        padding: const EdgeInsets.only(top: _cardToPrompt),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(l10n.loginNoAccount, style: AppTextStyles.mutedPrompt),
+            TextButton(
+              onPressed: _openSignup,
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                minimumSize: Size.zero,
               ),
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: _contentPadding,
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        AppImages.logoMark,
-                        width: _logoWidth,
-                        semanticLabel: l10n.appTitle,
-                      ),
-                      const SizedBox(height: AppSpacing.logoToTitle),
-                      Text(
-                        l10n.loginButton,
-                        style: AppTextStyles.screenTitle,
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: _titleToSubtitle),
-                      Text.rich(
-                        TextSpan(
-                          text: l10n.loginNoAccountPrefix,
-                          children: [
-                            TextSpan(
-                              text: l10n.createAccountButton,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                              ),
-                              recognizer: _subtitleLinkRecognizer,
-                            ),
-                          ],
-                        ),
-                        style: AppTextStyles.resendText,
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: _subtitleToCard),
-                      AppFormCard(
-                        padding: _cardPadding,
-                        child: _buildForm(l10n),
-                      ),
-                      const SizedBox(height: _cardToPrompt),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            l10n.loginNoAccount,
-                            style: AppTextStyles.mutedPrompt,
-                          ),
-                          TextButton(
-                            onPressed: _openSignup,
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              minimumSize: Size.zero,
-                            ),
-                            child: Text(
-                              l10n.createAccountButton,
-                              style: AppTextStyles.link,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+              child: Text(l10n.createAccountButton, style: AppTextStyles.link),
+            ),
+          ],
         ),
       ),
     );
@@ -229,8 +166,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             Align(
               alignment: AlignmentDirectional.centerStart,
               child: TextButton(
-                // Opens the forgot password screen in Task 11.
-                onPressed: () {},
+                onPressed: () => context.push(AppRoutes.forgotPassword),
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                   minimumSize: Size.zero,
