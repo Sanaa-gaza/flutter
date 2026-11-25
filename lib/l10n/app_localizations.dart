@@ -536,6 +536,36 @@ abstract class AppLocalizations {
   /// **'تم تسجيل دخولك كـ {role}'**
   String signedInAs(String role);
 
+  /// Text under the login title, before the bold create account link
+  ///
+  /// In ar, this message translates to:
+  /// **'لا تمتلك حساب؟ الرجوع إلى '**
+  String get loginNoAccountPrefix;
+
+  /// Text at the bottom of the login screen, before the create account link
+  ///
+  /// In ar, this message translates to:
+  /// **'ليس لديك حساب؟ '**
+  String get loginNoAccount;
+
+  /// Placeholder inside the password field on the login screen
+  ///
+  /// In ar, this message translates to:
+  /// **'أدخل كلمة المرور'**
+  String get loginPasswordHint;
+
+  /// Link under the password field on the login screen
+  ///
+  /// In ar, this message translates to:
+  /// **'نسيت كلمة المرور؟'**
+  String get forgotPasswordLink;
+
+  /// Submit button on the login screen, as written in the design
+  ///
+  /// In ar, this message translates to:
+  /// **'إرسال الكود'**
+  String get sendCodeButton;
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:

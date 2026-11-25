@@ -9,7 +9,8 @@ import 'package:flutter_sanaa_app/features/auth/domain/user.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 
 /// Shown after signing in, until the role homes are built (Task 15):
-/// a green check with the role for a moment, then the logo.
+/// the logo. Other roles first see a green check with the role for a moment,
+/// until their "account under review" design is ready.
 class HomePlaceholderScreen extends StatefulWidget {
   const HomePlaceholderScreen({super.key, required this.role});
 
@@ -27,18 +28,22 @@ class _HomePlaceholderScreenState extends State<HomePlaceholderScreen> {
   static const double _checkToText = 16;
   static const double _logoWidth = 102;
 
-  late final Timer _timer;
-  bool _showLogo = false;
+  Timer? _timer;
+
+  // Customers need no account review, so they skip the green check.
+  late bool _showLogo = widget.role == UserRole.customer;
 
   @override
   void initState() {
     super.initState();
-    _timer = Timer(_successDuration, () => setState(() => _showLogo = true));
+    if (!_showLogo) {
+      _timer = Timer(_successDuration, () => setState(() => _showLogo = true));
+    }
   }
 
   @override
   void dispose() {
-    _timer.cancel();
+    _timer?.cancel();
     super.dispose();
   }
 

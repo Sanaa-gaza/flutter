@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/user.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
+import 'package:flutter_sanaa_app/features/auth/presentation/login_screen.dart';
 import 'package:flutter_sanaa_app/features/auth/presentation/verify_code_screen.dart';
 import 'package:flutter_sanaa_app/features/home/presentation/home_placeholder_screen.dart';
 import 'package:flutter_sanaa_app/features/onboarding/presentation/onboarding_screen.dart';
@@ -15,6 +16,7 @@ abstract final class AppRoutes {
   static const String splash = '/';
   static const String onboarding = '/onboarding';
   static const String welcome = '/welcome';
+  static const String login = '/login';
   static const String goal = '/signup/goal';
   static const String _accountType = '/signup/account-type';
   static const String customerSignup = '/signup/customer';
@@ -42,6 +44,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.welcome,
         builder: (context, state) => const WelcomeScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.login,
+        builder: (context, state) => const LoginScreen(),
       ),
       GoRoute(
         path: AppRoutes.goal,

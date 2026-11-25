@@ -244,6 +244,21 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get loginNoAccountPrefix => 'لا تمتلك حساب؟ الرجوع إلى ';
+
+  @override
+  String get loginNoAccount => 'ليس لديك حساب؟ ';
+
+  @override
+  String get loginPasswordHint => 'أدخل كلمة المرور';
+
+  @override
+  String get forgotPasswordLink => 'نسيت كلمة المرور؟';
+
+  @override
+  String get sendCodeButton => 'إرسال الكود';
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

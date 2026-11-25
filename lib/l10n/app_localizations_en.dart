@@ -244,6 +244,21 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get loginNoAccountPrefix => 'No account? Go back to ';
+
+  @override
+  String get loginNoAccount => 'Don\'t have an account? ';
+
+  @override
+  String get loginPasswordHint => 'Enter your password';
+
+  @override
+  String get forgotPasswordLink => 'Forgot password?';
+
+  @override
+  String get sendCodeButton => 'Send code';
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override

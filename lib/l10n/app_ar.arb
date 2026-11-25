@@ -297,6 +297,26 @@
       }
     }
   },
+  "loginNoAccountPrefix": "لا تمتلك حساب؟ الرجوع إلى ",
+  "@loginNoAccountPrefix": {
+    "description": "Text under the login title, before the bold create account link"
+  },
+  "loginNoAccount": "ليس لديك حساب؟ ",
+  "@loginNoAccount": {
+    "description": "Text at the bottom of the login screen, before the create account link"
+  },
+  "loginPasswordHint": "أدخل كلمة المرور",
+  "@loginPasswordHint": {
+    "description": "Placeholder inside the password field on the login screen"
+  },
+  "forgotPasswordLink": "نسيت كلمة المرور؟",
+  "@forgotPasswordLink": {
+    "description": "Link under the password field on the login screen"
+  },
+  "sendCodeButton": "إرسال الكود",
+  "@sendCodeButton": {
+    "description": "Submit button on the login screen, as written in the design"
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

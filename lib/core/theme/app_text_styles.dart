@@ -48,6 +48,20 @@ abstract final class AppTextStyles {
     color: AppColors.darkNavy,
   );
 
+  static const TextStyle forgotPasswordLink = TextStyle(
+    fontSize: 10,
+    height: _normalLineHeight,
+    fontWeight: FontWeight.w600,
+    color: AppColors.textPrimary,
+  );
+
+  static const TextStyle mutedPrompt = TextStyle(
+    fontSize: 14,
+    height: _normalLineHeight,
+    fontWeight: FontWeight.w600,
+    color: AppColors.textMuted,
+  );
+
   static const TextStyle resendText = TextStyle(
     fontSize: 11,
     height: _normalLineHeight,

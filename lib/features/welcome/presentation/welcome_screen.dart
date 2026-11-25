@@ -72,8 +72,7 @@ class WelcomeScreen extends StatelessWidget {
                       OutlinedAppButton(
                         label: l10n.loginButton,
                         height: AppSizes.buttonHeightLarge,
-                        // Opens the login screen in Task 7.
-                        onPressed: () {},
+                        onPressed: () => context.push(AppRoutes.login),
                       ),
                       const SizedBox(height: _buttonsGap),
                       TextButton(
