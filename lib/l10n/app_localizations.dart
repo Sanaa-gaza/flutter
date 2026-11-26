@@ -665,7 +665,7 @@ abstract class AppLocalizations {
   /// Error when the picked photo is larger than 10MB
   ///
   /// In ar, this message translates to:
-  /// **'حجم الصورة أكبر من 10 ميجابايت، اختر صورة أصغر'**
+  /// **'حجم الملف أكبر من 10 ميجابايت، اختر ملفاً أصغر'**
   String get photoTooLarge;
 
   /// Error when the picked file is not a JPG or PNG image
@@ -673,6 +673,18 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'يرجى اختيار صورة بصيغة JPG أو PNG'**
   String get photoUnsupportedType;
+
+  /// Option to choose a file from the file manager or Google Drive
+  ///
+  /// In ar, this message translates to:
+  /// **'الملفات أو Google Drive'**
+  String get uploadFromFiles;
+
+  /// Error when the picked file is not a JPG, PNG or PDF
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى اختيار ملف بصيغة JPG أو PNG أو PDF'**
+  String get fileUnsupportedType;
 
   /// Validation error when the profile photo is missing
   ///

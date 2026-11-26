@@ -310,10 +310,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get photoTooLarge =>
-      'The photo is larger than 10MB, choose a smaller one';
+      'The file is larger than 10MB, choose a smaller one';
 
   @override
   String get photoUnsupportedType => 'Please choose a JPG or PNG photo';
+
+  @override
+  String get uploadFromFiles => 'Files or Google Drive';
+
+  @override
+  String get fileUnsupportedType => 'Please choose a JPG, PNG or PDF file';
 
   @override
   String get avatarRequired => 'Please add a profile photo';

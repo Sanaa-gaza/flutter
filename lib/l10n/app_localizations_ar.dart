@@ -309,10 +309,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get photoFromGallery => 'المعرض';
 
   @override
-  String get photoTooLarge => 'حجم الصورة أكبر من 10 ميجابايت، اختر صورة أصغر';
+  String get photoTooLarge => 'حجم الملف أكبر من 10 ميجابايت، اختر ملفاً أصغر';
 
   @override
   String get photoUnsupportedType => 'يرجى اختيار صورة بصيغة JPG أو PNG';
+
+  @override
+  String get uploadFromFiles => 'الملفات أو Google Drive';
+
+  @override
+  String get fileUnsupportedType => 'يرجى اختيار ملف بصيغة JPG أو PNG أو PDF';
 
   @override
   String get avatarRequired => 'يرجى إضافة صورة شخصية';

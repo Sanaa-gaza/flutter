@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
 import 'package:flutter_sanaa_app/core/errors/failure_message.dart';
+import 'package:flutter_sanaa_app/core/utils/upload_picker.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
 import 'package:flutter_sanaa_app/core/utils/validation_error_text.dart';
 import 'package:flutter_sanaa_app/core/utils/validators.dart';
@@ -15,20 +16,20 @@ import 'package:flutter_sanaa_app/core/widgets/app_step_indicator.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_terms_checkbox.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_upload_box.dart';
+import 'package:flutter_sanaa_app/core/widgets/upload_preview.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
 import 'package:flutter_sanaa_app/features/reference_data/domain/reference_item.dart';
 import 'package:flutter_sanaa_app/features/reference_data/presentation/reference_data_providers.dart';
 import 'package:flutter_sanaa_app/features/signup/data/signup_repository_provider.dart';
 import 'package:flutter_sanaa_app/features/signup/domain/craftsman_signup_request.dart';
-import 'package:flutter_sanaa_app/features/signup/presentation/pick_checked_photo.dart';
+import 'package:flutter_sanaa_app/features/signup/presentation/pick_checked_upload.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/signup_draft.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/signup_errors.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/profile_photo_picker.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/signup_form_scaffold.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:image_picker/image_picker.dart';
 
 /// Craftsman signup, step 2 of 2: craft, bio and photos, then the account
 /// is created.
@@ -64,8 +65,8 @@ class _CraftsmanSignupStep2ScreenState
   final _bioController = TextEditingController();
 
   ReferenceItem? _craft;
-  XFile? _profilePhoto;
-  XFile? _idSelfie;
+  UploadPicked? _profilePhoto;
+  UploadPicked? _idSelfie;
   String? _profilePhotoError;
   String? _idSelfieError;
   bool _termsAccepted = false;
@@ -91,18 +92,20 @@ class _CraftsmanSignupStep2ScreenState
   }
 
   Future<void> _pickProfilePhoto() async {
-    final photo = await pickCheckedPhoto(
+    final photo = await pickCheckedUpload(
       context,
       ref,
+      allowPdf: false,
       onError: (error) => setState(() => _profilePhotoError = error),
     );
     if (photo != null) setState(() => _profilePhoto = photo);
   }
 
   Future<void> _pickIdSelfie() async {
-    final photo = await pickCheckedPhoto(
+    final photo = await pickCheckedUpload(
       context,
       ref,
+      allowPdf: false,
       onError: (error) => setState(() => _idSelfieError = error),
     );
     if (photo != null) setState(() => _idSelfie = photo);
@@ -135,8 +138,8 @@ class _CraftsmanSignupStep2ScreenState
     try {
       // Files go first; the signup request carries their server paths.
       final (photoPath, selfiePath) = await (
-        repository.uploadFile(profilePhoto.path),
-        repository.uploadFile(idSelfie.path),
+        repository.uploadFile(profilePhoto.file.path),
+        repository.uploadFile(idSelfie.file.path),
       ).wait;
       final request = CraftsmanSignupRequest(
         personalInfo: personalInfo,
@@ -219,7 +222,7 @@ class _CraftsmanSignupStep2ScreenState
                 onTap: _pickProfilePhoto,
                 photo: _profilePhoto == null
                     ? null
-                    : FileImage(File(_profilePhoto!.path)),
+                    : FileImage(File(_profilePhoto!.file.path)),
                 errorText: _profilePhotoError,
               ),
             ),
@@ -276,7 +279,7 @@ class _CraftsmanSignupStep2ScreenState
               onTap: _pickIdSelfie,
               preview: _idSelfie == null
                   ? null
-                  : Image.file(File(_idSelfie!.path), fit: BoxFit.cover),
+                  : UploadPreview(upload: _idSelfie!),
               errorText: _idSelfieError,
             ),
             const SizedBox(height: _fieldsToTerms),

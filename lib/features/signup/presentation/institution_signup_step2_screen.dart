@@ -1,11 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
 import 'package:flutter_sanaa_app/core/constants/app_icons.dart';
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
+import 'package:flutter_sanaa_app/core/utils/upload_picker.dart';
 import 'package:flutter_sanaa_app/core/utils/validation_error_text.dart';
 import 'package:flutter_sanaa_app/core/utils/validators.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_error_alert.dart';
@@ -14,17 +13,17 @@ import 'package:flutter_sanaa_app/core/widgets/app_step_indicator.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_terms_checkbox.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_upload_box.dart';
+import 'package:flutter_sanaa_app/core/widgets/upload_preview.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
 import 'package:flutter_sanaa_app/features/signup/data/signup_repository_provider.dart';
 import 'package:flutter_sanaa_app/features/signup/domain/institution_signup_request.dart';
-import 'package:flutter_sanaa_app/features/signup/presentation/pick_checked_photo.dart';
+import 'package:flutter_sanaa_app/features/signup/presentation/pick_checked_upload.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/signup_draft.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/signup_errors.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/signup_form_scaffold.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:image_picker/image_picker.dart';
 
 /// Institution signup, step 2 of 2: registration number, business license
 /// and description, then the account is created.
@@ -53,7 +52,7 @@ class _InstitutionSignupStep2ScreenState
   final _regNumberController = TextEditingController();
   final _descriptionController = TextEditingController();
 
-  XFile? _license;
+  UploadPicked? _license;
   String? _licenseError;
   bool _termsAccepted = false;
   bool _showTermsError = false;
@@ -76,9 +75,10 @@ class _InstitutionSignupStep2ScreenState
   }
 
   Future<void> _pickLicense() async {
-    final photo = await pickCheckedPhoto(
+    final photo = await pickCheckedUpload(
       context,
       ref,
+      allowPdf: true,
       onError: (error) => setState(() => _licenseError = error),
     );
     if (photo != null) setState(() => _license = photo);
@@ -103,7 +103,7 @@ class _InstitutionSignupStep2ScreenState
     final repository = ref.read(signupRepositoryProvider);
     try {
       // The file goes first; the signup request carries its server path.
-      final licensePath = await repository.uploadFile(license.path);
+      final licensePath = await repository.uploadFile(license.file.path);
       await repository.registerInstitution(
         InstitutionSignupRequest(
           step1: step1,
@@ -188,7 +188,7 @@ class _InstitutionSignupStep2ScreenState
               onTap: _pickLicense,
               preview: _license == null
                   ? null
-                  : Image.file(File(_license!.path), fit: BoxFit.cover),
+                  : UploadPreview(upload: _license!),
               errorText: _licenseError,
             ),
             const SizedBox(height: _fieldsGap),

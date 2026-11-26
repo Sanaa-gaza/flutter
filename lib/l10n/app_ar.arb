@@ -376,13 +376,21 @@
   "@photoFromGallery": {
     "description": "Option to choose a photo from the gallery"
   },
-  "photoTooLarge": "حجم الصورة أكبر من 10 ميجابايت، اختر صورة أصغر",
+  "photoTooLarge": "حجم الملف أكبر من 10 ميجابايت، اختر ملفاً أصغر",
   "@photoTooLarge": {
     "description": "Error when the picked photo is larger than 10MB"
   },
   "photoUnsupportedType": "يرجى اختيار صورة بصيغة JPG أو PNG",
   "@photoUnsupportedType": {
     "description": "Error when the picked file is not a JPG or PNG image"
+  },
+  "uploadFromFiles": "الملفات أو Google Drive",
+  "@uploadFromFiles": {
+    "description": "Option to choose a file from the file manager or Google Drive"
+  },
+  "fileUnsupportedType": "يرجى اختيار ملف بصيغة JPG أو PNG أو PDF",
+  "@fileUnsupportedType": {
+    "description": "Error when the picked file is not a JPG, PNG or PDF"
   },
   "avatarRequired": "يرجى إضافة صورة شخصية",
   "@avatarRequired": {

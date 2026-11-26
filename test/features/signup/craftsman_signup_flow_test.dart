@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
-import 'package:flutter_sanaa_app/core/utils/photo_picker.dart';
+import 'package:flutter_sanaa_app/core/utils/upload_picker.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_dropdown_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_terms_checkbox.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_upload_box.dart';
@@ -18,14 +18,16 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
 /// Returns a small real PNG instead of opening the camera or gallery.
-class _FakePhotoPicker implements PhotoPicker {
-  _FakePhotoPicker(this.path);
+class _FakeUploadPicker implements UploadPicker {
+  _FakeUploadPicker(this.path);
 
   final String path;
 
   @override
-  Future<PhotoPickResult> pick(PhotoSource source) async =>
-      PhotoPicked(XFile(path));
+  Future<UploadPickResult> pick(
+    UploadSource source, {
+    required bool allowPdf,
+  }) async => UploadPicked(XFile(path));
 }
 
 // A 1x1 transparent PNG.
@@ -129,7 +131,7 @@ Future<void> _openStep1(WidgetTester tester) async {
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
-        photoPickerProvider.overrideWithValue(_FakePhotoPicker(photo.path)),
+        uploadPickerProvider.overrideWithValue(_FakeUploadPicker(photo.path)),
       ],
       child: MaterialApp.router(
         routerConfig: router,
