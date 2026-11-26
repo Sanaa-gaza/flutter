@@ -368,6 +368,30 @@
   "@idSelfieDescription": {
     "description": "Explanation above the ID selfie upload box"
   },
+  "photoFromCamera": "الكاميرا",
+  "@photoFromCamera": {
+    "description": "Option to take a new photo with the camera"
+  },
+  "photoFromGallery": "المعرض",
+  "@photoFromGallery": {
+    "description": "Option to choose a photo from the gallery"
+  },
+  "photoTooLarge": "حجم الصورة أكبر من 10 ميجابايت، اختر صورة أصغر",
+  "@photoTooLarge": {
+    "description": "Error when the picked photo is larger than 10MB"
+  },
+  "photoUnsupportedType": "يرجى اختيار صورة بصيغة JPG أو PNG",
+  "@photoUnsupportedType": {
+    "description": "Error when the picked file is not a JPG or PNG image"
+  },
+  "avatarRequired": "يرجى إضافة صورة شخصية",
+  "@avatarRequired": {
+    "description": "Validation error when the profile photo is missing"
+  },
+  "idSelfieRequired": "يرجى إرفاق صورة شخصية وأنت ماسك هويتك",
+  "@idSelfieRequired": {
+    "description": "Validation error when the ID selfie is missing"
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

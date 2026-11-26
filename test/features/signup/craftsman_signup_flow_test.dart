@@ -1,15 +1,103 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
+import 'package:flutter_sanaa_app/core/utils/photo_picker.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_dropdown_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_terms_checkbox.dart';
+import 'package:flutter_sanaa_app/core/widgets/app_upload_box.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
 import 'package:flutter_sanaa_app/features/auth/presentation/verify_code_screen.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/craftsman_signup_step1_screen.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/craftsman_signup_step2_screen.dart';
+import 'package:flutter_sanaa_app/features/signup/presentation/widgets/profile_photo_picker.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
+
+/// Returns a small real PNG instead of opening the camera or gallery.
+class _FakePhotoPicker implements PhotoPicker {
+  _FakePhotoPicker(this.path);
+
+  final String path;
+
+  @override
+  Future<PhotoPickResult> pick(PhotoSource source) async =>
+      PhotoPicked(XFile(path));
+}
+
+// A 1x1 transparent PNG.
+const List<int> _pngBytes = [
+  0x89,
+  0x50,
+  0x4E,
+  0x47,
+  0x0D,
+  0x0A,
+  0x1A,
+  0x0A,
+  0x00,
+  0x00,
+  0x00,
+  0x0D,
+  0x49,
+  0x48,
+  0x44,
+  0x52,
+  0x00,
+  0x00,
+  0x00,
+  0x01,
+  0x00,
+  0x00,
+  0x00,
+  0x01,
+  0x08,
+  0x06,
+  0x00,
+  0x00,
+  0x00,
+  0x1F,
+  0x15,
+  0xC4,
+  0x89,
+  0x00,
+  0x00,
+  0x00,
+  0x0D,
+  0x49,
+  0x44,
+  0x41,
+  0x54,
+  0x78,
+  0x9C,
+  0x63,
+  0x00,
+  0x01,
+  0x00,
+  0x00,
+  0x05,
+  0x00,
+  0x01,
+  0x0D,
+  0x0A,
+  0x2D,
+  0xB4,
+  0x00,
+  0x00,
+  0x00,
+  0x00,
+  0x49,
+  0x45,
+  0x4E,
+  0x44,
+  0xAE,
+  0x42,
+  0x60,
+  0x82,
+];
 
 Future<void> _openStep1(WidgetTester tester) async {
   tester.view.physicalSize = const Size(414, 1600);
@@ -36,8 +124,13 @@ Future<void> _openStep1(WidgetTester tester) async {
     ],
   );
   addTearDown(router.dispose);
+  final photo = File('${Directory.systemTemp.path}/sanaa_test_photo.png')
+    ..writeAsBytesSync(_pngBytes);
   await tester.pumpWidget(
     ProviderScope(
+      overrides: [
+        photoPickerProvider.overrideWithValue(_FakePhotoPicker(photo.path)),
+      ],
       child: MaterialApp.router(
         routerConfig: router,
         locale: const Locale('ar'),
@@ -59,6 +152,13 @@ Future<void> _choose(WidgetTester tester, int dropdown, String item) async {
   );
   await tester.pumpAndSettle();
   await tester.tap(find.text(item).last);
+  await tester.pumpAndSettle();
+}
+
+Future<void> _pickFromGallery(WidgetTester tester, Finder slot) async {
+  await tester.tap(slot);
+  await tester.pumpAndSettle();
+  await tester.tap(find.text('المعرض'));
   await tester.pumpAndSettle();
 }
 
@@ -93,10 +193,22 @@ void main() {
       find.byType(EditableText).first,
       'خبرة عشر سنوات في النجارة',
     );
+    await _pickFromGallery(tester, find.byType(ProfilePhotoPicker));
+    await _pickFromGallery(tester, find.byType(AppUploadBox));
     await tester.tap(find.byType(AppTermsCheckbox));
     await _tapNext(tester);
 
     expect(find.byType(VerifyCodeScreen), findsOneWidget);
+  });
+
+  testWidgets('both photos are required', (tester) async {
+    await _openStep1(tester);
+    await _fillStep1(tester);
+
+    await _tapNext(tester);
+
+    expect(find.text('يرجى إضافة صورة شخصية'), findsOneWidget);
+    expect(find.text('يرجى إرفاق صورة شخصية وأنت ماسك هويتك'), findsOneWidget);
   });
 
   testWidgets('"Other" craft asks for the craft name', (tester) async {

@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
+import 'package:flutter_sanaa_app/core/errors/failure_message.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
+import 'package:flutter_sanaa_app/core/utils/photo_picker.dart';
 import 'package:flutter_sanaa_app/core/utils/validation_error_text.dart';
 import 'package:flutter_sanaa_app/core/utils/validators.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_dropdown_field.dart';
@@ -12,6 +16,7 @@ import 'package:flutter_sanaa_app/core/widgets/app_step_indicator.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_terms_checkbox.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_upload_box.dart';
+import 'package:flutter_sanaa_app/core/widgets/photo_source_sheet.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
 import 'package:flutter_sanaa_app/features/reference_data/domain/reference_item.dart';
@@ -24,6 +29,7 @@ import 'package:flutter_sanaa_app/features/signup/presentation/widgets/profile_p
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/signup_form_scaffold.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
 
 /// Craftsman signup, step 2 of 2: craft, bio and photos, then the account
 /// is created.
@@ -59,6 +65,10 @@ class _CraftsmanSignupStep2ScreenState
   final _bioController = TextEditingController();
 
   ReferenceItem? _craft;
+  XFile? _profilePhoto;
+  XFile? _idSelfie;
+  String? _profilePhotoError;
+  String? _idSelfieError;
   bool _termsAccepted = false;
   bool _showTermsError = false;
   bool _isSubmitting = false;
@@ -81,34 +91,84 @@ class _CraftsmanSignupStep2ScreenState
     setState(() => _serverFieldErrors = {..._serverFieldErrors}..remove(key));
   }
 
-  // Photo picking comes with the image_picker package (not installed yet).
-  void _pickPhotoLater() {}
+  /// Asks camera or gallery, picks and checks the photo. Returns null when
+  /// nothing usable was chosen; [onError] gets the reason to show.
+  Future<XFile?> _pickPhoto(ValueChanged<String?> onError) async {
+    final l10n = AppLocalizations.of(context);
+    final source = await showPhotoSourceSheet(context);
+    if (source == null || !mounted) return null;
+
+    final result = await ref.read(photoPickerProvider).pick(source);
+    if (!mounted) return null;
+    switch (result) {
+      case PhotoPicked(:final photo):
+        onError(null);
+        return photo;
+      case PhotoCancelled():
+        return null;
+      case PhotoTooLarge():
+        onError(l10n.photoTooLarge);
+      case PhotoUnsupportedType():
+        onError(l10n.photoUnsupportedType);
+    }
+    return null;
+  }
+
+  Future<void> _pickProfilePhoto() async {
+    final photo = await _pickPhoto(
+      (error) => setState(() => _profilePhotoError = error),
+    );
+    if (photo != null) setState(() => _profilePhoto = photo);
+  }
+
+  Future<void> _pickIdSelfie() async {
+    final photo = await _pickPhoto(
+      (error) => setState(() => _idSelfieError = error),
+    );
+    if (photo != null) setState(() => _idSelfie = photo);
+  }
 
   Future<void> _submit() async {
     final l10n = AppLocalizations.of(context);
     final personalInfo = ref.read(craftsmanSignupDraftProvider);
     if (personalInfo == null) return;
 
+    final profilePhoto = _profilePhoto;
+    final idSelfie = _idSelfie;
     setState(() {
       _generalError = null;
       _serverFieldErrors = const {};
       _showTermsError = !_termsAccepted;
+      _profilePhotoError = profilePhoto == null ? l10n.avatarRequired : null;
+      _idSelfieError = idSelfie == null ? l10n.idSelfieRequired : null;
     });
     final fieldsValid = _formKey.currentState!.validate();
-    if (!fieldsValid || !_termsAccepted) return;
+    if (!fieldsValid ||
+        !_termsAccepted ||
+        profilePhoto == null ||
+        idSelfie == null) {
+      return;
+    }
 
     setState(() => _isSubmitting = true);
-    final request = CraftsmanSignupRequest(
-      personalInfo: personalInfo,
-      craftId: _isOtherCraft ? null : _craft!.id,
-      customCraftName: _isOtherCraft
-          ? _customCraftController.text.trim()
-          : null,
-      bio: _bioController.text.trim(),
-    );
-
+    final repository = ref.read(signupRepositoryProvider);
     try {
-      await ref.read(signupRepositoryProvider).registerCraftsman(request);
+      // Files go first; the signup request carries their server paths.
+      final (photoPath, selfiePath) = await (
+        repository.uploadFile(profilePhoto.path),
+        repository.uploadFile(idSelfie.path),
+      ).wait;
+      final request = CraftsmanSignupRequest(
+        personalInfo: personalInfo,
+        craftId: _isOtherCraft ? null : _craft!.id,
+        customCraftName: _isOtherCraft
+            ? _customCraftController.text.trim()
+            : null,
+        bio: _bioController.text.trim(),
+        personalPhotoPath: photoPath,
+        idSelfiePath: selfiePath,
+      );
+      await repository.registerCraftsman(request);
       if (!mounted) return;
       // The password is not needed any more: drop step 1 from memory.
       _registered = true;
@@ -119,6 +179,17 @@ class _CraftsmanSignupStep2ScreenState
           email: personalInfo.email,
           purpose: VerificationPurpose.register,
         ),
+      );
+    } on ParallelWaitError<
+      (String?, String?),
+      (AsyncError?, AsyncError?)
+    > catch (error) {
+      if (!mounted) return;
+      final failure = error.errors.$1?.error ?? error.errors.$2?.error;
+      setState(
+        () => _generalError = failure is Failure
+            ? failureMessage(failure, l10n)
+            : l10n.networkError,
       );
     } on Failure catch (failure) {
       if (!mounted) return;
@@ -165,7 +236,11 @@ class _CraftsmanSignupStep2ScreenState
             Center(
               child: ProfilePhotoPicker(
                 label: l10n.addProfilePhoto,
-                onTap: _pickPhotoLater,
+                onTap: _pickProfilePhoto,
+                photo: _profilePhoto == null
+                    ? null
+                    : FileImage(File(_profilePhoto!.path)),
+                errorText: _profilePhotoError,
               ),
             ),
             const SizedBox(height: _photoToFields),
@@ -216,7 +291,14 @@ class _CraftsmanSignupStep2ScreenState
               style: AppTextStyles.sectionDescription,
             ),
             const SizedBox(height: _idTextToBox),
-            AppUploadBox(label: l10n.uploadImageLabel, onTap: _pickPhotoLater),
+            AppUploadBox(
+              label: l10n.uploadImageLabel,
+              onTap: _pickIdSelfie,
+              preview: _idSelfie == null
+                  ? null
+                  : Image.file(File(_idSelfie!.path), fit: BoxFit.cover),
+              errorText: _idSelfieError,
+            ),
             const SizedBox(height: _fieldsToTerms),
             AppTermsCheckbox(
               value: _termsAccepted,

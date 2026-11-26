@@ -6,6 +6,10 @@ import 'package:flutter_sanaa_app/features/signup/domain/personal_info.dart';
 /// `full_name`, `phone`, `email`, `password`, `governorate_id`, `address`,
 /// and for the craftsman also `craft`, `custom_craft_name`, `bio`.
 abstract interface class SignupRepository {
+  /// Uploads a file picked on the phone (already checked: JPG/PNG/PDF, max
+  /// 10MB) and returns its server path, to send with the signup request.
+  Future<String> uploadFile(String localPath);
+
   Future<void> registerCustomer(PersonalInfo info);
 
   Future<void> registerCraftsman(CraftsmanSignupRequest request);

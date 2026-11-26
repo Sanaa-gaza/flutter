@@ -303,6 +303,24 @@ class AppLocalizationsAr extends AppLocalizations {
       'التقط صورة تظهر فيها وجهك بوضوح وأنت ماسك بطاقة هويتك بجانب وجهك، للتحقق من أنك صاحب الهوية.';
 
   @override
+  String get photoFromCamera => 'الكاميرا';
+
+  @override
+  String get photoFromGallery => 'المعرض';
+
+  @override
+  String get photoTooLarge => 'حجم الصورة أكبر من 10 ميجابايت، اختر صورة أصغر';
+
+  @override
+  String get photoUnsupportedType => 'يرجى اختيار صورة بصيغة JPG أو PNG';
+
+  @override
+  String get avatarRequired => 'يرجى إضافة صورة شخصية';
+
+  @override
+  String get idSelfieRequired => 'يرجى إرفاق صورة شخصية وأنت ماسك هويتك';
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

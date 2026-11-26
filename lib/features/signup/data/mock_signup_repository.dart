@@ -12,6 +12,12 @@ class MockSignupRepository implements SignupRepository {
   static const String _takenPrefix = 'taken';
 
   @override
+  Future<String> uploadFile(String localPath) async {
+    await Future<void>.delayed(_delay);
+    return 'uploads/mock_${localPath.split(RegExp(r'[/\\]')).last}';
+  }
+
+  @override
   Future<void> registerCustomer(PersonalInfo info) => _register(info);
 
   @override

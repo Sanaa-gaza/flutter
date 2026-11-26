@@ -303,6 +303,25 @@ class AppLocalizationsEn extends AppLocalizations {
       'Take a clear photo of your face while holding your ID card next to it, to verify you\'re the ID holder.';
 
   @override
+  String get photoFromCamera => 'Camera';
+
+  @override
+  String get photoFromGallery => 'Gallery';
+
+  @override
+  String get photoTooLarge =>
+      'The photo is larger than 10MB, choose a smaller one';
+
+  @override
+  String get photoUnsupportedType => 'Please choose a JPG or PNG photo';
+
+  @override
+  String get avatarRequired => 'Please add a profile photo';
+
+  @override
+  String get idSelfieRequired => 'Please attach a selfie holding your ID';
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override

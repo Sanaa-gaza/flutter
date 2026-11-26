@@ -11,52 +11,78 @@ class AppUploadBox extends StatelessWidget {
     required this.label,
     required this.onTap,
     this.iconAsset = AppIcons.imageUp,
+    this.preview,
+    this.errorText,
   });
 
   final String label;
   final VoidCallback? onTap;
   final String iconAsset;
 
+  /// The chosen file (e.g. an image); it fills the box instead of the label.
+  final Widget? preview;
+  final String? errorText;
+
   static const double _iconToLabel = 6;
+  static const double _errorTop = 6;
 
   @override
   Widget build(BuildContext context) {
     final borderRadius = BorderRadius.circular(AppRadius.card);
 
-    return SizedBox(
-      width: double.infinity,
-      height: AppSizes.uploadBoxHeight,
-      child: CustomPaint(
-        foregroundPainter: _DashedBorderPainter(),
-        child: Material(
-          color: Colors.white,
-          borderRadius: borderRadius,
-          child: InkWell(
-            borderRadius: borderRadius,
-            onTap: onTap,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(iconAsset),
-                const SizedBox(height: _iconToLabel),
-                Text(label, style: AppTextStyles.uploadLabel),
-              ],
+    final preview = this.preview;
+    final error = errorText;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SizedBox(
+          height: AppSizes.uploadBoxHeight,
+          child: CustomPaint(
+            foregroundPainter: _DashedBorderPainter(
+              color: error == null ? AppColors.gradientStart : AppColors.error,
+            ),
+            child: Material(
+              color: Colors.white,
+              borderRadius: borderRadius,
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                onTap: onTap,
+                child: preview != null
+                    ? SizedBox.expand(child: preview)
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(iconAsset),
+                          const SizedBox(height: _iconToLabel),
+                          Text(label, style: AppTextStyles.uploadLabel),
+                        ],
+                      ),
+              ),
             ),
           ),
         ),
-      ),
+        if (error != null) ...[
+          const SizedBox(height: _errorTop),
+          Text(error, style: AppTextStyles.fieldError),
+        ],
+      ],
     );
   }
 }
 
 class _DashedBorderPainter extends CustomPainter {
+  _DashedBorderPainter({required this.color});
+
+  final Color color;
+
   static const double _dashLength = 6;
   static const double _gapLength = 4;
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = AppColors.gradientStart
+      ..color = color
       ..style = PaintingStyle.stroke;
     final border = Path()
       ..addRRect(
@@ -72,14 +98,12 @@ class _DashedBorderPainter extends CustomPainter {
         start < metric.length;
         start += _dashLength + _gapLength
       ) {
-        canvas.drawPath(
-          metric.extractPath(start, start + _dashLength),
-          paint,
-        );
+        canvas.drawPath(metric.extractPath(start, start + _dashLength), paint);
       }
     }
   }
 
   @override
-  bool shouldRepaint(_DashedBorderPainter oldDelegate) => false;
+  bool shouldRepaint(_DashedBorderPainter oldDelegate) =>
+      oldDelegate.color != color;
 }

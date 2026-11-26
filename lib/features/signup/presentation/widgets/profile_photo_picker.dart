@@ -10,10 +10,16 @@ class ProfilePhotoPicker extends StatelessWidget {
     super.key,
     required this.label,
     required this.onTap,
+    this.photo,
+    this.errorText,
   });
 
   final String label;
   final VoidCallback onTap;
+
+  /// The chosen photo; it replaces the person icon inside the circle.
+  final ImageProvider? photo;
+  final String? errorText;
 
   // Sizes from the Figma craftsman step 2 frame.
   static const double _circleSize = 110;
@@ -22,9 +28,13 @@ class ProfilePhotoPicker extends StatelessWidget {
   static const double _badgeIconSize = 13;
   static const double _badgeOffset = 8;
   static const double _circleToLabel = 13;
+  static const double _errorTop = 4;
 
   @override
   Widget build(BuildContext context) {
+    final photo = this.photo;
+    final error = errorText;
+
     return Semantics(
       button: true,
       label: label,
@@ -40,16 +50,24 @@ class ProfilePhotoPicker extends StatelessWidget {
               child: Stack(
                 children: [
                   Container(
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: AppColors.iconSurface,
                       shape: BoxShape.circle,
+                      border: error == null
+                          ? null
+                          : Border.all(color: AppColors.error),
+                      image: photo == null
+                          ? null
+                          : DecorationImage(image: photo, fit: BoxFit.cover),
                     ),
                     alignment: Alignment.center,
-                    child: SvgPicture.asset(
-                      AppIcons.userProfile,
-                      width: _iconSize,
-                      height: _iconSize,
-                    ),
+                    child: photo == null
+                        ? SvgPicture.asset(
+                            AppIcons.userProfile,
+                            width: _iconSize,
+                            height: _iconSize,
+                          )
+                        : null,
                   ),
                   PositionedDirectional(
                     end: _badgeOffset,
@@ -73,6 +91,10 @@ class ProfilePhotoPicker extends StatelessWidget {
             ),
             const SizedBox(height: _circleToLabel),
             Text(label, style: AppTextStyles.sectionTitle),
+            if (error != null) ...[
+              const SizedBox(height: _errorTop),
+              Text(error, style: AppTextStyles.fieldError),
+            ],
           ],
         ),
       ),

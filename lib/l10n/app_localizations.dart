@@ -650,6 +650,42 @@ abstract class AppLocalizations {
   /// **'التقط صورة تظهر فيها وجهك بوضوح وأنت ماسك بطاقة هويتك بجانب وجهك، للتحقق من أنك صاحب الهوية.'**
   String get idSelfieDescription;
 
+  /// Option to take a new photo with the camera
+  ///
+  /// In ar, this message translates to:
+  /// **'الكاميرا'**
+  String get photoFromCamera;
+
+  /// Option to choose a photo from the gallery
+  ///
+  /// In ar, this message translates to:
+  /// **'المعرض'**
+  String get photoFromGallery;
+
+  /// Error when the picked photo is larger than 10MB
+  ///
+  /// In ar, this message translates to:
+  /// **'حجم الصورة أكبر من 10 ميجابايت، اختر صورة أصغر'**
+  String get photoTooLarge;
+
+  /// Error when the picked file is not a JPG or PNG image
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى اختيار صورة بصيغة JPG أو PNG'**
+  String get photoUnsupportedType;
+
+  /// Validation error when the profile photo is missing
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إضافة صورة شخصية'**
+  String get avatarRequired;
+
+  /// Validation error when the ID selfie is missing
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إرفاق صورة شخصية وأنت ماسك هويتك'**
+  String get idSelfieRequired;
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:
