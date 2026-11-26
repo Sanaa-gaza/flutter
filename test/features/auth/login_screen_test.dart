@@ -83,10 +83,9 @@ void main() {
     expect(find.byType(VerifyCodeScreen), findsOneWidget);
   });
 
-  testWidgets('a customer goes straight to the logo home', (tester) async {
+  testWidgets('a successful login opens the home', (tester) async {
     await _openLogin(tester);
     await _login(tester, 'user@test.com', 'Secret1!');
     expect(find.byType(HomePlaceholderScreen), findsOneWidget);
-    expect(find.textContaining('تم تسجيل دخولك'), findsNothing);
   });
 }

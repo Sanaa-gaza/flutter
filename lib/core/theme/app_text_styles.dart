@@ -69,6 +69,27 @@ abstract final class AppTextStyles {
     color: AppColors.darkNavy,
   );
 
+  static const TextStyle sectionTitle = TextStyle(
+    fontSize: 14,
+    height: _normalLineHeight,
+    fontWeight: FontWeight.w700,
+    color: AppColors.primaryDarker,
+  );
+
+  static const TextStyle sectionTitleMedium = TextStyle(
+    fontSize: 14,
+    height: _normalLineHeight,
+    fontWeight: FontWeight.w500,
+    color: AppColors.primaryDarker,
+  );
+
+  static const TextStyle sectionDescription = TextStyle(
+    fontSize: 11,
+    height: _normalLineHeight,
+    fontWeight: FontWeight.w500,
+    color: AppColors.textMuted,
+  );
+
   static const TextStyle optionTitle = TextStyle(
     fontSize: 16,
     height: _normalLineHeight,

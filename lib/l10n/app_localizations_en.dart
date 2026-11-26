@@ -239,11 +239,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get codeResent => 'We sent a new code to your email';
 
   @override
-  String signedInAs(String role) {
-    return 'You are signed in as $role';
-  }
-
-  @override
   String get loginNoAccountPrefix => 'No account? Go back to ';
 
   @override
@@ -278,6 +273,34 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get passwordChanged =>
       'Your password was changed. Log in with the new password';
+
+  @override
+  String get addProfilePhoto => 'Add a profile photo';
+
+  @override
+  String get craftLabel => 'Select your craft';
+
+  @override
+  String get craftHint => 'Select your craft';
+
+  @override
+  String get otherCraft => 'Other';
+
+  @override
+  String get customCraftHint => 'Enter your profession name';
+
+  @override
+  String get craftRequired => 'Please select your craft';
+
+  @override
+  String get customCraftRequired => 'Please enter your profession name';
+
+  @override
+  String get idSelfieTitle => 'Selfie with ID';
+
+  @override
+  String get idSelfieDescription =>
+      'Take a clear photo of your face while holding your ID card next to it, to verify you\'re the ID holder.';
 
   @override
   String get fieldRequired => 'This field is required';

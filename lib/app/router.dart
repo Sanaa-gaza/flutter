@@ -8,6 +8,8 @@ import 'package:flutter_sanaa_app/features/auth/presentation/verify_code_screen.
 import 'package:flutter_sanaa_app/features/home/presentation/home_placeholder_screen.dart';
 import 'package:flutter_sanaa_app/features/onboarding/presentation/onboarding_screen.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/account_type_screen.dart';
+import 'package:flutter_sanaa_app/features/signup/presentation/craftsman_signup_step1_screen.dart';
+import 'package:flutter_sanaa_app/features/signup/presentation/craftsman_signup_step2_screen.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/customer_signup_screen.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/goal_screen.dart';
 import 'package:flutter_sanaa_app/features/splash/presentation/splash_screen.dart';
@@ -26,6 +28,8 @@ abstract final class AppRoutes {
   static const String goal = '/signup/goal';
   static const String _accountType = '/signup/account-type';
   static const String customerSignup = '/signup/customer';
+  static const String craftsmanSignupStep1 = '/signup/craftsman/personal';
+  static const String craftsmanSignupStep2 = '/signup/craftsman/details';
 
   /// Needs a [VerifyCodeArgs] as `extra`. The email stays out of the URL.
   static const String verifyCode = '/verify-code';
@@ -84,6 +88,14 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.customerSignup,
         builder: (context, state) => const CustomerSignupScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.craftsmanSignupStep1,
+        builder: (context, state) => const CraftsmanSignupStep1Screen(),
+      ),
+      GoRoute(
+        path: AppRoutes.craftsmanSignupStep2,
+        builder: (context, state) => const CraftsmanSignupStep2Screen(),
       ),
       GoRoute(
         path: AppRoutes.verifyCode,

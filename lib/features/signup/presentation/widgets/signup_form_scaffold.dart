@@ -5,17 +5,20 @@ import 'package:flutter_sanaa_app/core/widgets/app_top_bar.dart';
 import 'package:flutter_sanaa_app/core/widgets/pattern_background.dart';
 import 'package:go_router/go_router.dart';
 
-/// Frame of the signup forms: top bar with a title and back arrow, and a
-/// white card that scrolls with the keyboard.
+/// Frame of the signup forms: top bar with a title and back arrow, an
+/// optional [header] (the step indicator), and a white card that scrolls
+/// with the keyboard.
 class SignupFormScaffold extends StatelessWidget {
   const SignupFormScaffold({
     super.key,
     required this.title,
     required this.child,
+    this.header,
   });
 
   final String title;
   final Widget child;
+  final Widget? header;
 
   // Sizes from the Figma signup frames.
   static const EdgeInsets _topBarPadding = EdgeInsets.fromLTRB(
@@ -25,10 +28,20 @@ class SignupFormScaffold extends StatelessWidget {
     0,
   );
   static const EdgeInsets _cardMargin = EdgeInsets.fromLTRB(25, 44, 25, 24);
+  static const EdgeInsets _withHeaderMargin = EdgeInsets.fromLTRB(
+    25,
+    22,
+    25,
+    24,
+  );
+  static const double _headerToCard = 17;
   static const EdgeInsets _cardPadding = EdgeInsets.fromLTRB(16, 37, 16, 18);
 
   @override
   Widget build(BuildContext context) {
+    final header = this.header;
+    final card = AppFormCard(padding: _cardPadding, child: child);
+
     return Scaffold(
       body: PatternBackground(
         child: SafeArea(
@@ -40,8 +53,16 @@ class SignupFormScaffold extends StatelessWidget {
               ),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: _cardMargin,
-                  child: AppFormCard(padding: _cardPadding, child: child),
+                  padding: header == null ? _cardMargin : _withHeaderMargin,
+                  child: header == null
+                      ? card
+                      : Column(
+                          children: [
+                            header,
+                            const SizedBox(height: _headerToCard),
+                            card,
+                          ],
+                        ),
                 ),
               ),
             ],

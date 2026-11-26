@@ -14,7 +14,7 @@ class AccountTypeScreen extends StatelessWidget {
 
   final SignupGoal goal;
 
-  // Institution, craftsman and contractor forms come in Tasks 12–14.
+  // Institution and contractor forms come in Tasks 13 and 14.
   void _openSignupLater() {}
 
   @override
@@ -44,7 +44,7 @@ class AccountTypeScreen extends StatelessWidget {
           description: l10n.roleCraftsmanDescription,
           iconAsset: AppIcons.wrench,
           iconSize: 24,
-          onTap: _openSignupLater,
+          onTap: () => context.push(AppRoutes.craftsmanSignupStep1),
         ),
         OptionCard(
           title: l10n.roleContractorTitle,

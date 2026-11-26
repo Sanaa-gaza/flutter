@@ -530,12 +530,6 @@ abstract class AppLocalizations {
   /// **'أرسلنا رمزاً جديداً إلى بريدك الإلكتروني'**
   String get codeResent;
 
-  /// Temporary home text after login, until the role homes are built
-  ///
-  /// In ar, this message translates to:
-  /// **'تم تسجيل دخولك كـ {role}'**
-  String signedInAs(String role);
-
   /// Text under the login title, before the bold create account link
   ///
   /// In ar, this message translates to:
@@ -601,6 +595,60 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'تم تغيير كلمة المرور بنجاح، سجّل دخولك بكلمة المرور الجديدة'**
   String get passwordChanged;
+
+  /// Text under the profile photo circle on the craftsman form
+  ///
+  /// In ar, this message translates to:
+  /// **'أضف صورة شخصية'**
+  String get addProfilePhoto;
+
+  /// Label above the craft dropdown
+  ///
+  /// In ar, this message translates to:
+  /// **'تحديد حرفتك'**
+  String get craftLabel;
+
+  /// Placeholder inside the craft dropdown
+  ///
+  /// In ar, this message translates to:
+  /// **'اختر حرفتك'**
+  String get craftHint;
+
+  /// Last craft option, for a craft that is not in the list
+  ///
+  /// In ar, this message translates to:
+  /// **'أخرى'**
+  String get otherCraft;
+
+  /// Placeholder of the field shown when the craft is Other
+  ///
+  /// In ar, this message translates to:
+  /// **'اكتب اسم مهنتك'**
+  String get customCraftHint;
+
+  /// Validation error when no craft is chosen
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى اختيار حرفتك'**
+  String get craftRequired;
+
+  /// Validation error when the craft is Other and its name is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى كتابة اسم مهنتك'**
+  String get customCraftRequired;
+
+  /// Title above the ID selfie upload box
+  ///
+  /// In ar, this message translates to:
+  /// **'صورة شخصية مع الهوية'**
+  String get idSelfieTitle;
+
+  /// Explanation above the ID selfie upload box
+  ///
+  /// In ar, this message translates to:
+  /// **'التقط صورة تظهر فيها وجهك بوضوح وأنت ماسك بطاقة هويتك بجانب وجهك، للتحقق من أنك صاحب الهوية.'**
+  String get idSelfieDescription;
 
   /// Validation error for an empty required field
   ///

@@ -239,11 +239,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get codeResent => 'أرسلنا رمزاً جديداً إلى بريدك الإلكتروني';
 
   @override
-  String signedInAs(String role) {
-    return 'تم تسجيل دخولك كـ $role';
-  }
-
-  @override
   String get loginNoAccountPrefix => 'لا تمتلك حساب؟ الرجوع إلى ';
 
   @override
@@ -278,6 +273,34 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get passwordChanged =>
       'تم تغيير كلمة المرور بنجاح، سجّل دخولك بكلمة المرور الجديدة';
+
+  @override
+  String get addProfilePhoto => 'أضف صورة شخصية';
+
+  @override
+  String get craftLabel => 'تحديد حرفتك';
+
+  @override
+  String get craftHint => 'اختر حرفتك';
+
+  @override
+  String get otherCraft => 'أخرى';
+
+  @override
+  String get customCraftHint => 'اكتب اسم مهنتك';
+
+  @override
+  String get craftRequired => 'يرجى اختيار حرفتك';
+
+  @override
+  String get customCraftRequired => 'يرجى كتابة اسم مهنتك';
+
+  @override
+  String get idSelfieTitle => 'صورة شخصية مع الهوية';
+
+  @override
+  String get idSelfieDescription =>
+      'التقط صورة تظهر فيها وجهك بوضوح وأنت ماسك بطاقة هويتك بجانب وجهك، للتحقق من أنك صاحب الهوية.';
 
   @override
   String get fieldRequired => 'هذا الحقل مطلوب';

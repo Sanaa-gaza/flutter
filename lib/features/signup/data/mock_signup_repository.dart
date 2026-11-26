@@ -1,19 +1,26 @@
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
-import 'package:flutter_sanaa_app/features/signup/domain/customer_signup_request.dart';
+import 'package:flutter_sanaa_app/features/signup/domain/craftsman_signup_request.dart';
+import 'package:flutter_sanaa_app/features/signup/domain/personal_info.dart';
 import 'package:flutter_sanaa_app/features/signup/domain/signup_repository.dart';
 
 /// Signup without a server, used until the backend sends the mobile app API.
 ///
 /// Test cases: an email that starts with `taken` answers "email already
-/// used" under the email field. Anything else succeeds.
+/// used". Anything else succeeds.
 class MockSignupRepository implements SignupRepository {
   static const Duration _delay = Duration(milliseconds: 800);
   static const String _takenPrefix = 'taken';
 
   @override
-  Future<void> registerCustomer(CustomerSignupRequest request) async {
+  Future<void> registerCustomer(PersonalInfo info) => _register(info);
+
+  @override
+  Future<void> registerCraftsman(CraftsmanSignupRequest request) =>
+      _register(request.personalInfo);
+
+  Future<void> _register(PersonalInfo info) async {
     await Future<void>.delayed(_delay);
-    if (request.email.startsWith(_takenPrefix)) {
+    if (info.email.startsWith(_takenPrefix)) {
       throw const ServerFailure(
         statusCode: 422,
         fieldErrors: {'email': 'البريد الإلكتروني مستخدم مسبقاً.'},

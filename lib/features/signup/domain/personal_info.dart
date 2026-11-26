@@ -1,7 +1,7 @@
-/// What the customer signup form sends. Lives only in memory: the password is
-/// never saved on the device.
-class CustomerSignupRequest {
-  const CustomerSignupRequest({
+/// The personal info step shared by every signup form. Lives only in memory:
+/// the password is never saved on the device.
+class PersonalInfo {
+  const PersonalInfo({
     required this.fullName,
     required this.phone,
     required this.email,

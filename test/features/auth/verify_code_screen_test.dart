@@ -78,10 +78,5 @@ void main() {
     await _openCodeScreen(tester);
     await _submitCode(tester, '123456');
     expect(find.byType(HomePlaceholderScreen), findsOneWidget);
-    expect(find.text('تم تسجيل دخولك كـ حرفي'), findsOneWidget);
-
-    await tester.pump(const Duration(seconds: 2));
-    await tester.pumpAndSettle();
-    expect(find.text('تم تسجيل دخولك كـ حرفي'), findsNothing);
   });
 }

@@ -288,15 +288,6 @@
   "@codeResent": {
     "description": "Message after a new code was sent"
   },
-  "signedInAs": "تم تسجيل دخولك كـ {role}",
-  "@signedInAs": {
-    "description": "Temporary home text after login, until the role homes are built",
-    "placeholders": {
-      "role": {
-        "type": "String"
-      }
-    }
-  },
   "loginNoAccountPrefix": "لا تمتلك حساب؟ الرجوع إلى ",
   "@loginNoAccountPrefix": {
     "description": "Text under the login title, before the bold create account link"
@@ -340,6 +331,42 @@
   "passwordChanged": "تم تغيير كلمة المرور بنجاح، سجّل دخولك بكلمة المرور الجديدة",
   "@passwordChanged": {
     "description": "Message on the login screen after the password was changed"
+  },
+  "addProfilePhoto": "أضف صورة شخصية",
+  "@addProfilePhoto": {
+    "description": "Text under the profile photo circle on the craftsman form"
+  },
+  "craftLabel": "تحديد حرفتك",
+  "@craftLabel": {
+    "description": "Label above the craft dropdown"
+  },
+  "craftHint": "اختر حرفتك",
+  "@craftHint": {
+    "description": "Placeholder inside the craft dropdown"
+  },
+  "otherCraft": "أخرى",
+  "@otherCraft": {
+    "description": "Last craft option, for a craft that is not in the list"
+  },
+  "customCraftHint": "اكتب اسم مهنتك",
+  "@customCraftHint": {
+    "description": "Placeholder of the field shown when the craft is Other"
+  },
+  "craftRequired": "يرجى اختيار حرفتك",
+  "@craftRequired": {
+    "description": "Validation error when no craft is chosen"
+  },
+  "customCraftRequired": "يرجى كتابة اسم مهنتك",
+  "@customCraftRequired": {
+    "description": "Validation error when the craft is Other and its name is empty"
+  },
+  "idSelfieTitle": "صورة شخصية مع الهوية",
+  "@idSelfieTitle": {
+    "description": "Title above the ID selfie upload box"
+  },
+  "idSelfieDescription": "التقط صورة تظهر فيها وجهك بوضوح وأنت ماسك بطاقة هويتك بجانب وجهك، للتحقق من أنك صاحب الهوية.",
+  "@idSelfieDescription": {
+    "description": "Explanation above the ID selfie upload box"
   },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
