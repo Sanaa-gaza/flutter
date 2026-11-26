@@ -14,4 +14,5 @@ abstract final class AppIcons {
   static const String userProfile = 'assets/icons/user_profile.svg';
   static const String briefcase = 'assets/icons/briefcase.svg';
   static const String users = 'assets/icons/users.svg';
+  static const String paperclip = 'assets/icons/paperclip.svg';
 }

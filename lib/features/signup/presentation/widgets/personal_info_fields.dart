@@ -52,7 +52,7 @@ class PersonalInfoInput {
   }
 }
 
-/// Name, phone, email, password, confirm password, governorate and address:
+/// Name, phone, email (or email, phone), password, confirm password, governorate and address:
 /// the fields every signup form starts with. Place it inside a [Form].
 class PersonalInfoFields extends ConsumerWidget {
   const PersonalInfoFields({
@@ -61,9 +61,22 @@ class PersonalInfoFields extends ConsumerWidget {
     required this.serverErrors,
     required this.onFieldEdited,
     required this.onGovernorateChanged,
+    this.nameLabel,
+    this.nameHint,
+    this.nameRequiredMessage,
+    this.emailBeforePhone = false,
   });
 
   final PersonalInfoInput input;
+
+  /// The institution form names the first field differently; the defaults
+  /// are the person's full name.
+  final String? nameLabel;
+  final String? nameHint;
+  final String? nameRequiredMessage;
+
+  /// The institution design asks for the email before the phone.
+  final bool emailBeforePhone;
 
   /// Server errors by field key (see [fieldKeys]).
   final Map<String, String> serverErrors;
@@ -101,8 +114,8 @@ class PersonalInfoFields extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         AppTextField(
-          label: l10n.fullNameLabel,
-          hint: l10n.fullNameHint,
+          label: nameLabel ?? l10n.fullNameLabel,
+          hint: nameHint ?? l10n.fullNameHint,
           iconAsset: AppIcons.user,
           controller: input.fullName,
           textInputAction: TextInputAction.next,
@@ -111,31 +124,56 @@ class PersonalInfoFields extends ConsumerWidget {
           onChanged: (_) => onFieldEdited(fullNameKey),
           validator: (value) => Validators.required(value ?? '') == null
               ? null
-              : l10n.fullNameRequired,
+              : nameRequiredMessage ?? l10n.fullNameRequired,
         ),
         const SizedBox(height: fieldsGap),
-        AppPhoneField(
-          label: l10n.phoneLabel,
-          hint: l10n.phoneHint,
-          controller: input.phone,
-          textInputAction: TextInputAction.next,
-          errorText: serverErrors[phoneKey],
-          onChanged: (_) => onFieldEdited(phoneKey),
-          validator: (value) => Validators.phone(value ?? '')?.message(l10n),
-        ),
-        const SizedBox(height: fieldsGap),
-        AppTextField(
-          label: l10n.emailLabel,
-          hint: l10n.emailHint,
-          iconAsset: AppIcons.email,
-          controller: input.email,
-          keyboardType: TextInputType.emailAddress,
-          textInputAction: TextInputAction.next,
-          autofillHints: const [AutofillHints.email],
-          errorText: serverErrors[emailKey],
-          onChanged: (_) => onFieldEdited(emailKey),
-          validator: (value) => Validators.email(value ?? '')?.message(l10n),
-        ),
+        if (emailBeforePhone) ...[
+          AppTextField(
+            label: l10n.emailLabel,
+            hint: l10n.emailHint,
+            iconAsset: AppIcons.email,
+            controller: input.email,
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
+            autofillHints: const [AutofillHints.email],
+            errorText: serverErrors[emailKey],
+            onChanged: (_) => onFieldEdited(emailKey),
+            validator: (value) => Validators.email(value ?? '')?.message(l10n),
+          ),
+          const SizedBox(height: fieldsGap),
+          AppPhoneField(
+            label: l10n.phoneLabel,
+            hint: l10n.phoneHint,
+            controller: input.phone,
+            textInputAction: TextInputAction.next,
+            errorText: serverErrors[phoneKey],
+            onChanged: (_) => onFieldEdited(phoneKey),
+            validator: (value) => Validators.phone(value ?? '')?.message(l10n),
+          ),
+        ] else ...[
+          AppPhoneField(
+            label: l10n.phoneLabel,
+            hint: l10n.phoneHint,
+            controller: input.phone,
+            textInputAction: TextInputAction.next,
+            errorText: serverErrors[phoneKey],
+            onChanged: (_) => onFieldEdited(phoneKey),
+            validator: (value) => Validators.phone(value ?? '')?.message(l10n),
+          ),
+          const SizedBox(height: fieldsGap),
+          AppTextField(
+            label: l10n.emailLabel,
+            hint: l10n.emailHint,
+            iconAsset: AppIcons.email,
+            controller: input.email,
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
+            autofillHints: const [AutofillHints.email],
+            errorText: serverErrors[emailKey],
+            onChanged: (_) => onFieldEdited(emailKey),
+            validator: (value) => Validators.email(value ?? '')?.message(l10n),
+          ),
+        ],
         const SizedBox(height: fieldsGap),
         AppPasswordField(
           label: l10n.passwordLabel,

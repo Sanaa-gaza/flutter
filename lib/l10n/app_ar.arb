@@ -392,6 +392,82 @@
   "@idSelfieRequired": {
     "description": "Validation error when the ID selfie is missing"
   },
+  "institutionSignupTitle": "إنشاء حساب كمؤسسة",
+  "@institutionSignupTitle": {
+    "description": "Top bar title on the institution signup screens"
+  },
+  "stepOfficialInfo": "المعلومات الرسمية",
+  "@stepOfficialInfo": {
+    "description": "Step indicator label for the institution info step"
+  },
+  "stepLegalDocuments": "الوثائق القانونية",
+  "@stepLegalDocuments": {
+    "description": "Step indicator label for the institution documents step"
+  },
+  "institutionNameLabel": "اسم المؤسسة",
+  "@institutionNameLabel": {
+    "description": "Label above the institution name field"
+  },
+  "institutionNameHint": "الاسم الرسمي للمؤسسة",
+  "@institutionNameHint": {
+    "description": "Placeholder inside the institution name field"
+  },
+  "institutionNameRequired": "يرجى إدخال اسم المؤسسة",
+  "@institutionNameRequired": {
+    "description": "Validation error when the institution name is empty"
+  },
+  "activityTypeLabel": "طبيعة النشاط",
+  "@activityTypeLabel": {
+    "description": "Label above the institution activity type dropdown"
+  },
+  "activityTypeHint": "المجال التشغيلي",
+  "@activityTypeHint": {
+    "description": "Placeholder inside the activity type dropdown"
+  },
+  "activityTypeRequired": "يرجى اختيار طبيعة النشاط",
+  "@activityTypeRequired": {
+    "description": "Validation error when no activity type is chosen"
+  },
+  "regNumberLabel": "رقم السجل التجاري",
+  "@regNumberLabel": {
+    "description": "Label above the commercial registration number field"
+  },
+  "regNumberHint": "رقم الرخصة أو السجل التجاري",
+  "@regNumberHint": {
+    "description": "Placeholder inside the commercial registration number field"
+  },
+  "regNumberRequired": "يرجى إدخال رقم التسجيل التجاري",
+  "@regNumberRequired": {
+    "description": "Validation error when the registration number is empty"
+  },
+  "licenseTitle": "الرخصة التجارية",
+  "@licenseTitle": {
+    "description": "Title above the business license upload box"
+  },
+  "licenseDescription": "رفع صورة السجل التجاري أو الترخيص",
+  "@licenseDescription": {
+    "description": "Explanation above the business license upload box"
+  },
+  "licenseUploadLabel": "ملف حتى 10MB",
+  "@licenseUploadLabel": {
+    "description": "Text inside the business license upload box"
+  },
+  "licenseRequired": "يرجى رفع صورة الرخصة التجارية",
+  "@licenseRequired": {
+    "description": "Validation error when the business license is missing"
+  },
+  "institutionBioLabel": "النبذة التعريفية",
+  "@institutionBioLabel": {
+    "description": "Label above the institution description field"
+  },
+  "institutionBioHint": "وصف مختصر لنشاط المؤسسة",
+  "@institutionBioHint": {
+    "description": "Placeholder inside the institution description field"
+  },
+  "institutionBioRequired": "يرجى كتابة نبذة عن المؤسسة",
+  "@institutionBioRequired": {
+    "description": "Validation error when the institution description is empty"
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

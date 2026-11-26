@@ -322,6 +322,65 @@ class AppLocalizationsEn extends AppLocalizations {
   String get idSelfieRequired => 'Please attach a selfie holding your ID';
 
   @override
+  String get institutionSignupTitle => 'Create an institution account';
+
+  @override
+  String get stepOfficialInfo => 'Official information';
+
+  @override
+  String get stepLegalDocuments => 'Legal documents';
+
+  @override
+  String get institutionNameLabel => 'Institution name';
+
+  @override
+  String get institutionNameHint => 'The official name of the institution';
+
+  @override
+  String get institutionNameRequired => 'Please enter the institution name';
+
+  @override
+  String get activityTypeLabel => 'Activity type';
+
+  @override
+  String get activityTypeHint => 'Field of work';
+
+  @override
+  String get activityTypeRequired => 'Please choose the activity type';
+
+  @override
+  String get regNumberLabel => 'Commercial registration number';
+
+  @override
+  String get regNumberHint => 'License or commercial registry number';
+
+  @override
+  String get regNumberRequired => 'Please enter the registration number';
+
+  @override
+  String get licenseTitle => 'Business license';
+
+  @override
+  String get licenseDescription =>
+      'Upload a photo of the commercial registry or license';
+
+  @override
+  String get licenseUploadLabel => 'File up to 10MB';
+
+  @override
+  String get licenseRequired => 'Please upload the business license';
+
+  @override
+  String get institutionBioLabel => 'Bio';
+
+  @override
+  String get institutionBioHint =>
+      'A brief description of the institution\'s activity';
+
+  @override
+  String get institutionBioRequired => 'Please write a bio for the institution';
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override

@@ -1,5 +1,7 @@
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
+import 'package:flutter_sanaa_app/features/reference_data/domain/reference_item.dart';
 import 'package:flutter_sanaa_app/features/signup/domain/craftsman_signup_request.dart';
+import 'package:flutter_sanaa_app/features/signup/domain/institution_signup_request.dart';
 import 'package:flutter_sanaa_app/features/signup/domain/personal_info.dart';
 import 'package:flutter_sanaa_app/features/signup/domain/signup_repository.dart';
 
@@ -23,6 +25,25 @@ class MockSignupRepository implements SignupRepository {
   @override
   Future<void> registerCraftsman(CraftsmanSignupRequest request) =>
       _register(request.personalInfo);
+
+  // Sample options until the backend confirms the real list.
+  static const List<ReferenceItem> _activityTypes = [
+    ReferenceItem(id: 1, name: 'مقاولات وإنشاءات'),
+    ReferenceItem(id: 2, name: 'صيانة وتشغيل'),
+    ReferenceItem(id: 3, name: 'خدمات تعليمية'),
+    ReferenceItem(id: 4, name: 'خدمات صحية'),
+    ReferenceItem(id: 5, name: 'منظمة غير ربحية'),
+  ];
+
+  @override
+  Future<List<ReferenceItem>> getInstitutionActivityTypes() async {
+    await Future<void>.delayed(_delay);
+    return _activityTypes;
+  }
+
+  @override
+  Future<void> registerInstitution(InstitutionSignupRequest request) =>
+      _register(request.step1.personalInfo);
 
   Future<void> _register(PersonalInfo info) async {
     await Future<void>.delayed(_delay);

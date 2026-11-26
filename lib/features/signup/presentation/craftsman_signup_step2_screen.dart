@@ -6,7 +6,6 @@ import 'package:flutter_sanaa_app/app/router.dart';
 import 'package:flutter_sanaa_app/core/errors/failure.dart';
 import 'package:flutter_sanaa_app/core/errors/failure_message.dart';
 import 'package:flutter_sanaa_app/core/theme/app_text_styles.dart';
-import 'package:flutter_sanaa_app/core/utils/photo_picker.dart';
 import 'package:flutter_sanaa_app/core/utils/validation_error_text.dart';
 import 'package:flutter_sanaa_app/core/utils/validators.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_dropdown_field.dart';
@@ -16,14 +15,14 @@ import 'package:flutter_sanaa_app/core/widgets/app_step_indicator.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_terms_checkbox.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_text_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_upload_box.dart';
-import 'package:flutter_sanaa_app/core/widgets/photo_source_sheet.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
 import 'package:flutter_sanaa_app/features/auth/domain/verification.dart';
 import 'package:flutter_sanaa_app/features/reference_data/domain/reference_item.dart';
 import 'package:flutter_sanaa_app/features/reference_data/presentation/reference_data_providers.dart';
 import 'package:flutter_sanaa_app/features/signup/data/signup_repository_provider.dart';
 import 'package:flutter_sanaa_app/features/signup/domain/craftsman_signup_request.dart';
-import 'package:flutter_sanaa_app/features/signup/presentation/craftsman_signup_draft.dart';
+import 'package:flutter_sanaa_app/features/signup/presentation/pick_checked_photo.dart';
+import 'package:flutter_sanaa_app/features/signup/presentation/signup_draft.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/signup_errors.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/profile_photo_picker.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/signup_form_scaffold.dart';
@@ -91,39 +90,20 @@ class _CraftsmanSignupStep2ScreenState
     setState(() => _serverFieldErrors = {..._serverFieldErrors}..remove(key));
   }
 
-  /// Asks camera or gallery, picks and checks the photo. Returns null when
-  /// nothing usable was chosen; [onError] gets the reason to show.
-  Future<XFile?> _pickPhoto(ValueChanged<String?> onError) async {
-    final l10n = AppLocalizations.of(context);
-    final source = await showPhotoSourceSheet(context);
-    if (source == null || !mounted) return null;
-
-    final result = await ref.read(photoPickerProvider).pick(source);
-    if (!mounted) return null;
-    switch (result) {
-      case PhotoPicked(:final photo):
-        onError(null);
-        return photo;
-      case PhotoCancelled():
-        return null;
-      case PhotoTooLarge():
-        onError(l10n.photoTooLarge);
-      case PhotoUnsupportedType():
-        onError(l10n.photoUnsupportedType);
-    }
-    return null;
-  }
-
   Future<void> _pickProfilePhoto() async {
-    final photo = await _pickPhoto(
-      (error) => setState(() => _profilePhotoError = error),
+    final photo = await pickCheckedPhoto(
+      context,
+      ref,
+      onError: (error) => setState(() => _profilePhotoError = error),
     );
     if (photo != null) setState(() => _profilePhoto = photo);
   }
 
   Future<void> _pickIdSelfie() async {
-    final photo = await _pickPhoto(
-      (error) => setState(() => _idSelfieError = error),
+    final photo = await pickCheckedPhoto(
+      context,
+      ref,
+      onError: (error) => setState(() => _idSelfieError = error),
     );
     if (photo != null) setState(() => _idSelfie = photo);
   }

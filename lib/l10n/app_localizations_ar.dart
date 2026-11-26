@@ -321,6 +321,63 @@ class AppLocalizationsAr extends AppLocalizations {
   String get idSelfieRequired => 'يرجى إرفاق صورة شخصية وأنت ماسك هويتك';
 
   @override
+  String get institutionSignupTitle => 'إنشاء حساب كمؤسسة';
+
+  @override
+  String get stepOfficialInfo => 'المعلومات الرسمية';
+
+  @override
+  String get stepLegalDocuments => 'الوثائق القانونية';
+
+  @override
+  String get institutionNameLabel => 'اسم المؤسسة';
+
+  @override
+  String get institutionNameHint => 'الاسم الرسمي للمؤسسة';
+
+  @override
+  String get institutionNameRequired => 'يرجى إدخال اسم المؤسسة';
+
+  @override
+  String get activityTypeLabel => 'طبيعة النشاط';
+
+  @override
+  String get activityTypeHint => 'المجال التشغيلي';
+
+  @override
+  String get activityTypeRequired => 'يرجى اختيار طبيعة النشاط';
+
+  @override
+  String get regNumberLabel => 'رقم السجل التجاري';
+
+  @override
+  String get regNumberHint => 'رقم الرخصة أو السجل التجاري';
+
+  @override
+  String get regNumberRequired => 'يرجى إدخال رقم التسجيل التجاري';
+
+  @override
+  String get licenseTitle => 'الرخصة التجارية';
+
+  @override
+  String get licenseDescription => 'رفع صورة السجل التجاري أو الترخيص';
+
+  @override
+  String get licenseUploadLabel => 'ملف حتى 10MB';
+
+  @override
+  String get licenseRequired => 'يرجى رفع صورة الرخصة التجارية';
+
+  @override
+  String get institutionBioLabel => 'النبذة التعريفية';
+
+  @override
+  String get institutionBioHint => 'وصف مختصر لنشاط المؤسسة';
+
+  @override
+  String get institutionBioRequired => 'يرجى كتابة نبذة عن المؤسسة';
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

@@ -686,6 +686,120 @@ abstract class AppLocalizations {
   /// **'يرجى إرفاق صورة شخصية وأنت ماسك هويتك'**
   String get idSelfieRequired;
 
+  /// Top bar title on the institution signup screens
+  ///
+  /// In ar, this message translates to:
+  /// **'إنشاء حساب كمؤسسة'**
+  String get institutionSignupTitle;
+
+  /// Step indicator label for the institution info step
+  ///
+  /// In ar, this message translates to:
+  /// **'المعلومات الرسمية'**
+  String get stepOfficialInfo;
+
+  /// Step indicator label for the institution documents step
+  ///
+  /// In ar, this message translates to:
+  /// **'الوثائق القانونية'**
+  String get stepLegalDocuments;
+
+  /// Label above the institution name field
+  ///
+  /// In ar, this message translates to:
+  /// **'اسم المؤسسة'**
+  String get institutionNameLabel;
+
+  /// Placeholder inside the institution name field
+  ///
+  /// In ar, this message translates to:
+  /// **'الاسم الرسمي للمؤسسة'**
+  String get institutionNameHint;
+
+  /// Validation error when the institution name is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال اسم المؤسسة'**
+  String get institutionNameRequired;
+
+  /// Label above the institution activity type dropdown
+  ///
+  /// In ar, this message translates to:
+  /// **'طبيعة النشاط'**
+  String get activityTypeLabel;
+
+  /// Placeholder inside the activity type dropdown
+  ///
+  /// In ar, this message translates to:
+  /// **'المجال التشغيلي'**
+  String get activityTypeHint;
+
+  /// Validation error when no activity type is chosen
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى اختيار طبيعة النشاط'**
+  String get activityTypeRequired;
+
+  /// Label above the commercial registration number field
+  ///
+  /// In ar, this message translates to:
+  /// **'رقم السجل التجاري'**
+  String get regNumberLabel;
+
+  /// Placeholder inside the commercial registration number field
+  ///
+  /// In ar, this message translates to:
+  /// **'رقم الرخصة أو السجل التجاري'**
+  String get regNumberHint;
+
+  /// Validation error when the registration number is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال رقم التسجيل التجاري'**
+  String get regNumberRequired;
+
+  /// Title above the business license upload box
+  ///
+  /// In ar, this message translates to:
+  /// **'الرخصة التجارية'**
+  String get licenseTitle;
+
+  /// Explanation above the business license upload box
+  ///
+  /// In ar, this message translates to:
+  /// **'رفع صورة السجل التجاري أو الترخيص'**
+  String get licenseDescription;
+
+  /// Text inside the business license upload box
+  ///
+  /// In ar, this message translates to:
+  /// **'ملف حتى 10MB'**
+  String get licenseUploadLabel;
+
+  /// Validation error when the business license is missing
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى رفع صورة الرخصة التجارية'**
+  String get licenseRequired;
+
+  /// Label above the institution description field
+  ///
+  /// In ar, this message translates to:
+  /// **'النبذة التعريفية'**
+  String get institutionBioLabel;
+
+  /// Placeholder inside the institution description field
+  ///
+  /// In ar, this message translates to:
+  /// **'وصف مختصر لنشاط المؤسسة'**
+  String get institutionBioHint;
+
+  /// Validation error when the institution description is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى كتابة نبذة عن المؤسسة'**
+  String get institutionBioRequired;
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:

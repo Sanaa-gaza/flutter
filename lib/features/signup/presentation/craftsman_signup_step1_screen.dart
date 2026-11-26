@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_step_indicator.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
-import 'package:flutter_sanaa_app/features/signup/presentation/craftsman_signup_draft.dart';
+import 'package:flutter_sanaa_app/features/signup/presentation/signup_draft.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/personal_info_fields.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/signup_form_scaffold.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
@@ -35,7 +35,7 @@ class _CraftsmanSignupStep1ScreenState
     if (!_formKey.currentState!.validate()) return;
     ref
         .read(craftsmanSignupDraftProvider.notifier)
-        .savePersonalInfo(_input.toPersonalInfo());
+        .save(_input.toPersonalInfo());
     context.push(AppRoutes.craftsmanSignupStep2);
   }
 

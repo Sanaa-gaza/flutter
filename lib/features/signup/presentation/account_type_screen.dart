@@ -14,7 +14,7 @@ class AccountTypeScreen extends StatelessWidget {
 
   final SignupGoal goal;
 
-  // Institution and contractor forms come in Tasks 13 and 14.
+  // The contractor form comes in Task 14.
   void _openSignupLater() {}
 
   @override
@@ -35,7 +35,7 @@ class AccountTypeScreen extends StatelessWidget {
           description: l10n.roleInstitutionDescription,
           iconAsset: AppIcons.briefcase,
           iconSize: 24,
-          onTap: _openSignupLater,
+          onTap: () => context.push(AppRoutes.institutionSignupStep1),
         ),
       ],
       SignupGoal.provideService => [
