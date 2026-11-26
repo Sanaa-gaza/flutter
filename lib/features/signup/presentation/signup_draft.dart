@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_sanaa_app/features/signup/domain/contractor_signup_request.dart';
 import 'package:flutter_sanaa_app/features/signup/domain/institution_signup_request.dart';
 import 'package:flutter_sanaa_app/features/signup/domain/personal_info.dart';
 
@@ -24,3 +25,15 @@ final institutionSignupDraftProvider =
       SignupDraft<InstitutionStep1>,
       InstitutionStep1?
     >(SignupDraft<InstitutionStep1>.new);
+
+final contractorStep1DraftProvider =
+    NotifierProvider.autoDispose<
+      SignupDraft<ContractorStep1>,
+      ContractorStep1?
+    >(SignupDraft<ContractorStep1>.new);
+
+final contractorStep2DraftProvider =
+    NotifierProvider.autoDispose<
+      SignupDraft<ContractorStep2>,
+      ContractorStep2?
+    >(SignupDraft<ContractorStep2>.new);

@@ -65,6 +65,7 @@ class PersonalInfoFields extends ConsumerWidget {
     this.nameHint,
     this.nameRequiredMessage,
     this.emailBeforePhone = false,
+    this.afterPhone,
   });
 
   final PersonalInfoInput input;
@@ -77,6 +78,10 @@ class PersonalInfoFields extends ConsumerWidget {
 
   /// The institution design asks for the email before the phone.
   final bool emailBeforePhone;
+
+  /// An extra field shown right after the phone (the contractor's national
+  /// ID). Only used when [emailBeforePhone] is false.
+  final Widget? afterPhone;
 
   /// Server errors by field key (see [fieldKeys]).
   final Map<String, String> serverErrors;
@@ -160,6 +165,10 @@ class PersonalInfoFields extends ConsumerWidget {
             onChanged: (_) => onFieldEdited(phoneKey),
             validator: (value) => Validators.phone(value ?? '')?.message(l10n),
           ),
+          if (afterPhone case final extra?) ...[
+            const SizedBox(height: fieldsGap),
+            extra,
+          ],
           const SizedBox(height: fieldsGap),
           AppTextField(
             label: l10n.emailLabel,

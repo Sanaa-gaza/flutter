@@ -387,6 +387,60 @@ class AppLocalizationsEn extends AppLocalizations {
   String get institutionBioRequired => 'Please write a bio for the institution';
 
   @override
+  String get contractorSignupTitle => 'Create a contractor account';
+
+  @override
+  String get stepBasicInfo => 'Basic info';
+
+  @override
+  String get stepWorkInfo => 'Work info';
+
+  @override
+  String get quadNameLabel => 'Full four-part name';
+
+  @override
+  String get quadNameHint => 'The contractor\'s full name';
+
+  @override
+  String get quadNameRequired => 'Please enter the full four-part name';
+
+  @override
+  String get nationalIdLabel => 'ID number';
+
+  @override
+  String get nationalIdHint => '9 digits';
+
+  @override
+  String get workersCountLabel => 'Number of workers';
+
+  @override
+  String get workersCountHint => 'Choose the team size';
+
+  @override
+  String get workersCountRequired => 'Please choose the number of workers';
+
+  @override
+  String get mainSpecializationLabel => 'Main specialization';
+
+  @override
+  String get mainSpecializationHint => 'Enter your field of work';
+
+  @override
+  String get mainSpecializationRequired =>
+      'Please enter the main specialization';
+
+  @override
+  String get contractorBioHint => 'Bio (optional)';
+
+  @override
+  String get contractorLicenseTitle =>
+      'Contractor license / Professional license';
+
+  @override
+  String get contractorLicenseRequired =>
+      'Please upload the contractor license';
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override

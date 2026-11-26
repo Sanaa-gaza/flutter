@@ -476,6 +476,74 @@
   "@institutionBioRequired": {
     "description": "Validation error when the institution description is empty"
   },
+  "contractorSignupTitle": "إنشاء حساب كمقاول",
+  "@contractorSignupTitle": {
+    "description": "Top bar title on the contractor signup screens"
+  },
+  "stepBasicInfo": "البيانات الأساسية",
+  "@stepBasicInfo": {
+    "description": "Step indicator label for the contractor basic info step"
+  },
+  "stepWorkInfo": "البيانات المهنية والتشغيلية",
+  "@stepWorkInfo": {
+    "description": "Step indicator label for the contractor work info step"
+  },
+  "quadNameLabel": "الاسم رباعي",
+  "@quadNameLabel": {
+    "description": "Label above the contractor four-part name field"
+  },
+  "quadNameHint": "الاسم الكامل للمقاول",
+  "@quadNameHint": {
+    "description": "Placeholder inside the contractor four-part name field"
+  },
+  "quadNameRequired": "يرجى إدخال الاسم الرباعي",
+  "@quadNameRequired": {
+    "description": "Validation error when the contractor name is empty"
+  },
+  "nationalIdLabel": "رقم الهوية",
+  "@nationalIdLabel": {
+    "description": "Label above the national ID field"
+  },
+  "nationalIdHint": "9 أرقام",
+  "@nationalIdHint": {
+    "description": "Placeholder inside the national ID field"
+  },
+  "workersCountLabel": "عدد العمال",
+  "@workersCountLabel": {
+    "description": "Label above the workers count dropdown"
+  },
+  "workersCountHint": "اختر حجم فريق العمل",
+  "@workersCountHint": {
+    "description": "Placeholder inside the workers count dropdown"
+  },
+  "workersCountRequired": "يرجى اختيار عدد العمال",
+  "@workersCountRequired": {
+    "description": "Validation error when no workers count is chosen"
+  },
+  "mainSpecializationLabel": "مجال التخصص الرئيسي",
+  "@mainSpecializationLabel": {
+    "description": "Label above the main specialization field"
+  },
+  "mainSpecializationHint": "قم بإدخال مجال العمل",
+  "@mainSpecializationHint": {
+    "description": "Placeholder inside the main specialization field"
+  },
+  "mainSpecializationRequired": "يرجى إدخال مجال التخصص الرئيسي",
+  "@mainSpecializationRequired": {
+    "description": "Validation error when the main specialization is empty"
+  },
+  "contractorBioHint": "النبذة التعريفية (اختياري)",
+  "@contractorBioHint": {
+    "description": "Placeholder inside the optional contractor bio field"
+  },
+  "contractorLicenseTitle": "رخصة المقاول / رخصة مزاولة المهنة",
+  "@contractorLicenseTitle": {
+    "description": "Title above the contractor license upload box"
+  },
+  "contractorLicenseRequired": "يرجى رفع رخصة المقاول",
+  "@contractorLicenseRequired": {
+    "description": "Validation error when the contractor license is missing"
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

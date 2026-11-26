@@ -384,6 +384,57 @@ class AppLocalizationsAr extends AppLocalizations {
   String get institutionBioRequired => 'يرجى كتابة نبذة عن المؤسسة';
 
   @override
+  String get contractorSignupTitle => 'إنشاء حساب كمقاول';
+
+  @override
+  String get stepBasicInfo => 'البيانات الأساسية';
+
+  @override
+  String get stepWorkInfo => 'البيانات المهنية والتشغيلية';
+
+  @override
+  String get quadNameLabel => 'الاسم رباعي';
+
+  @override
+  String get quadNameHint => 'الاسم الكامل للمقاول';
+
+  @override
+  String get quadNameRequired => 'يرجى إدخال الاسم الرباعي';
+
+  @override
+  String get nationalIdLabel => 'رقم الهوية';
+
+  @override
+  String get nationalIdHint => '9 أرقام';
+
+  @override
+  String get workersCountLabel => 'عدد العمال';
+
+  @override
+  String get workersCountHint => 'اختر حجم فريق العمل';
+
+  @override
+  String get workersCountRequired => 'يرجى اختيار عدد العمال';
+
+  @override
+  String get mainSpecializationLabel => 'مجال التخصص الرئيسي';
+
+  @override
+  String get mainSpecializationHint => 'قم بإدخال مجال العمل';
+
+  @override
+  String get mainSpecializationRequired => 'يرجى إدخال مجال التخصص الرئيسي';
+
+  @override
+  String get contractorBioHint => 'النبذة التعريفية (اختياري)';
+
+  @override
+  String get contractorLicenseTitle => 'رخصة المقاول / رخصة مزاولة المهنة';
+
+  @override
+  String get contractorLicenseRequired => 'يرجى رفع رخصة المقاول';
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

@@ -14,9 +14,6 @@ class AccountTypeScreen extends StatelessWidget {
 
   final SignupGoal goal;
 
-  // The contractor form comes in Task 14.
-  void _openSignupLater() {}
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -51,7 +48,7 @@ class AccountTypeScreen extends StatelessWidget {
           description: l10n.roleContractorDescription,
           iconAsset: AppIcons.users,
           iconSize: 19,
-          onTap: _openSignupLater,
+          onTap: () => context.push(AppRoutes.contractorSignupStep1),
         ),
       ],
     };

@@ -5,17 +5,12 @@ import 'package:flutter_sanaa_app/core/widgets/app_dropdown_field.dart';
 import 'package:flutter_sanaa_app/core/widgets/app_step_indicator.dart';
 import 'package:flutter_sanaa_app/core/widgets/primary_button.dart';
 import 'package:flutter_sanaa_app/features/reference_data/domain/reference_item.dart';
-import 'package:flutter_sanaa_app/features/signup/data/signup_repository_provider.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/signup_draft.dart';
+import 'package:flutter_sanaa_app/features/signup/presentation/signup_options_providers.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/personal_info_fields.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/widgets/signup_form_scaffold.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-
-/// Kept in memory once loaded, like the other option lists.
-final institutionActivityTypesProvider = FutureProvider<List<ReferenceItem>>(
-  (ref) => ref.watch(signupRepositoryProvider).getInstitutionActivityTypes(),
-);
 
 /// Institution signup, step 1 of 2: official info.
 class InstitutionSignupStep1Screen extends ConsumerStatefulWidget {
@@ -52,7 +47,7 @@ class _InstitutionSignupStep1ScreenState
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final activityTypes = ref.watch(institutionActivityTypesProvider);
+    final activityTypes = ref.watch(activityTypesProvider);
     // Keeps the draft alive while this step is open.
     ref.watch(institutionSignupDraftProvider);
 

@@ -812,6 +812,108 @@ abstract class AppLocalizations {
   /// **'يرجى كتابة نبذة عن المؤسسة'**
   String get institutionBioRequired;
 
+  /// Top bar title on the contractor signup screens
+  ///
+  /// In ar, this message translates to:
+  /// **'إنشاء حساب كمقاول'**
+  String get contractorSignupTitle;
+
+  /// Step indicator label for the contractor basic info step
+  ///
+  /// In ar, this message translates to:
+  /// **'البيانات الأساسية'**
+  String get stepBasicInfo;
+
+  /// Step indicator label for the contractor work info step
+  ///
+  /// In ar, this message translates to:
+  /// **'البيانات المهنية والتشغيلية'**
+  String get stepWorkInfo;
+
+  /// Label above the contractor four-part name field
+  ///
+  /// In ar, this message translates to:
+  /// **'الاسم رباعي'**
+  String get quadNameLabel;
+
+  /// Placeholder inside the contractor four-part name field
+  ///
+  /// In ar, this message translates to:
+  /// **'الاسم الكامل للمقاول'**
+  String get quadNameHint;
+
+  /// Validation error when the contractor name is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال الاسم الرباعي'**
+  String get quadNameRequired;
+
+  /// Label above the national ID field
+  ///
+  /// In ar, this message translates to:
+  /// **'رقم الهوية'**
+  String get nationalIdLabel;
+
+  /// Placeholder inside the national ID field
+  ///
+  /// In ar, this message translates to:
+  /// **'9 أرقام'**
+  String get nationalIdHint;
+
+  /// Label above the workers count dropdown
+  ///
+  /// In ar, this message translates to:
+  /// **'عدد العمال'**
+  String get workersCountLabel;
+
+  /// Placeholder inside the workers count dropdown
+  ///
+  /// In ar, this message translates to:
+  /// **'اختر حجم فريق العمل'**
+  String get workersCountHint;
+
+  /// Validation error when no workers count is chosen
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى اختيار عدد العمال'**
+  String get workersCountRequired;
+
+  /// Label above the main specialization field
+  ///
+  /// In ar, this message translates to:
+  /// **'مجال التخصص الرئيسي'**
+  String get mainSpecializationLabel;
+
+  /// Placeholder inside the main specialization field
+  ///
+  /// In ar, this message translates to:
+  /// **'قم بإدخال مجال العمل'**
+  String get mainSpecializationHint;
+
+  /// Validation error when the main specialization is empty
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى إدخال مجال التخصص الرئيسي'**
+  String get mainSpecializationRequired;
+
+  /// Placeholder inside the optional contractor bio field
+  ///
+  /// In ar, this message translates to:
+  /// **'النبذة التعريفية (اختياري)'**
+  String get contractorBioHint;
+
+  /// Title above the contractor license upload box
+  ///
+  /// In ar, this message translates to:
+  /// **'رخصة المقاول / رخصة مزاولة المهنة'**
+  String get contractorLicenseTitle;
+
+  /// Validation error when the contractor license is missing
+  ///
+  /// In ar, this message translates to:
+  /// **'يرجى رفع رخصة المقاول'**
+  String get contractorLicenseRequired;
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:
