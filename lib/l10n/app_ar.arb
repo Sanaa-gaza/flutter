@@ -544,6 +544,27 @@
   "@contractorLicenseRequired": {
     "description": "Validation error when the contractor license is missing"
   },
+  "homeGreeting": "مرحباً، أنت مسجّل كـ {role}",
+  "@homeGreeting": {
+    "description": "Temporary home text until the role homes are designed",
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "logoutButton": "تسجيل الخروج",
+  "@logoutButton": {
+    "description": "Button that ends the session"
+  },
+  "guestGreeting": "أهلاً بك في صنعة كزائر",
+  "@guestGreeting": {
+    "description": "Title of the temporary guest home"
+  },
+  "guestMessage": "سجّل دخولك أو أنشئ حساباً لتطلب الخدمات وتتواصل مع الحرفيين",
+  "@guestMessage": {
+    "description": "Text under the guest home title"
+  },
   "fieldRequired": "هذا الحقل مطلوب",
   "@fieldRequired": {
     "description": "Validation error for an empty required field"

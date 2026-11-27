@@ -37,6 +37,17 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<void> logout() async {
+    try {
+      await _post('/auth/logout', const {});
+    } on Failure {
+      // The session ends on the phone either way.
+    } finally {
+      await _sessionStorage.clearSession();
+    }
+  }
+
+  @override
   Future<VerificationResult> verifyEmail({
     required String email,
     required String code,

@@ -10,6 +10,10 @@ abstract interface class AuthRepository {
   /// The user of the saved session, or null when there is none.
   Future<User?> savedUser();
 
+  /// Ends the session. The token and saved user are always deleted from the
+  /// phone, even when the server cannot be reached.
+  Future<void> logout();
+
   /// Checks the 6-digit email code. For [VerificationPurpose.register] the
   /// session is saved before returning.
   Future<VerificationResult> verifyEmail({

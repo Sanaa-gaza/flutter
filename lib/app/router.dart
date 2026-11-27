@@ -5,6 +5,7 @@ import 'package:flutter_sanaa_app/features/auth/presentation/forgot_password_scr
 import 'package:flutter_sanaa_app/features/auth/presentation/login_screen.dart';
 import 'package:flutter_sanaa_app/features/auth/presentation/reset_password_screen.dart';
 import 'package:flutter_sanaa_app/features/auth/presentation/verify_code_screen.dart';
+import 'package:flutter_sanaa_app/features/home/presentation/guest_home_screen.dart';
 import 'package:flutter_sanaa_app/features/home/presentation/home_placeholder_screen.dart';
 import 'package:flutter_sanaa_app/features/onboarding/presentation/onboarding_screen.dart';
 import 'package:flutter_sanaa_app/features/signup/presentation/account_type_screen.dart';
@@ -46,6 +47,7 @@ abstract final class AppRoutes {
 
   /// Needs the signed-in [UserRole] as `extra`.
   static const String home = '/home';
+  static const String guest = '/guest';
 
   static String accountType(SignupGoal goal) => '$_accountType/${goal.name}';
 }
@@ -143,6 +145,10 @@ final routerProvider = Provider<GoRouter>((ref) {
             state.extra is UserRole ? null : AppRoutes.welcome,
         builder: (context, state) =>
             HomePlaceholderScreen(role: state.extra! as UserRole),
+      ),
+      GoRoute(
+        path: AppRoutes.guest,
+        builder: (context, state) => const GuestHomeScreen(),
       ),
     ],
   );

@@ -441,6 +441,21 @@ class AppLocalizationsEn extends AppLocalizations {
       'Please upload the contractor license';
 
   @override
+  String homeGreeting(String role) {
+    return 'Hello, you are signed in as $role';
+  }
+
+  @override
+  String get logoutButton => 'Log out';
+
+  @override
+  String get guestGreeting => 'Welcome to Sanaa as a guest';
+
+  @override
+  String get guestMessage =>
+      'Log in or create an account to request services and talk to craftsmen';
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override

@@ -914,6 +914,30 @@ abstract class AppLocalizations {
   /// **'يرجى رفع رخصة المقاول'**
   String get contractorLicenseRequired;
 
+  /// Temporary home text until the role homes are designed
+  ///
+  /// In ar, this message translates to:
+  /// **'مرحباً، أنت مسجّل كـ {role}'**
+  String homeGreeting(String role);
+
+  /// Button that ends the session
+  ///
+  /// In ar, this message translates to:
+  /// **'تسجيل الخروج'**
+  String get logoutButton;
+
+  /// Title of the temporary guest home
+  ///
+  /// In ar, this message translates to:
+  /// **'أهلاً بك في صنعة كزائر'**
+  String get guestGreeting;
+
+  /// Text under the guest home title
+  ///
+  /// In ar, this message translates to:
+  /// **'سجّل دخولك أو أنشئ حساباً لتطلب الخدمات وتتواصل مع الحرفيين'**
+  String get guestMessage;
+
   /// Validation error for an empty required field
   ///
   /// In ar, this message translates to:

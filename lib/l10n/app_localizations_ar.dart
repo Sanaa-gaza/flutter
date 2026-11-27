@@ -435,6 +435,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String get contractorLicenseRequired => 'يرجى رفع رخصة المقاول';
 
   @override
+  String homeGreeting(String role) {
+    return 'مرحباً، أنت مسجّل كـ $role';
+  }
+
+  @override
+  String get logoutButton => 'تسجيل الخروج';
+
+  @override
+  String get guestGreeting => 'أهلاً بك في صنعة كزائر';
+
+  @override
+  String get guestMessage =>
+      'سجّل دخولك أو أنشئ حساباً لتطلب الخدمات وتتواصل مع الحرفيين';
+
+  @override
   String get fieldRequired => 'هذا الحقل مطلوب';
 
   @override

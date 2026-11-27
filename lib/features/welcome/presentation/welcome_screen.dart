@@ -76,8 +76,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: _buttonsGap),
                       TextButton(
-                        // Opens the guest home in Task 15.
-                        onPressed: () {},
+                        onPressed: () => context.push(AppRoutes.guest),
                         child: Text(
                           l10n.continueAsGuest,
                           style: AppTextStyles.link,

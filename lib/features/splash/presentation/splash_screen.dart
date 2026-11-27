@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sanaa_app/app/router.dart';
 import 'package:flutter_sanaa_app/core/constants/app_images.dart';
+import 'package:flutter_sanaa_app/features/auth/data/auth_repository_provider.dart';
+import 'package:flutter_sanaa_app/features/auth/domain/user.dart';
 import 'package:flutter_sanaa_app/features/onboarding/data/onboarding_storage.dart';
 import 'package:flutter_sanaa_app/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
@@ -32,13 +34,29 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     _openNextScreen();
   }
 
-  // Reads the saved flag while the animation plays, so it adds no wait.
+  // Reads the saved session and flag while the animation plays, so they add
+  // no wait. A saved session opens the home of the role saved at login.
   Future<void> _openNextScreen() async {
+    final savedUser = _readSavedUser();
     final seenOnboarding = _readSeenOnboarding();
     await _controller.forward();
+    final user = await savedUser;
     final seen = await seenOnboarding;
     if (!mounted) return;
-    context.go(seen ? AppRoutes.welcome : AppRoutes.onboarding);
+    if (user != null) {
+      context.go(AppRoutes.home, extra: user.role);
+    } else {
+      context.go(seen ? AppRoutes.welcome : AppRoutes.onboarding);
+    }
+  }
+
+  // If the session cannot be read, the user simply logs in again.
+  Future<User?> _readSavedUser() async {
+    try {
+      return await ref.read(authRepositoryProvider).savedUser();
+    } on Exception {
+      return null;
+    }
   }
 
   // If reading fails, showing onboarding again is the safe choice.

@@ -49,6 +49,9 @@ class MockAuthRepository implements AuthRepository {
   }
 
   @override
+  Future<void> logout() => _sessionStorage.clearSession();
+
+  @override
   Future<VerificationResult> verifyEmail({
     required String email,
     required String code,
