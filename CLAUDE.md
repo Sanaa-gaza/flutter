@@ -202,10 +202,17 @@ Explain every folder's purpose to me in Arabic as we create it.
 
 ## Current status
 - Web: Sprint 1 (login + register) is done and connected to the API.
-- Flutter: Sprint 0 is done. Sprint 1 Tasks 1–6 are done (theme, shared widgets,
-  validators, network + secure session, splash/onboarding/welcome, reference data on
-  mock). Task 7 (login): data layer done on mock, login screen still to build.
-  Task 8 (goal + account type) and Task 9 (customer signup form, on mock) are done.
-  Next: Task 10 (OTP screen).
+- Flutter: Sprint 0 and **Sprint 1 are done** (all 15 tasks), on **mock repositories**:
+  splash, onboarding, welcome, login, forgot/reset password, email code screen,
+  goal + account type, signup for customer / craftsman (2 steps) / institution
+  (2 steps) / contractor (3 steps), file picking (camera, gallery, files/Drive, PDF
+  for licenses), temporary role homes, guest home, logout, session restore.
+- Waiting for: the mobile app API from the backend dev (then adapt the
+  `*_repository_impl.dart` files and switch the providers). Open questions for the
+  backend / designer: activity type and workers count options (mock lists now),
+  contractor activity type (not in the web), whether the home address is required,
+  the title of the code screen after signup.
+- Next: Sprint 2 (role homes from Figma, incl. the craftsman "account under review"
+  card).
 - Designs moved to a new Figma file "San-ah Project" (key `zf8J4u0nLt93R9E3xtkpGP`).
 - GitHub: https://github.com/Sanaa-gaza/flutter (branch `main`). Push only when I ask.
